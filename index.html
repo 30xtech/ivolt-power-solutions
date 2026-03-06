@@ -268,6 +268,124 @@ section { padding: 100px 5%; position: relative; z-index: 2; }
 .prod-card-link:hover { gap: 14px; }
 .prod-card-link::after { content: '→'; }
 
+.order-btn {
+  width: 100%; margin-top: 16px;
+  background: transparent;
+  border: 1px solid var(--cyan); border-radius: 6px;
+  color: var(--cyan);
+  font-family: 'Orbitron', monospace;
+  font-size: 10px; font-weight: 700; letter-spacing: 2px;
+  padding: 11px 16px; cursor: pointer; text-transform: uppercase;
+  transition: background .2s, color .2s, transform .2s;
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+}
+.prod-card.c2 .order-btn { border-color: var(--gold); color: var(--gold); }
+.prod-card.c3 .order-btn { border-color: var(--green); color: var(--green); }
+.order-btn:hover { background: var(--cyan); color: #000; transform: translateY(-2px); }
+.prod-card.c2 .order-btn:hover { background: var(--gold); color: #000; }
+.prod-card.c3 .order-btn:hover { background: var(--green); color: #000; }
+
+/* ── ORDER MODAL ── */
+.order-overlay {
+  display: none; position: fixed; inset: 0; z-index: 200;
+  background: rgba(7,9,15,0.92); backdrop-filter: blur(8px);
+  align-items: center; justify-content: center;
+  padding: 20px;
+}
+.order-overlay.open { display: flex; }
+
+.order-modal {
+  background: #0d1120;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 36px 32px;
+  width: 100%; max-width: 480px;
+  max-height: 90vh; overflow-y: auto;
+  position: relative;
+  box-shadow: 0 24px 80px rgba(0,0,0,0.6);
+  animation: modalIn .25s ease both;
+}
+@keyframes modalIn { from { opacity:0; transform: translateY(20px) scale(0.97); } to { opacity:1; transform: translateY(0) scale(1); } }
+
+.order-modal-close {
+  position: absolute; top: 16px; right: 18px;
+  background: none; border: none; color: var(--muted);
+  font-size: 22px; cursor: pointer; line-height: 1;
+  transition: color .2s;
+}
+.order-modal-close:hover { color: #fff; }
+
+.order-modal-tag {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 9px; letter-spacing: 4px; color: var(--cyan);
+  text-transform: uppercase; margin-bottom: 6px;
+}
+.order-modal h3 {
+  font-family: 'Orbitron', monospace;
+  font-size: 17px; font-weight: 700; color: #fff;
+  margin-bottom: 4px;
+}
+.order-modal-sub { font-size: 12px; color: var(--muted); margin-bottom: 24px; }
+
+.order-modal .form-group { margin-bottom: 14px; }
+.order-modal .form-group label {
+  display: block;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 9px; letter-spacing: 2px; color: var(--muted);
+  text-transform: uppercase; margin-bottom: 6px;
+}
+.order-modal .form-group input,
+.order-modal .form-group select {
+  width: 100%;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 6px;
+  padding: 11px 13px;
+  color: #fff;
+  font-family: 'Exo 2', system-ui, sans-serif;
+  font-size: 13px; outline: none;
+  transition: border-color .25s;
+  appearance: none;
+}
+.order-modal .form-group input:focus,
+.order-modal .form-group select:focus { border-color: var(--cyan); }
+.order-modal .form-group select option { background: #0d1420; }
+.order-modal .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+.qty-control {
+  display: flex; align-items: center;
+  border: 1px solid rgba(255,255,255,0.1); border-radius: 6px; overflow: hidden;
+}
+.qty-control button {
+  background: rgba(255,255,255,0.06); border: none;
+  color: var(--cyan); font-size: 18px; font-weight: 700;
+  width: 42px; height: 44px; cursor: pointer;
+  transition: background .2s; flex-shrink: 0;
+}
+.qty-control button:hover { background: rgba(0,229,255,0.15); }
+.qty-control input {
+  flex: 1; border: none !important; border-radius: 0 !important;
+  text-align: center; font-weight: 700; font-size: 15px !important;
+  background: transparent !important;
+}
+
+.order-divider { height: 1px; background: var(--border); margin: 18px 0; }
+
+.order-modal-submit {
+  width: 100%; background: var(--cyan); color: #000;
+  border: none; border-radius: 6px; padding: 14px;
+  font-family: 'Orbitron', monospace;
+  font-size: 11px; font-weight: 700; letter-spacing: 2px;
+  cursor: pointer; margin-top: 4px;
+  transition: transform .2s, box-shadow .2s;
+}
+.order-modal-submit:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,229,255,0.3); }
+
+@media (max-width: 480px) {
+  .order-modal { padding: 28px 18px; }
+  .order-modal .form-row { grid-template-columns: 1fr; }
+}
+
 /* ── BUY & SELL SECTION ── */
 .trade-section {
   background: var(--bg2);
@@ -705,11 +823,11 @@ footer {
     </div>
     <div class="hero-stats">
       <div class="stat-item">
-        <div class="stat-val">15+</div>
+        <div class="stat-val">5+</div>
         <div class="stat-lbl">Years Experience</div>
       </div>
       <div class="stat-item">
-        <div class="stat-val">500+</div>
+        <div class="stat-val">50+</div>
         <div class="stat-lbl">Units Traded</div>
       </div>
       <div class="stat-item">
@@ -734,6 +852,7 @@ footer {
       <h3>Power Regulator</h3>
       <p>Voltage Regulators that protect your appliances from fluctuations. Available in single phase and three phase configurations for home, office, and industrial use.</p>
       <a href="#contact" class="prod-card-link">Enquire Now</a>
+      <button class="order-btn" onclick="openOrder('Power Regulator')">⚡ Order Now</button>
     </div>
     <div class="prod-card c2">
       <span class="prod-card-badge">IN STOCK</span>
@@ -741,6 +860,7 @@ footer {
       <h3>Power Suppressor</h3>
       <p>Surge Protectors and Line Conditioners that guard against power spikes, surges, and electrical noise. Protect your electronics from permanent damage.</p>
       <a href="#contact" class="prod-card-link">Enquire Now</a>
+      <button class="order-btn" onclick="openOrder('Power Suppressor')">⚡ Order Now</button>
     </div>
     <div class="prod-card c3">
       <span class="prod-card-badge">BOOK NOW</span>
@@ -748,6 +868,7 @@ footer {
       <h3>Safety Inspection</h3>
       <p>Professional electrical safety audits for homes, offices, and industrial facilities. Identify risks before they become hazards. Book a certified session today.</p>
       <a href="#inspection" class="prod-card-link">Book a Session</a>
+      <button class="order-btn" onclick="openOrder('Safety Inspection')">⚡ Request Now</button>
     </div>
   </div>
 </section>
@@ -804,8 +925,8 @@ footer {
     </div>
     <div class="why-card">
       <div class="why-icon">🏆</div>
-      <h4>15+ Years Experience</h4>
-      <p>Over a decade of expertise in power protection equipment across Nigeria.</p>
+      <h4>5+ Years Experience</h4>
+      <p>Over 5 years of expertise in power protection equipment across Nigeria.</p>
     </div>
     <div class="why-card">
       <div class="why-icon">📞</div>
@@ -977,6 +1098,85 @@ footer {
   </div>
 </footer>
 
+<!-- ORDER MODAL -->
+<div class="order-overlay" id="orderOverlay" onclick="overlayClose(event)">
+  <div class="order-modal">
+    <button class="order-modal-close" onclick="closeOrder()">✕</button>
+    <div class="order-modal-tag">Place an Order</div>
+    <h3 id="orderProductTitle">Power Regulator</h3>
+    <p class="order-modal-sub">Fill in your specs and we'll confirm availability within 24 hrs.</p>
+
+    <!-- SPECS -->
+    <div class="order-modal .form-row" style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px;">
+      <div class="form-group" style="margin:0">
+        <label>Condition</label>
+        <select id="oCondition">
+          <option value="">Select...</option>
+          <option>New</option>
+          <option>Used (Tokunbo)</option>
+        </select>
+      </div>
+      <div class="form-group" style="margin:0">
+        <label>Phase Type</label>
+        <select id="oPhase">
+          <option value="">Select...</option>
+          <option>Single Phase</option>
+          <option>Three Phase</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>KVA Rating / Capacity</label>
+      <select id="oKva">
+        <option value="">Select...</option>
+        <option>500VA / 0.5 KVA</option>
+        <option>1 KVA</option>
+        <option>1.5 KVA</option>
+        <option>2 KVA</option>
+        <option>3 KVA</option>
+        <option>5 KVA</option>
+        <option>7.5 KVA</option>
+        <option>10 KVA</option>
+        <option>15 KVA</option>
+        <option>20 KVA</option>
+        <option>30 KVA</option>
+        <option>50 KVA</option>
+        <option>Other (specify in notes)</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Brand / Model <span style="color:var(--muted);font-size:8px;letter-spacing:1px;">(OPTIONAL)</span></label>
+      <input type="text" id="oBrand" placeholder="e.g. Sollatek, Mikano, Prostar…">
+    </div>
+    <div class="form-group">
+      <label>Quantity</label>
+      <div class="qty-control">
+        <button type="button" onclick="changeQty(-1)">−</button>
+        <input type="number" id="oQty" value="1" min="1" max="999">
+        <button type="button" onclick="changeQty(1)">+</button>
+      </div>
+    </div>
+
+    <div class="order-divider"></div>
+
+    <!-- CONTACT -->
+    <div class="form-group">
+      <label>Your Name</label>
+      <input type="text" id="oName" placeholder="Full name">
+    </div>
+    <div class="form-group">
+      <label>Phone Number</label>
+      <input type="tel" id="oPhone" placeholder="+234 000 000 0000">
+    </div>
+    <div class="form-group">
+      <label>Additional Notes <span style="color:var(--muted);font-size:8px;letter-spacing:1px;">(OPTIONAL)</span></label>
+      <input type="text" id="oNotes" placeholder="Delivery location, urgency, custom spec…">
+    </div>
+
+    <button class="order-modal-submit" onclick="submitOrder()">⚡ Send Order via WhatsApp</button>
+  </div>
+</div>
+
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 // Mobile menu toggle
 function toggleMenu() {
@@ -1012,7 +1212,76 @@ document.querySelectorAll('.products-grid, .why-grid').forEach(function(grid) {
   });
 });
 
-// Form submit handler
+// ── ORDER MODAL ──
+function openOrder(product) {
+  document.getElementById('orderProductTitle').textContent = product;
+  document.getElementById('oQty').value = 1;
+  document.getElementById('oCondition').value = '';
+  document.getElementById('oPhase').value = '';
+  document.getElementById('oKva').value = '';
+  document.getElementById('oBrand').value = '';
+  document.getElementById('oName').value = '';
+  document.getElementById('oPhone').value = '';
+  document.getElementById('oNotes').value = '';
+  document.getElementById('orderOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeOrder() {
+  document.getElementById('orderOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function overlayClose(e) {
+  if (e.target === document.getElementById('orderOverlay')) closeOrder();
+}
+function changeQty(delta) {
+  var inp = document.getElementById('oQty');
+  var val = parseInt(inp.value) || 1;
+  val = Math.max(1, Math.min(999, val + delta));
+  inp.value = val;
+}
+function submitOrder() {
+  var product   = document.getElementById('orderProductTitle').textContent;
+  var condition = document.getElementById('oCondition').value;
+  var phase     = document.getElementById('oPhase').value;
+  var kva       = document.getElementById('oKva').value;
+  var brand     = document.getElementById('oBrand').value.trim();
+  var qty       = document.getElementById('oQty').value;
+  var name      = document.getElementById('oName').value.trim();
+  var phone     = document.getElementById('oPhone').value.trim();
+  var notes     = document.getElementById('oNotes').value.trim();
+
+  if (!name || !phone || !condition || !kva) {
+    alert('Please fill in: Name, Phone, Condition, and KVA Rating.');
+    return;
+  }
+
+  var message =
+    '⚡ *iVolt Power — Order Request*\n\n' +
+    '*Product:* ' + product + '\n' +
+    '*Condition:* ' + condition + '\n' +
+    '*Phase:* ' + (phase || 'Not specified') + '\n' +
+    '*KVA Rating:* ' + kva + '\n' +
+    '*Brand/Model:* ' + (brand || 'Any / Open') + '\n' +
+    '*Quantity:* ' + qty + '\n\n' +
+    '*Customer Name:* ' + name + '\n' +
+    '*Phone:* ' + phone + '\n' +
+    '*Notes:* ' + (notes || 'None');
+
+  var waURL = 'https://wa.me/2349032156174?text=' + encodeURIComponent(message);
+  var mailURL = 'mailto:ivoltpowersolutions@gmail.com' +
+    '?subject=' + encodeURIComponent('Order: ' + product + ' x' + qty + ' — ' + name) +
+    '&body=' + encodeURIComponent(message.replace(/\*/g, ''));
+
+  closeOrder();
+  window.open(waURL, '_blank');
+
+  setTimeout(function() {
+    var useMail = confirm('✅ WhatsApp opened with your order!\n\nClick OK to also send via Email, or Cancel if WhatsApp worked fine.');
+    if (useMail) { window.location.href = mailURL; }
+  }, 1200);
+}
+
+// ── INSPECTION FORM ──
 function handleSubmit() {
   var inputs = document.querySelectorAll('.inspection-form input, .inspection-form select, .inspection-form textarea');
   var firstName = inputs[0].value.trim();
