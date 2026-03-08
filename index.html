@@ -2102,28 +2102,187 @@ function removeTyping() {
   if (t) t.remove();
 }
 
-function getSystemPrompt() {
-  return 'You are Volta, the friendly and knowledgeable AI customer care assistant for iVolt Power Solutions, a Nigerian power equipment dealer.\n\n' +
-    'iVolt Power Solutions specialises in:\n' +
-    '- Automatic Voltage Regulators (AVRs) / Voltage Stabilisers: Single & Three Phase, 500VA to 50KVA+. Brands: Sollatek, Prostar, Mikano, Mercury. New and Tokunbo (used) available.\n' +
-    '- Power Surge Suppressors / TVSSs: Residential plug-in, industrial rackmount, whole-house DIN rail models.\n' +
-    '- Professional Electrical Safety Inspections: Residential, commercial, industrial premises across Nigeria.\n\n' +
-    'Pricing (approximate, confirm with sales team):\n' +
-    '- 500VA AVR: NGN 18,000 to 25,000 | 1KVA: NGN 28,000 to 40,000 | 5KVA: NGN 120,000 to 180,000 | 10KVA: NGN 250,000 to 380,000\n' +
-    '- Surge suppressors: NGN 8,000 to 45,000 depending on type\n' +
-    '- Inspection booking: Contact via WhatsApp +234 903 215 6174 or email ivoltpowersolutions@gmail.com\n\n' +
-    'For AVR sizing, recommend: 1.5x to 2x the total load wattage as a rule of thumb.\n\n' +
-    'Contact: WhatsApp +234 903 215 6174 | Email: ivoltpowersolutions@gmail.com | X: @TradesByBami\n\n' +
-    'Be concise, warm, and professional. Use NGN for prices. If asked about something outside your knowledge, direct them to WhatsApp. Keep responses under 120 words. Use simple formatting with line breaks where helpful. Never state specific prices with certainty - always say approximately or starting from.';
+// ── VOLTA LOCAL AI ENGINE ─────────────────────────────────────────────────────
+// Fully offline — works on GitHub Pages, no API key or proxy needed.
+
+var voltaKB = [
+  {
+    keys: ['price','cost','how much','pricing','rate','charge','fee','naira','ngn','ngn'],
+    reply: 'Here are our <strong>approximate price ranges</strong> (confirm with our team):<br><br>' +
+      '⚡ <strong>Voltage Regulators (AVRs):</strong><br>' +
+      '&nbsp;&nbsp;• 500VA — from ₦18,000<br>' +
+      '&nbsp;&nbsp;• 1 KVA — from ₦28,000<br>' +
+      '&nbsp;&nbsp;• 2 KVA — from ₦45,000<br>' +
+      '&nbsp;&nbsp;• 5 KVA — from ₦120,000<br>' +
+      '&nbsp;&nbsp;• 10 KVA — from ₦250,000<br>' +
+      '&nbsp;&nbsp;• 20–50 KVA — contact us<br><br>' +
+      '🛡️ <strong>Surge Suppressors:</strong> from ₦8,000<br><br>' +
+      'Tokunbo (used) units available at lower rates.<br>' +
+      'Chat us on WhatsApp for exact pricing: <strong>+234 903 215 6174</strong>'
+  },
+  {
+    keys: ['size','sizing','what size','which size','kva','va','watt','load','capacity','which regulator','what regulator','need for my home','need for home','home regulator','apartment','house'],
+    reply: 'To choose the right AVR size, add up the wattage of all appliances you want to protect, then multiply by <strong>1.5 to 2x</strong> for safe headroom.<br><br>' +
+      '<strong>Quick guide:</strong><br>' +
+      '&nbsp;&nbsp;• Small apartment (fridge + TV + fans): <strong>1–2 KVA</strong><br>' +
+      '&nbsp;&nbsp;• Medium home (+ AC 1HP): <strong>3–5 KVA</strong><br>' +
+      '&nbsp;&nbsp;• Large home / AC 2HP+: <strong>7.5–10 KVA</strong><br>' +
+      '&nbsp;&nbsp;• Office / commercial: <strong>10–50 KVA</strong><br><br>' +
+      'Not sure? Tell us your appliances and we\'ll recommend the perfect size! WhatsApp: <strong>+234 903 215 6174</strong>'
+  },
+  {
+    keys: ['tokunbo','used','second hand','secondhand','fairly used','uk used','belgium'],
+    reply: 'Yes! We stock both <strong>New</strong> and <strong>Tokunbo (fairly used)</strong> voltage regulators and surge suppressors.<br><br>' +
+      'Tokunbo units are tested, quality-checked, and come at significantly lower prices — great value for budget-conscious buyers.<br><br>' +
+      'Available brands: Sollatek, Prostar, Mikano, Mercury and more.<br><br>' +
+      'Message us on WhatsApp to see current Tokunbo stock: <strong>+234 903 215 6174</strong>'
+  },
+  {
+    keys: ['brand','brands','sollatek','prostar','mikano','mercury','which brand','best brand'],
+    reply: 'We stock these trusted brands:<br><br>' +
+      '🔹 <strong>Sollatek</strong> — UK brand, highly reliable, popular for homes & offices<br>' +
+      '🔹 <strong>Prostar</strong> — great value, wide KVA range<br>' +
+      '🔹 <strong>Mikano</strong> — industrial-grade, heavy duty<br>' +
+      '🔹 <strong>Mercury</strong> — budget-friendly option<br><br>' +
+      'Available in new and Tokunbo (used) condition. Need a specific brand? WhatsApp us: <strong>+234 903 215 6174</strong>'
+  },
+  {
+    keys: ['surge','suppressor','surge protector','spike','lightning','tvss','power strip','surge protection'],
+    reply: 'We sell <strong>Power Surge Suppressors (TVSSs)</strong> to protect your appliances from voltage spikes and lightning surges.<br><br>' +
+      '<strong>Types available:</strong><br>' +
+      '&nbsp;&nbsp;• Residential plug-in suppressors — from ₦8,000<br>' +
+      '&nbsp;&nbsp;• Industrial rackmount models<br>' +
+      '&nbsp;&nbsp;• Whole-house DIN rail suppressors<br><br>' +
+      'A surge suppressor works best <em>alongside</em> a voltage regulator for complete protection. Interested? WhatsApp: <strong>+234 903 215 6174</strong>'
+  },
+  {
+    keys: ['inspection','safety','electrical safety','check','survey','wiring','fault','electrician','book inspection','schedule'],
+    reply: 'We offer <strong>Professional Electrical Safety Inspections</strong> across Nigeria for:<br><br>' +
+      '🏠 Residential homes &amp; apartments<br>' +
+      '🏢 Commercial offices &amp; shops<br>' +
+      '🏭 Industrial premises &amp; warehouses<br><br>' +
+      '<strong>What we check:</strong> wiring integrity, earthing, overloads, fire risks, meter compliance &amp; more.<br><br>' +
+      'To book an inspection, scroll to the <strong>Book Inspection</strong> section or contact us:<br>' +
+      '📱 WhatsApp: <strong>+234 903 215 6174</strong><br>' +
+      '📧 ivoltpowersolutions@gmail.com'
+  },
+  {
+    keys: ['buy','order','purchase','get','stock','available','availability','where to buy','how to order'],
+    reply: 'Ordering from iVolt is easy! Here\'s how:<br><br>' +
+      '1️⃣ Click <strong>"Order Now"</strong> on any product card on this page<br>' +
+      '2️⃣ Fill in your specs (KVA, condition, quantity)<br>' +
+      '3️⃣ Your order is sent directly to us via <strong>WhatsApp</strong><br><br>' +
+      'Or contact us directly:<br>' +
+      '📱 <strong>+234 903 215 6174</strong><br>' +
+      '📧 ivoltpowersolutions@gmail.com<br><br>' +
+      'We confirm availability and delivery details within <strong>24 hours</strong>.'
+  },
+  {
+    keys: ['sell','selling','i have','dispose','old regulator','old avr','buy from me','trade in'],
+    reply: 'Yes, we <strong>buy used power equipment</strong>! If you have a voltage regulator, surge suppressor or related equipment to sell, we\'d love to take a look.<br><br>' +
+      'Just reach out with:<br>' +
+      '&nbsp;&nbsp;• Brand &amp; model<br>' +
+      '&nbsp;&nbsp;• KVA rating<br>' +
+      '&nbsp;&nbsp;• Condition &amp; photos<br><br>' +
+      '📱 WhatsApp us: <strong>+234 903 215 6174</strong><br>' +
+      'We respond fast and offer fair prices!'
+  },
+  {
+    keys: ['contact','whatsapp','phone','call','email','reach','location','address','where'],
+    reply: 'You can reach <strong>iVolt Power Solutions</strong> through any of these:<br><br>' +
+      '📱 <strong>WhatsApp / Call:</strong> +234 903 215 6174<br>' +
+      '📧 <strong>Email:</strong> ivoltpowersolutions@gmail.com<br>' +
+      '𝕏 <strong>Twitter/X:</strong> @TradesByBami<br><br>' +
+      'We\'re based in <strong>Nigeria</strong> and serve customers nationwide. We typically respond within a few hours!'
+  },
+  {
+    keys: ['delivery','ship','shipping','lagos','abuja','port harcourt','nationwide','state','send'],
+    reply: 'We serve customers <strong>nationwide across Nigeria</strong>!<br><br>' +
+      'Delivery options:<br>' +
+      '&nbsp;&nbsp;• Lagos, Abuja, Port Harcourt and major cities — fast delivery<br>' +
+      '&nbsp;&nbsp;• Other states — via trusted logistics partners<br><br>' +
+      'Contact us to confirm delivery timelines and costs for your location:<br>' +
+      '📱 WhatsApp: <strong>+234 903 215 6174</strong>'
+  },
+  {
+    keys: ['warranty','guarantee','return','refund','broken','faulty','damaged'],
+    reply: 'All our <strong>new products</strong> come with a manufacturer warranty. Tokunbo (used) units are tested before sale and covered by our quality guarantee.<br><br>' +
+      'If you receive a faulty item, contact us immediately and we\'ll resolve it promptly.<br><br>' +
+      '📱 WhatsApp: <strong>+234 903 215 6174</strong><br>' +
+      '📧 ivoltpowersolutions@gmail.com'
+  },
+  {
+    keys: ['single phase','three phase','1 phase','3 phase','phase','industrial','commercial'],
+    reply: 'We stock both <strong>Single Phase</strong> and <strong>Three Phase</strong> voltage regulators!<br><br>' +
+      '• <strong>Single Phase</strong> — ideal for homes, apartments, small offices<br>' +
+      '• <strong>Three Phase</strong> — for factories, large commercial buildings, heavy industrial loads<br><br>' +
+      'Available from 500VA up to 50 KVA and beyond. Tell us your load requirements and we\'ll match you perfectly.<br><br>' +
+      '📱 WhatsApp: <strong>+234 903 215 6174</strong>'
+  },
+  {
+    keys: ['what is avr','what is voltage regulator','how does','explain','difference','avr vs','stabiliser','stabilizer','how it works'],
+    reply: 'A <strong>Voltage Regulator (AVR)</strong> automatically corrects unstable electricity supply — boosting low voltage and clamping high voltage — so your appliances always receive the correct power level.<br><br>' +
+      '<strong>Why you need one in Nigeria:</strong><br>' +
+      '• Protects TVs, fridges, ACs &amp; electronics from NEPA surges<br>' +
+      '• Extends the lifespan of your appliances<br>' +
+      '• Prevents sudden damage from voltage spikes<br><br>' +
+      'A <strong>Surge Suppressor</strong> specifically blocks brief, intense voltage spikes (like lightning).<br><br>' +
+      'For full protection, use <em>both</em> together!'
+  },
+  {
+    keys: ['hello','hi','hey','good morning','good afternoon','good evening','start','help me','assist','hiya','howdy'],
+    reply: '👋 Hello! Welcome to <strong>iVolt Power Solutions</strong>!<br><br>' +
+      'I\'m Volta, your virtual assistant. I can help you with:<br>' +
+      '&nbsp;&nbsp;⚡ Choosing the right voltage regulator<br>' +
+      '&nbsp;&nbsp;🛡️ Surge suppressor options<br>' +
+      '&nbsp;&nbsp;💰 Pricing information<br>' +
+      '&nbsp;&nbsp;🔌 Booking an electrical inspection<br>' +
+      '&nbsp;&nbsp;📦 How to place an order<br><br>' +
+      'What can I help you with today?'
+  },
+  {
+    keys: ['thank','thanks','appreciate','okay','ok','great','perfect','good','nice','awesome'],
+    reply: 'You\'re welcome! 😊 Is there anything else I can help you with?<br><br>' +
+      'Feel free to ask about our products, pricing, or to place an order anytime.<br>' +
+      '📱 WhatsApp: <strong>+234 903 215 6174</strong>'
+  }
+];
+
+function voltaRespond(userText) {
+  var q = userText.toLowerCase();
+  var best = null;
+  var bestScore = 0;
+
+  for (var i = 0; i < voltaKB.length; i++) {
+    var score = 0;
+    for (var j = 0; j < voltaKB[i].keys.length; j++) {
+      if (q.indexOf(voltaKB[i].keys[j]) !== -1) {
+        score += voltaKB[i].keys[j].length; // longer keyword match = more specific
+      }
+    }
+    if (score > bestScore) {
+      bestScore = score;
+      best = voltaKB[i];
+    }
+  }
+
+  if (best && bestScore > 1) {
+    return best.reply;
+  }
+
+  // Default fallback
+  return 'Thanks for your message! For the most accurate answer, please reach our team directly:<br><br>' +
+    '📱 <strong>WhatsApp: +234 903 215 6174</strong><br>' +
+    '📧 ivoltpowersolutions@gmail.com<br><br>' +
+    'Or try asking about: <em>pricing, AVR sizing, brands, surge suppressors, inspections, ordering, or delivery.</em>';
 }
 
-async function sendChat() {
+function sendChat() {
   var input = document.getElementById('chatInput');
   var text = input.value.trim();
   if (!text) return;
   input.value = '';
 
-  // Show back-to-menu after first message
   if (!hasChattedBefore) {
     hasChattedBefore = true;
     document.getElementById('quickBtns').style.display = 'none';
@@ -2131,47 +2290,15 @@ async function sendChat() {
   }
 
   addMsg('user', text);
-  chatHistory.push({ role: 'user', content: text });
   showTyping();
 
-  try {
-    var response = await fetch('https://api.anthropic.com/v1/messages', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        model: 'claude-sonnet-4-20250514',
-        max_tokens: 350,
-        system: getSystemPrompt(),
-        messages: chatHistory
-      })
-    });
-
-    var data = await response.json();
+  // Simulate natural typing delay (600–1200ms)
+  var delay = 600 + Math.floor(Math.random() * 600);
+  setTimeout(function() {
     removeTyping();
-
-    var replyText = '';
-    if (data.content && data.content[0] && data.content[0].text) {
-      replyText = data.content[0].text;
-      chatHistory.push({ role: 'assistant', content: replyText });
-    } else {
-      replyText = "I'm having a small hiccup. Please reach us on WhatsApp: +234 903 215 6174";
-    }
-
-    // Convert newlines to <br> s
-    var replyHtml = replyText
-      .replace(/&/g, '&amp;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;')
-      .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
-      .replace(/\*([^*\n]+?)\*/g, '<em>$1</em>')
-      .replace(/\n/g, '<br>');
-
-    addMsg('bot', replyHtml);
-
-  } catch(err) {
-    removeTyping();
-    addMsg('bot', 'Sorry, I am temporarily unavailable. Please contact us on WhatsApp: +234 903 215 6174');
-  }
+    var reply = voltaRespond(text);
+    addMsg('bot', reply);
+  }, delay);
 }
 </script>
 </body>
