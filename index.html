@@ -1581,7 +1581,7 @@ table.price-table tbody tr:hover td { background: rgba(255,255,255,0.02); }
     </div>
     <div class="ad-top-btns">
       <a href="tel:+2349032156174" class="ad-top-call">&#128222; Call Now</a>
-      <a href="/cdn-cgi/l/email-protection#386c50514a4c41404c5d5b504a5d4b5d594a5b50785f55595154165b5755" class="ad-top-email">&#9993; Email Us</a>
+      <a href="mailto:Thirtyxtechresearch@gmail.com" class="ad-top-email">&#9993; Email Us</a>
       <a href="https://30xtechresearch.github.io" target="_blank" class="ad-top-email" style="border-color:rgba(167,139,250,0.4);color:#c4b5fd;">&#127758; Website</a>
       <button class="ad-top-close" onclick="closeAdPopup()" title="Close">&#215;</button>
     </div>
@@ -1617,20 +1617,6 @@ table.price-table tbody tr:hover td { background: rgba(255,255,255,0.02); }
   <a href="#inspection" onclick="toggleMenu()">Book Inspection</a>
   <a href="#advertise" onclick="toggleMenu()">Advertise</a>
   <a href="#contact" onclick="toggleMenu()">Contact</a>
-  <a href="tel:+2349032156174">&#128222; +234 903 215 6174</a>
-
-  <!-- AD CARD -->
-  <div class="menu-ad-card">
-    <div class="menu-ad-label">Advertisement</div>
-    <div class="menu-ad-icon">&#128187;</div>
-    <div class="menu-ad-title">Need a <span>Professional Website</span>?</div>
-    <div class="menu-ad-desc">Custom web design &amp; development for businesses across Nigeria. Fast, mobile-friendly &amp; affordable.</div>
-    <div class="menu-ad-btns">
-      <a href="tel:+2349032156174" class="menu-ad-call">&#128222; Call Now</a>
-      <a href="/cdn-cgi/l/email-protection#feaa96978c8a87868a9b9d968c9b8d9b9f8c9d96be99939f9792d09d9193" class="menu-ad-email">&#9993; Email</a>
-    </div>
-    <a href="https://30xtechresearch.github.io" target="_blank" class="menu-ad-website">&#127758; Visit Website</a>
-  </div>
 </div>
 
 <!-- HERO -->
@@ -2597,7 +2583,7 @@ table.price-table tbody tr:hover td { background: rgba(255,255,255,0.02); }
   </div>
 </div>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 // Price list tab switcher
 function switchTab(id) {
   document.querySelectorAll('.ptable-panel').forEach(function(p) { p.classList.remove('active'); });
@@ -3100,4 +3086,14 @@ function sendChat() {
     document.getElementById('chatBackBar').style.display = 'block';
   }
   addMsg('user', text);
-  show
+  showTyping();
+  var delay = 600 + Math.floor(Math.random() * 600);
+  setTimeout(function() {
+    removeTyping();
+    var reply = voltaRespond(text);
+    addMsg('bot', reply);
+  }, delay);
+}
+</script>
+</body>
+</html>
