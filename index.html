@@ -1586,7 +1586,7 @@ table.price-table tbody tr:hover td { background: rgba(255,255,255,0.02); }
 <body>
 
 <!-- TOP AD POPUP -->
-<div id="adTopPopup">
+<div id="adTopPopup" style="display:none!important;">
   <div class="ad-top-inner">
     <div class="ad-top-left">
       <div class="ad-top-icon">&#128187;</div>
@@ -2082,7 +2082,7 @@ table.price-table tbody tr:hover td { background: rgba(255,255,255,0.02); }
     <div>
       <div class="map-placeholder reveal">
         <div class="map-icon">📍</div>
-        <p>Nigeria</p>
+        <p>Lagos, Nigeria</p>
         <p style="font-size:10px;margin-top:4px;">Contact us for our exact location</p>
       </div>
     </div>
@@ -2716,9 +2716,7 @@ function closeAdPopup() {
   el.style.transform = 'translateY(-110%)';
   setTimeout(function() { el.style.display = 'none'; }, 360);
 }
-setTimeout(function() {
-  document.getElementById('adTopPopup').classList.add('show');
-}, 1500);
+// Top ad popup disabled
 </script>
 <script>
 // ── NEWS TICKER AUTO-REFRESH ──────────────────────────────────────────────
