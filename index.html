@@ -250,6 +250,7 @@ nav {
   transition: background .25s, transform .2s !important;
 }
 .nav-cta:hover { background: #fff !important; transform: translateY(-1px); }
+/* Telegram nav link style */
 .nav-tg { color: var(--tg) !important; }
 .nav-tg:hover { color: #fff !important; }
 .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
@@ -477,6 +478,7 @@ section { padding: 100px 5%; position: relative; z-index: 2; }
   border: 1px solid rgba(0,229,255,0.25); display: flex; align-items: center; justify-content: center;
   font-size: 18px; flex-shrink: 0;
 }
+/* Telegram contact icon colour */
 .contact-item-icon.tg-icon { background: rgba(34,158,217,0.15); border-color: rgba(34,158,217,0.3); }
 .contact-item-label { font-family: 'Inter', sans-serif; font-size: 9px; letter-spacing: 2px; color: var(--muted); text-transform: uppercase; margin-bottom: 4px; }
 .contact-item-val { font-size: 13px; color: #fff; line-height: 1.5; }
@@ -706,9 +708,13 @@ table.price-table tbody tr:hover td { background: rgba(255,255,255,0.02); }
   .submit-btn { min-height: 52px; font-size: 13px; }
 }
 
+/* ══ TOP AD POPUP ══ */
+#adTopPopup { display:none!important; }
+
 /* ══ IMPORT & EXPORT SECTION ══ */
 .impex-section { background: var(--bg2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
 
+/* Hero banner */
 .impex-hero {
   background: linear-gradient(135deg, rgba(6,36,72,0.7) 0%, rgba(37,99,235,0.1) 50%, rgba(245,158,11,0.06) 100%);
   border: 1px solid rgba(37,99,235,0.2); border-radius: 14px;
@@ -749,6 +755,7 @@ table.price-table tbody tr:hover td { background: rgba(255,255,255,0.02); }
 }
 .impex-btn-bot:hover { background: var(--cyan-dim); border-color: var(--cyan); }
 
+/* Direction tabs */
 .impex-tabs { display: flex; gap: 8px; margin-bottom: 28px; flex-wrap: wrap; }
 .impex-tab {
   font-family: 'Inter', sans-serif; font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
@@ -760,6 +767,7 @@ table.price-table tbody tr:hover td { background: rgba(255,255,255,0.02); }
 .impex-panel { display: none; }
 .impex-panel.active { display: block; }
 
+/* Items grid */
 .impex-items-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; margin-bottom: 40px; }
 .impex-item-card {
   background: var(--card); border: 1px solid var(--border); border-radius: 12px;
@@ -793,6 +801,7 @@ table.price-table tbody tr:hover td { background: rgba(255,255,255,0.02); }
 }
 .impex-item-bot:hover { background: rgba(37,99,235,0.2); }
 
+/* How it works */
 .impex-how { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-bottom: 40px; }
 .impex-step {
   background: var(--card); border: 1px solid var(--border); border-radius: 10px;
@@ -806,6 +815,7 @@ table.price-table tbody tr:hover td { background: rgba(255,255,255,0.02); }
 .impex-step h4 { font-family: 'Montserrat', sans-serif; font-size: 12px; font-weight: 800; color: #fff; letter-spacing: 0.5px; margin-bottom: 6px; }
 .impex-step p { font-size: 11px; color: var(--muted); line-height: 1.65; }
 
+/* Countries */
 .impex-countries { margin-bottom: 40px; }
 .impex-countries-title { font-size: 10px; letter-spacing: 4px; text-transform: uppercase; color: var(--muted); margin-bottom: 16px; }
 .impex-country-pills { display: flex; flex-wrap: wrap; gap: 10px; }
@@ -817,6 +827,7 @@ table.price-table tbody tr:hover td { background: rgba(255,255,255,0.02); }
 }
 .impex-pill:hover { border-color: rgba(37,99,235,0.4); color: #fff; }
 
+/* Bot calculator callout */
 .impex-bot-cta {
   background: linear-gradient(135deg, rgba(37,99,235,0.08) 0%, rgba(245,158,11,0.06) 100%);
   border: 1px solid rgba(37,99,235,0.2); border-radius: 12px;
@@ -837,9 +848,13 @@ table.price-table tbody tr:hover td { background: rgba(255,255,255,0.02); }
   .impex-hero { padding: 28px 20px; }
   .impex-hero-stats { gap: 20px; }
 }
+
 </style>
 </head>
 <body>
+
+<!-- TOP AD POPUP (disabled) -->
+<div id="adTopPopup" style="display:none!important;"></div>
 
 <!-- NAV -->
 <nav>
@@ -854,7 +869,7 @@ table.price-table tbody tr:hover td { background: rgba(255,255,255,0.02); }
     <li><a href="#advertise">Advertise</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="#impex">📦 Import &amp; Export</a></li>
-    <li><a href="https://t.me/ivoltpowersolutions" target="_blank" rel="noopener" class="nav-tg">✈️ TG Channel</a></li>
+    <li><a href="https://t.me/ivoltpowersolutions" target="_blank" rel="noopener" class="nav-tg" style="color:var(--tg);">✈️ TG Channel</a></li>
     <li><a href="tel:+2349032156174" class="nav-cta">Call Now</a></li>
   </ul>
   <div class="hamburger" id="ham" onclick="toggleMenu()">
@@ -959,6 +974,7 @@ table.price-table tbody tr:hover td { background: rgba(255,255,255,0.02); }
   </div>
 </section>
 
+
 <!-- IMPORT & EXPORT -->
 <section id="impex" class="impex-section">
   <div class="reveal">
@@ -1012,30 +1028,9 @@ table.price-table tbody tr:hover td { background: rgba(255,255,255,0.02); }
         <div class="impex-item-tags"><span class="impex-item-tag itag-avail">Available</span><span class="impex-item-tag itag-demand">Growing</span></div>
         <button class="impex-item-bot" onclick="openImpexOrder('import','Surge Suppressor')">⚡ Get Import Quote</button>
       </div>
-      <div class="impex-item-card green-top">
-        <span class="impex-item-icon">🔋</span>
-        <div class="impex-item-name">Inverters &amp; Battery Systems</div>
-        <div class="impex-item-hs">HS CODE: 8504.40</div>
-        <div class="impex-item-desc">Solar inverters, hybrid inverters, and lithium battery packs. Suitable for residential backup and commercial off-grid installations across Nigeria.</div>
-        <div class="impex-item-tags"><span class="impex-item-tag itag-avail">Available</span><span class="impex-item-tag itag-demand">High Demand</span></div>
-        <button class="impex-item-bot" onclick="openImpexOrder('import','Inverter & Battery System')">⚡ Get Import Quote</button>
-      </div>
-      <div class="impex-item-card">
-        <span class="impex-item-icon">🔌</span>
-        <div class="impex-item-name">Power Cables &amp; Conductors</div>
-        <div class="impex-item-hs">HS CODE: 8544.60</div>
-        <div class="impex-item-desc">Copper and aluminium armoured cables, flexible cords, and wiring accessories. Bulk import pricing available for contractors and distributors.</div>
-        <div class="impex-item-tags"><span class="impex-item-tag itag-avail">Bulk Available</span><span class="impex-item-tag itag-demand">Steady</span></div>
-        <button class="impex-item-bot" onclick="openImpexOrder('import','Power Cables')">⚡ Get Import Quote</button>
-      </div>
-      <div class="impex-item-card gold-top">
-        <span class="impex-item-icon">☀️</span>
-        <div class="impex-item-name">Solar PV Panels</div>
-        <div class="impex-item-hs">HS CODE: 8541.43</div>
-        <div class="impex-item-desc">Monocrystalline and polycrystalline solar panels from verified manufacturers. Certifications: IEC 61215, IEC 61730. Available from 100W to 600W per panel.</div>
-        <div class="impex-item-tags"><span class="impex-item-tag itag-avail">Order Basis</span><span class="impex-item-tag itag-demand">High Demand</span></div>
-        <button class="impex-item-bot" onclick="openImpexOrder('import','Solar PV Panels')">⚡ Get Import Quote</button>
-      </div>
+
+
+
       <div class="impex-item-card green-top">
         <span class="impex-item-icon">🏭</span>
         <div class="impex-item-name">Isolation Transformers</div>
@@ -1050,10 +1045,9 @@ table.price-table tbody tr:hover td { background: rgba(255,255,255,0.02); }
       <div class="impex-country-pills">
         <span class="impex-pill">🇨🇳 China</span>
         <span class="impex-pill">🇬🇧 United Kingdom</span>
-        <span class="impex-pill">🇦🇪 UAE / Dubai</span>
-        <span class="impex-pill">🇩🇪 Germany</span>
-        <span class="impex-pill">🇮🇳 India</span>
-        <span class="impex-pill">🇸🇬 Singapore</span>
+        <span class="impex-pill">🇪🇺 Europe</span>
+        <span class="impex-pill">🇯🇵 Japan</span>
+        <span class="impex-pill">🇺🇸 USA</span>
       </div>
     </div>
   </div>
@@ -1409,9 +1403,9 @@ table.price-table tbody tr:hover td { background: rgba(255,255,255,0.02); }
     <!-- TAB 2: MOREN SWEET TREAT -->
     <div id="featPanel-moren" style="display:none;">
       <div style="max-width:1100px;margin:0 auto;padding:0;">
-        <div style="text-align:center;margin-bottom:24px;">
+        <div style="text-align:center;margin-bottom:40px;">
           <div style="font-family:'Montserrat',sans-serif;font-size:clamp(22px,5vw,38px);font-weight:900;color:#7b1c2e;">MOREN <span style="color:#c97a3a;">SWEET TREAT</span></div>
-          <p style="font-size:14px;color:rgba(255,255,255,0.5);max-width:500px;margin:8px auto 0;line-height:1.7;">Sweetening Moments, One Treat At A Time — Fresh Cakes, Pastries, Snacks &amp; Drinks</p>
+          <p style="font-size:14px;color:rgba(255,255,255,0.5);max-width:500px;margin:10px auto 0;line-height:1.7;">Sweetening Moments, One Treat At A Time — Fresh Cakes, Pastries, Snacks &amp; Drinks</p>
         </div>
         <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:3px;border-radius:14px;overflow:hidden;margin-top:24px;">
           <div style="position:relative;aspect-ratio:1;overflow:hidden;background:#1a0d05;"><img src="https://morensweettreat.github.io/images/plantain-chips.jpg" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" style="width:100%;height:100%;object-fit:cover;"><div style="display:none;width:100%;height:100%;align-items:center;justify-content:center;flex-direction:column;gap:8px;background:rgba(201,122,58,0.08);border:1px solid rgba(201,122,58,0.15);"><span style="font-size:36px;">🌽</span><span style="font-size:10px;font-weight:700;letter-spacing:2px;color:var(--muted);">PLANTAIN CHIPS</span></div></div>
@@ -1707,7 +1701,7 @@ function handleSubmit() {
   window.location.href='https://wa.me/2349032156174?text='+encodeURIComponent(msg);
 }
 
-// ── IMPORT & EXPORT ──
+// ── IMPORT & EXPORT SECTION ──
 function switchImpex(tab) {
   ['import','export','how'].forEach(function(t){
     document.getElementById('impexPanel' + t.charAt(0).toUpperCase() + t.slice(1)).classList.remove('active');
@@ -1784,6 +1778,7 @@ function sendChat() {
   setTimeout(function(){removeTyping();addMsg('bot',voltaRespond(text));},600+Math.floor(Math.random()*600));
 }
 
+// Inline msg bubble styles
 var msgStyle=document.createElement('style');
 msgStyle.textContent='.msg{display:flex;gap:8px;align-items:flex-start;}.msg.user{flex-direction:row-reverse;}.msg-bubble{background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:10px 13px;font-size:13px;line-height:1.6;max-width:100%;word-break:break-word;}.msg.user .msg-bubble{background:var(--cyan);border-color:var(--cyan);color:#000;}.msg-time{font-size:10px;color:var(--muted);margin-top:4px;padding:0 4px;}';
 document.head.appendChild(msgStyle);
