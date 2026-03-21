@@ -250,7 +250,6 @@ nav {
   transition: background .25s, transform .2s !important;
 }
 .nav-cta:hover { background: #fff !important; transform: translateY(-1px); }
-/* Telegram nav link style */
 .nav-tg { color: var(--tg) !important; }
 .nav-tg:hover { color: #fff !important; }
 .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
@@ -478,7 +477,6 @@ section { padding: 100px 5%; position: relative; z-index: 2; }
   border: 1px solid rgba(0,229,255,0.25); display: flex; align-items: center; justify-content: center;
   font-size: 18px; flex-shrink: 0;
 }
-/* Telegram contact icon colour */
 .contact-item-icon.tg-icon { background: rgba(34,158,217,0.15); border-color: rgba(34,158,217,0.3); }
 .contact-item-label { font-family: 'Inter', sans-serif; font-size: 9px; letter-spacing: 2px; color: var(--muted); text-transform: uppercase; margin-bottom: 4px; }
 .contact-item-val { font-size: 13px; color: #fff; line-height: 1.5; }
@@ -714,7 +712,6 @@ table.price-table tbody tr:hover td { background: rgba(255,255,255,0.02); }
 /* ══ IMPORT & EXPORT SECTION ══ */
 .impex-section { background: var(--bg2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
 
-/* Hero banner */
 .impex-hero {
   background: linear-gradient(135deg, rgba(6,36,72,0.7) 0%, rgba(37,99,235,0.1) 50%, rgba(245,158,11,0.06) 100%);
   border: 1px solid rgba(37,99,235,0.2); border-radius: 14px;
@@ -755,7 +752,6 @@ table.price-table tbody tr:hover td { background: rgba(255,255,255,0.02); }
 }
 .impex-btn-bot:hover { background: var(--cyan-dim); border-color: var(--cyan); }
 
-/* Direction tabs */
 .impex-tabs { display: flex; gap: 8px; margin-bottom: 28px; flex-wrap: wrap; }
 .impex-tab {
   font-family: 'Inter', sans-serif; font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
@@ -767,7 +763,6 @@ table.price-table tbody tr:hover td { background: rgba(255,255,255,0.02); }
 .impex-panel { display: none; }
 .impex-panel.active { display: block; }
 
-/* Items grid */
 .impex-items-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; margin-bottom: 40px; }
 .impex-item-card {
   background: var(--card); border: 1px solid var(--border); border-radius: 12px;
@@ -801,7 +796,6 @@ table.price-table tbody tr:hover td { background: rgba(255,255,255,0.02); }
 }
 .impex-item-bot:hover { background: rgba(37,99,235,0.2); }
 
-/* How it works */
 .impex-how { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-bottom: 40px; }
 .impex-step {
   background: var(--card); border: 1px solid var(--border); border-radius: 10px;
@@ -815,7 +809,6 @@ table.price-table tbody tr:hover td { background: rgba(255,255,255,0.02); }
 .impex-step h4 { font-family: 'Montserrat', sans-serif; font-size: 12px; font-weight: 800; color: #fff; letter-spacing: 0.5px; margin-bottom: 6px; }
 .impex-step p { font-size: 11px; color: var(--muted); line-height: 1.65; }
 
-/* Countries */
 .impex-countries { margin-bottom: 40px; }
 .impex-countries-title { font-size: 10px; letter-spacing: 4px; text-transform: uppercase; color: var(--muted); margin-bottom: 16px; }
 .impex-country-pills { display: flex; flex-wrap: wrap; gap: 10px; }
@@ -827,7 +820,6 @@ table.price-table tbody tr:hover td { background: rgba(255,255,255,0.02); }
 }
 .impex-pill:hover { border-color: rgba(37,99,235,0.4); color: #fff; }
 
-/* Bot calculator callout */
 .impex-bot-cta {
   background: linear-gradient(135deg, rgba(37,99,235,0.08) 0%, rgba(245,158,11,0.06) 100%);
   border: 1px solid rgba(37,99,235,0.2); border-radius: 12px;
@@ -853,7 +845,6 @@ table.price-table tbody tr:hover td { background: rgba(255,255,255,0.02); }
 </head>
 <body>
 
-<!-- TOP AD POPUP (disabled) -->
 <div id="adTopPopup" style="display:none!important;"></div>
 
 <!-- NAV -->
@@ -974,7 +965,6 @@ table.price-table tbody tr:hover td { background: rgba(255,255,255,0.02); }
   </div>
 </section>
 
-
 <!-- IMPORT & EXPORT -->
 <section id="impex" class="impex-section">
   <div class="reveal">
@@ -1014,23 +1004,20 @@ table.price-table tbody tr:hover td { background: rgba(255,255,255,0.02); }
     <div class="impex-items-grid">
       <div class="impex-item-card">
         <span class="impex-item-icon">⚡</span>
-        <div class="impex-item-name">Servo Voltage Stabilizers</div>
+        <div class="impex-item-name">Servo-Based AVS</div>
         <div class="impex-item-hs">HS CODE: 8504.40</div>
         <div class="impex-item-desc">Single and three-phase servo motor stabilizers — 5kVA to 200kVA. Sourced from manufacturers in China and Europe with full compliance documentation.</div>
         <div class="impex-item-tags"><span class="impex-item-tag itag-avail">In Stock</span><span class="impex-item-tag itag-demand">High Demand</span></div>
-        <button class="impex-item-bot" onclick="openImpexOrder('import','Servo Voltage Stabilizer')">⚡ Get Import Quote</button>
+        <button class="impex-item-bot" onclick="openImpexOrder('import','Servo-Based AVS')">⚡ Get Import Quote</button>
       </div>
       <div class="impex-item-card gold-top">
         <span class="impex-item-icon">🛡️</span>
-        <div class="impex-item-name">Surge Suppressor Units</div>
+        <div class="impex-item-name">Surge Protective Device Units</div>
         <div class="impex-item-hs">HS CODE: 8535.40</div>
         <div class="impex-item-desc">Type 1, Type 2, and Type 1+2 combined SPDs for residential, commercial, and industrial installations. Meets IEC 61643-11 standards.</div>
         <div class="impex-item-tags"><span class="impex-item-tag itag-avail">Available</span><span class="impex-item-tag itag-demand">Growing</span></div>
-        <button class="impex-item-bot" onclick="openImpexOrder('import','Surge Suppressor')">⚡ Get Import Quote</button>
+        <button class="impex-item-bot" onclick="openImpexOrder('import','Surge Protective Device')">⚡ Get Import Quote</button>
       </div>
-
-
-
       <div class="impex-item-card green-top">
         <span class="impex-item-icon">🏭</span>
         <div class="impex-item-name">Isolation Transformers</div>
@@ -1194,7 +1181,7 @@ table.price-table tbody tr:hover td { background: rgba(255,255,255,0.02); }
           <tr><td>Nexus / Mercury Surge Guard</td><td>1,000VA</td><td>6 – 8</td><td><span class="use-tag use-home">Home</span></td><td><span class="price-new">₦14,000 – ₦22,000</span></td><td><span class="price-used">₦7,000 – ₦12,000</span></td></tr>
           <tr><td>APC / Eaton Line Conditioner</td><td>2 KVA</td><td>8+</td><td><span class="use-tag use-office">Office</span></td><td><span class="price-new">₦35,000 – ₦60,000</span></td><td><span class="price-used">₦18,000 – ₦30,000</span></td></tr>
           <tr><td>APC / Eaton Power Conditioner</td><td>5 KVA</td><td>8+</td><td><span class="use-tag use-office">Office</span></td><td><span class="price-new">₦85,000 – ₦140,000</span></td><td><span class="price-used">₦40,000 – ₦70,000</span></td></tr>
-          <tr><td>Industrial Surge Suppressor</td><td>10 KVA</td><td>Panel-mount</td><td><span class="use-tag use-industrial">Industrial</span></td><td><span class="price-new">₦160,000 – ₦250,000</span></td><td><span class="price-used">₦80,000 – ₦130,000</span></td></tr>
+          <tr><td>Industrial Surge Protective Device</td><td>10 KVA</td><td>Panel-mount</td><td><span class="use-tag use-industrial">Industrial</span></td><td><span class="price-new">₦160,000 – ₦250,000</span></td><td><span class="price-used">₦80,000 – ₦130,000</span></td></tr>
           <tr><td>Heavy-Duty Suppressor</td><td>20 – 30 KVA</td><td>Panel-mount</td><td><span class="use-tag use-industrial">Industrial</span></td><td><span class="price-new">₦300,000 – ₦500,000</span></td><td><span class="price-used">₦150,000 – ₦260,000</span></td></tr>
         </tbody>
       </table>
@@ -1334,7 +1321,6 @@ table.price-table tbody tr:hover td { background: rgba(255,255,255,0.02); }
       <button class="advert-tab" id="featTab2" onclick="switchFeatTab('moren')">🎂 Moren Sweet Treat</button>
     </div>
 
-    <!-- TAB 1: WEB DESIGN -->
     <div id="featPanel-webdesign">
       <p class="section-sub" style="margin-bottom:28px;">Serving Nigerian &amp; international businesses with world-class web solutions</p>
       <div class="advert-tabs" style="margin-bottom:24px;">
@@ -1400,7 +1386,6 @@ table.price-table tbody tr:hover td { background: rgba(255,255,255,0.02); }
       </div>
     </div>
 
-    <!-- TAB 2: MOREN SWEET TREAT -->
     <div id="featPanel-moren" style="display:none;">
       <div style="max-width:1100px;margin:0 auto;padding:0;">
         <div style="text-align:center;margin-bottom:40px;">
@@ -1546,7 +1531,6 @@ table.price-table tbody tr:hover td { background: rgba(255,255,255,0.02); }
 </div>
 
 <script>
-// ── TABS ──
 function switchTab(id) {
   document.querySelectorAll('.ptable-panel').forEach(function(p){p.classList.remove('active')});
   document.querySelectorAll('.ptab').forEach(function(t){t.classList.remove('active')});
@@ -1567,7 +1551,6 @@ function switchAdTab(tab,btn) {
   btn.classList.add('active');
 }
 
-// ── TICKER ──
 var tickerHeadlines = [
   'IEC publishes updated voltage regulator safety standard IEC 62368-1 — stricter overvoltage protection thresholds now required',
   'Nigeria\'s NERC reports 18% rise in power surge-related equipment damage in Q1 2025',
@@ -1603,7 +1586,6 @@ function refreshTicker() {
 }
 setInterval(refreshTicker, 30000);
 
-// ── PRICES ──
 var priceData = {
   regulator: [
     {product:'Bluegate / Century AVR',kva:'1 KVA',phase:'Single',use:'Home',newPrice:'12,000 \u2013 18,000',usedPrice:'6,000 \u2013 10,000'},
@@ -1621,7 +1603,7 @@ var priceData = {
     {product:'Nexus / Mercury Surge Guard',cap:'1,000VA',ports:'6 \u2013 8',use:'Home',newPrice:'14,000 \u2013 22,000',usedPrice:'7,000 \u2013 12,000'},
     {product:'APC / Eaton Line Conditioner',cap:'2 KVA',ports:'8+',use:'Office',newPrice:'35,000 \u2013 60,000',usedPrice:'18,000 \u2013 30,000'},
     {product:'APC / Eaton Power Conditioner',cap:'5 KVA',ports:'8+',use:'Office',newPrice:'85,000 \u2013 140,000',usedPrice:'40,000 \u2013 70,000'},
-    {product:'Industrial Surge Suppressor',cap:'10 KVA',ports:'Panel-mount',use:'Industrial',newPrice:'160,000 \u2013 250,000',usedPrice:'80,000 \u2013 130,000'},
+    {product:'Industrial Surge Protective Device',cap:'10 KVA',ports:'Panel-mount',use:'Industrial',newPrice:'160,000 \u2013 250,000',usedPrice:'80,000 \u2013 130,000'},
     {product:'Heavy-Duty Suppressor',cap:'20 \u2013 30 KVA',ports:'Panel-mount',use:'Industrial',newPrice:'300,000 \u2013 500,000',usedPrice:'150,000 \u2013 260,000'}
   ]
 };
@@ -1660,13 +1642,11 @@ async function refreshPrices() {
 document.addEventListener('DOMContentLoaded',function(){document.getElementById('priceLastUpdated').textContent='Last updated: '+formatTimestamp();});
 setInterval(refreshPrices,6*60*60*1000);
 
-// ── REVEAL ──
 var reveals=document.querySelectorAll('.reveal');
 var observer=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target);}});},{threshold:0.08});
 requestAnimationFrame(function(){reveals.forEach(function(r){r.classList.add('js-ready');observer.observe(r);});});
 document.querySelectorAll('.products-grid,.why-grid').forEach(function(grid){Array.from(grid.children).forEach(function(child,i){child.style.transitionDelay=(i*0.1)+'s';child.classList.add('reveal','js-ready');observer.observe(child);});});
 
-// ── ORDER MODAL ──
 function openOrder(product) {
   document.getElementById('orderProductTitle').textContent=product;
   ['oQty','oCondition','oPhase','oKva','oBrand','oName','oPhone','oNotes'].forEach(function(id){var el=document.getElementById(id);if(el.tagName==='INPUT'||el.tagName==='TEXTAREA')el.value=el.id==='oQty'?1:'';else el.value='';});
@@ -1691,7 +1671,6 @@ function submitOrder() {
   closeOrder();window.location.href='https://wa.me/2349032156174?text='+encodeURIComponent(msg);
 }
 
-// ── INSPECTION ──
 function handleSubmit() {
   var inputs=document.querySelectorAll('.inspection-form input,.inspection-form select,.inspection-form textarea');
   var missing=false;
@@ -1701,7 +1680,6 @@ function handleSubmit() {
   window.location.href='https://wa.me/2349032156174?text='+encodeURIComponent(msg);
 }
 
-// ── IMPORT & EXPORT SECTION ──
 function switchImpex(tab) {
   ['import','export','how'].forEach(function(t){
     document.getElementById('impexPanel' + t.charAt(0).toUpperCase() + t.slice(1)).classList.remove('active');
@@ -1717,7 +1695,6 @@ function openImpexOrder(dir, product) {
   window.open('https://wa.me/2349032156174?text=' + encodeURIComponent(msg), '_blank');
 }
 
-// ── NEWS LOAD MORE ──
 var extraNews=[
   {color:'linear-gradient(90deg,#10b981,#2563eb)',tag:'tag-safety',tagLabel:'Electrical Safety',source:'WHO / ILO',date:'Mar 2025',title:'Workplace Electrical Injuries Cost Africa $2.3B Annually — Inspection Programs Key to Reduction',body:'A joint WHO and ILO study highlights that routine electrical safety inspections reduce workplace injury rates by up to 61%, urging businesses across West Africa to adopt structured annual inspection schedules.',url:'https://www.ilo.org'},
   {color:'linear-gradient(90deg,#f59e0b,#2563eb)',tag:'tag-industry',tagLabel:'Industry',source:'Bloomberg NEF',date:'Feb 2025',title:'Distributed Energy Growth in Africa Drives Surge in Off-Grid Power Protection Equipment',body:'As solar mini-grids expand across rural Nigeria, Ghana, and Kenya, demand for compatible voltage regulators and surge protectors is growing at over 22% annually according to BloombergNEF.',url:'https://about.bnef.com'},
@@ -1729,7 +1706,6 @@ function loadMoreNews() {
   setTimeout(function(){extraNews.forEach(function(n){var card=document.createElement('div');card.className='news-card';card.style.opacity='0';card.style.transform='translateY(20px)';card.innerHTML='<div class="news-card-header" style="background:'+n.color+';"></div><div class="news-card-body"><span class="news-tag-pill '+n.tag+'">'+n.tagLabel+'</span><div class="news-card-meta"><span class="news-card-source">'+n.source+'</span><span class="news-card-date">'+n.date+'</span></div><h4>'+n.title+'</h4><p>'+n.body+'</p><a href="'+n.url+'" target="_blank" rel="noopener" class="news-card-link">Read More</a></div>';grid.appendChild(card);requestAnimationFrame(function(){card.style.transition='opacity .5s ease,transform .5s ease';card.style.opacity='1';card.style.transform='translateY(0)';});});btn.style.display='none';},800);
 }
 
-// ── CHAT ──
 var chatOpen=false,hasChattedBefore=false;
 function toggleChat(){chatOpen=!chatOpen;document.getElementById('chatWindow').classList.toggle('open',chatOpen);document.getElementById('chatBubbleIcon').textContent=chatOpen?'\u2715':'\u26A1';document.getElementById('chatBadge').style.display=chatOpen?'none':'flex';if(chatOpen)setTimeout(function(){document.getElementById('chatInput').focus();},300);}
 function showQuickMenu(){document.getElementById('quickBtns').style.display='flex';document.getElementById('chatBackBar').style.display='none';document.getElementById('chatInput').focus();}
@@ -1746,11 +1722,11 @@ function showTyping(){var msgs=document.getElementById('chatMessages'),div=docum
 function removeTyping(){var t=document.getElementById('typingIndicator');if(t)t.remove();}
 
 var voltaKB=[
-  {keys:['price','cost','how much','pricing','rate','charge','fee','naira','ngn'],reply:'Here are our <strong>approximate price ranges</strong> (confirm with our team):<br><br>⚡ <strong>Voltage Regulators (AVRs):</strong><br>&nbsp;&nbsp;• 500VA — from ₦18,000<br>&nbsp;&nbsp;• 1 KVA — from ₦28,000<br>&nbsp;&nbsp;• 2 KVA — from ₦45,000<br>&nbsp;&nbsp;• 5 KVA — from ₦120,000<br>&nbsp;&nbsp;• 10 KVA — from ₦250,000<br>&nbsp;&nbsp;• 20–50 KVA — contact us<br><br>🛡️ <strong>Surge Suppressors:</strong> from ₦8,000<br><br>Tokunbo (used) units available at lower rates.<br>WhatsApp: <strong>+234 903 215 6174</strong>'},
+  {keys:['price','cost','how much','pricing','rate','charge','fee','naira','ngn'],reply:'Here are our <strong>approximate price ranges</strong> (confirm with our team):<br><br>⚡ <strong>Voltage Regulators (AVRs):</strong><br>&nbsp;&nbsp;• 500VA — from ₦18,000<br>&nbsp;&nbsp;• 1 KVA — from ₦28,000<br>&nbsp;&nbsp;• 2 KVA — from ₦45,000<br>&nbsp;&nbsp;• 5 KVA — from ₦120,000<br>&nbsp;&nbsp;• 10 KVA — from ₦250,000<br>&nbsp;&nbsp;• 20–50 KVA — contact us<br><br>🛡️ <strong>Surge Protective Devices:</strong> from ₦8,000<br><br>Tokunbo (used) units available at lower rates.<br>WhatsApp: <strong>+234 903 215 6174</strong>'},
   {keys:['size','sizing','kva','va','watt','load','capacity','home regulator','apartment','house'],reply:'Add up your appliance wattage, then multiply by <strong>1.5–2×</strong> for headroom.<br><br><strong>Quick guide:</strong><br>• Small apartment: <strong>1–2 KVA</strong><br>• Medium home + AC 1HP: <strong>3–5 KVA</strong><br>• Large home / AC 2HP+: <strong>7.5–10 KVA</strong><br>• Office: <strong>10–50 KVA</strong><br><br>WhatsApp: <strong>+234 903 215 6174</strong>'},
   {keys:['tokunbo','used','second hand','fairly used'],reply:'Yes! We stock both <strong>New</strong> and <strong>Tokunbo (fairly used)</strong> units — tested, quality-checked, and great value.<br><br>WhatsApp: <strong>+234 903 215 6174</strong>'},
   {keys:['brand','brands','sollatek','prostar','mikano','mercury'],reply:'We stock: <strong>Sollatek</strong>, <strong>Prostar</strong>, <strong>Mikano</strong>, <strong>Mercury</strong> and more — in new &amp; Tokunbo condition.<br><br>WhatsApp: <strong>+234 903 215 6174</strong>'},
-  {keys:['surge','suppressor','surge protector','spike','lightning','tvss'],reply:'We sell <strong>Power Surge Suppressors (TVSSs)</strong> from ₦8,000. Best used <em>alongside</em> a voltage regulator for full protection.<br><br>WhatsApp: <strong>+234 903 215 6174</strong>'},
+  {keys:['surge','suppressor','surge protector','spike','lightning','tvss'],reply:'We sell <strong>Surge Protective Devices (SPDs)</strong> from ₦8,000. Best used <em>alongside</em> a voltage regulator for full protection.<br><br>WhatsApp: <strong>+234 903 215 6174</strong>'},
   {keys:['inspection','safety','electrical safety','check','wiring','fault','electrician','book inspection'],reply:'We offer <strong>Professional Electrical Safety Inspections</strong> for homes, offices &amp; industrial premises.<br><br>Book via the form on this page or:<br>📱 WhatsApp: <strong>+234 903 215 6174</strong>'},
   {keys:['buy','order','purchase','stock','available','how to order'],reply:'Ordering is easy:<br>1️⃣ Click <strong>"Order Now"</strong> on any product card<br>2️⃣ Fill in your specs<br>3️⃣ Sent via WhatsApp — we confirm in <strong>24 hours</strong><br><br>📱 <strong>+234 903 215 6174</strong>'},
   {keys:['sell','i have','dispose','old regulator','buy from me','trade in'],reply:'Yes, we <strong>buy used power equipment</strong>! Send us: brand, KVA rating, condition &amp; photos.<br><br>📱 WhatsApp: <strong>+234 903 215 6174</strong>'},
@@ -1759,8 +1735,8 @@ var voltaKB=[
   {keys:['delivery','ship','lagos','abuja','nationwide','state'],reply:'We serve customers <strong>nationwide across Nigeria</strong>! Contact us for delivery timelines &amp; costs.<br><br>📱 WhatsApp: <strong>+234 903 215 6174</strong>'},
   {keys:['warranty','guarantee','return','refund','faulty'],reply:'New products come with manufacturer warranty. Tokunbo units are tested before sale. Contact us immediately for any issues.<br><br>📱 <strong>+234 903 215 6174</strong>'},
   {keys:['single phase','three phase','phase','industrial'],reply:'We stock both <strong>Single Phase</strong> (home/office) and <strong>Three Phase</strong> (industrial) regulators — 500VA to 50 KVA+.<br><br>📱 WhatsApp: <strong>+234 903 215 6174</strong>'},
-  {keys:['what is avr','voltage regulator','how does','stabiliser','stabilizer'],reply:'A <strong>Voltage Regulator (AVR)</strong> corrects unstable electricity — boosting low voltage and clamping high voltage — protecting your appliances.<br><br>A <strong>Surge Suppressor</strong> blocks brief, intense voltage spikes. For full protection, use <em>both</em> together!'},
-  {keys:['hello','hi','hey','good morning','good afternoon','good evening','start','help'],reply:'👋 Hello! Welcome to <strong>iVolt Power Solutions</strong>! I can help with:<br>⚡ AVR sizing &nbsp; 🛡️ Surge suppressors &nbsp; 💰 Pricing &nbsp; 🔌 Inspections &nbsp; 📦 Orders<br><br>What can I help you with?'},
+  {keys:['what is avr','voltage regulator','how does','stabiliser','stabilizer'],reply:'A <strong>Voltage Regulator (AVR)</strong> corrects unstable electricity — boosting low voltage and clamping high voltage — protecting your appliances.<br><br>A <strong>Surge Protective Device (SPD)</strong> blocks brief, intense voltage spikes. For full protection, use <em>both</em> together!'},
+  {keys:['hello','hi','hey','good morning','good afternoon','good evening','start','help'],reply:'👋 Hello! Welcome to <strong>iVolt Power Solutions</strong>! I can help with:<br>⚡ AVR sizing &nbsp; 🛡️ Surge protective devices &nbsp; 💰 Pricing &nbsp; 🔌 Inspections &nbsp; 📦 Orders<br><br>What can I help you with?'},
   {keys:['thank','thanks','okay','ok','great','perfect'],reply:'You\'re welcome! 😊 Anything else I can help with?<br>📱 WhatsApp: <strong>+234 903 215 6174</strong>'}
 ];
 
@@ -1778,7 +1754,6 @@ function sendChat() {
   setTimeout(function(){removeTyping();addMsg('bot',voltaRespond(text));},600+Math.floor(Math.random()*600));
 }
 
-// Inline msg bubble styles
 var msgStyle=document.createElement('style');
 msgStyle.textContent='.msg{display:flex;gap:8px;align-items:flex-start;}.msg.user{flex-direction:row-reverse;}.msg-bubble{background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:10px 13px;font-size:13px;line-height:1.6;max-width:100%;word-break:break-word;}.msg.user .msg-bubble{background:var(--cyan);border-color:var(--cyan);color:#000;}.msg-time{font-size:10px;color:var(--muted);margin-top:4px;padding:0 4px;}';
 document.head.appendChild(msgStyle);
