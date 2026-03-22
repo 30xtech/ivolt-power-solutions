@@ -860,7 +860,7 @@ table.price-table tbody tr:hover td { background: rgba(255,255,255,0.02); }
     <li><a href="#advertise">Advertise</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="#impex">📦 Import &amp; Export</a></li>
-    <li><a href="https://t.me/ivoltpowersolutions" target="_blank" rel="noopener" class="nav-tg" style="color:var(--tg);">✈️ TG Channel</a></li>
+    <li><a href="https://t.me/ivoltbot" target="_blank" rel="noopener" class="nav-tg" style="color:var(--tg);">🛒 Shop on Telegram</a></li>
     <li><a href="tel:+2349032156174" class="nav-cta">Call Now</a></li>
   </ul>
   <div class="hamburger" id="ham" onclick="toggleMenu()">
@@ -878,7 +878,7 @@ table.price-table tbody tr:hover td { background: rgba(255,255,255,0.02); }
   <a href="#advertise" onclick="toggleMenu()">Advertise</a>
   <a href="#contact" onclick="toggleMenu()">Contact</a>
   <a href="#impex" onclick="toggleMenu()">📦 Import &amp; Export</a>
-  <a href="https://t.me/ivoltpowersolutions" target="_blank" rel="noopener" class="mobile-tg" onclick="toggleMenu()">✈️ Telegram Channel</a>
+  <a href="https://t.me/ivoltbot" target="_blank" rel="noopener" class="mobile-tg" onclick="toggleMenu()">🛒 Shop on Telegram</a>
 </div>
 
 <!-- HERO -->
@@ -970,7 +970,7 @@ table.price-table tbody tr:hover td { background: rgba(255,255,255,0.02); }
   <div class="reveal">
     <div class="section-tag">Global Trade</div>
     <h2 class="section-title">Import &amp; Export</h2>
-    <p class="section-desc">We source, supply and ship power protection equipment internationally. Import quality units into Nigeria or export surplus stock to buyers worldwide — with real-time cost calculations.</p>
+    <p class="section-desc">We source, supply and ship power protection equipment across Nigeria and internationally. Import quality units into Nigeria or export surplus stock to buyers worldwide — with live cost calculations via our Telegram trade bot.</p>
   </div>
 
   <div class="impex-hero reveal">
@@ -978,11 +978,12 @@ table.price-table tbody tr:hover td { background: rgba(255,255,255,0.02); }
       <div>
         <div class="impex-hero-tag">Powered by Live Market Data</div>
         <h3>Live Import &amp; Export<br><span>Cost Calculator</span></h3>
-        <p class="impex-hero-desc">Our Telegram bot calculates real-time landed costs, import duties, freight, VAT, and profit margins for power equipment trade routes — updated live from commodity and FX markets every time you run a calculation.</p>
+        <p class="impex-hero-desc">Our Telegram bot calculates real-time landed costs, import duties, freight, VAT, and profit margins for power equipment trade routes — updated live from commodity and FX markets every time you run a calculation. All prices reflect the current Brent crude price, USD/NGN exchange rate, and Nigerian import duties at the moment you ask.</p>
         <div class="impex-hero-stats">
           <div><div class="impex-stat-val">19+</div><div class="impex-stat-lbl">Tradeable Items</div></div>
           <div><div class="impex-stat-val">7</div><div class="impex-stat-lbl">Trade Routes</div></div>
           <div><div class="impex-stat-val">Live</div><div class="impex-stat-lbl">FX &amp; Duties</div></div>
+          <div><div class="impex-stat-val">Free</div><div class="impex-stat-lbl">No Account Needed</div></div>
         </div>
       </div>
       <div class="impex-hero-ctas">
@@ -996,37 +997,100 @@ table.price-table tbody tr:hover td { background: rgba(255,255,255,0.02); }
     <button class="impex-tab active-import" id="impexTabImport" onclick="switchImpex('import')">📥 Import to Nigeria</button>
     <button class="impex-tab" id="impexTabExport" onclick="switchImpex('export')">📤 Export from Nigeria</button>
     <button class="impex-tab" id="impexTabHow" onclick="switchImpex('how')">🔧 How It Works</button>
+    <button class="impex-tab" id="impexTabBot" onclick="switchImpex('bot')">🤖 Bot Commands</button>
   </div>
 
   <!-- IMPORT PANEL -->
   <div class="impex-panel active reveal" id="impexPanelImport">
-    <p style="font-size:13px;color:var(--muted);margin-bottom:24px;line-height:1.7;">We source servo-based AVS units, surge protectors, and power conditioning equipment from China, UK, UAE, and Europe — and import them directly into Nigeria. All import duties and clearance are handled.</p>
+    <p style="font-size:13px;color:var(--muted);margin-bottom:24px;line-height:1.8;">
+      We source servo-based AVS units, surge protectors, and power conditioning equipment directly from manufacturers in China, UK, UAE, and Europe — and import them into Nigeria with full duty clearance and compliance documentation. Prices are calculated live using real exchange rates and current Nigerian import duties.
+    </p>
+
+    <!-- What "landed price" means -->
+    <div style="background:rgba(37,99,235,0.07);border:1px solid rgba(37,99,235,0.2);border-radius:10px;padding:18px 20px;margin-bottom:28px;">
+      <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--cyan);margin-bottom:10px;font-weight:700;">What is a Landed Price?</div>
+      <p style="font-size:13px;color:var(--text);line-height:1.8;margin:0;">
+        The <strong>landed price</strong> is the full cost of an imported item once it arrives at your door in Nigeria. It includes:
+        <strong>CIF value</strong> (cost + international freight + insurance) +
+        <strong>Import Duty</strong> (varies by HS code, typically 5–20%) +
+        <strong>VAT</strong> (7.5%) +
+        <strong>Port handling &amp; clearance</strong> +
+        <strong>Local logistics</strong> (Lagos to your state) +
+        <strong>FX risk buffer</strong> (protects against Naira movement between order and delivery).
+        Our bot calculates all of this live. The price you see is the price you pay — no surprises.
+      </p>
+    </div>
+
     <div class="impex-items-grid">
+      <!-- Servo-Based AVS -->
       <div class="impex-item-card">
         <span class="impex-item-icon">⚡</span>
-        <div class="impex-item-name">Servo-Based AVS</div>
-        <div class="impex-item-hs">HS CODE: 8504.40</div>
-        <div class="impex-item-desc">Single and three-phase servo motor stabilizers — 5kVA to 200kVA. Sourced from manufacturers in China and Europe with full compliance documentation.</div>
+        <div class="impex-item-name">Servo-Based AVS Units</div>
+        <div class="impex-item-hs">HS CODE: 8504.40 · Duty: 5–10%</div>
+        <div class="impex-item-desc">
+          Single and three-phase servo motor automatic voltage stabilizers — 2kVA to 200kVA. Sourced from certified manufacturers in China and Europe. These are the same units we stock in our Nigeria shop. Full compliance documentation included.
+        </div>
+        <div style="font-size:11px;color:var(--muted);margin:8px 0 10px;line-height:1.7;">
+          <strong style="color:var(--text);">Typical CIF range:</strong> $85–$1,200 depending on kVA<br>
+          <strong style="color:var(--text);">Landed (Nigeria):</strong> CIF × ~1.45 (duty+VAT+clearance)<br>
+          <strong style="color:var(--text);">Lead time:</strong> 4–8 weeks sea · 7–14 days air
+        </div>
         <div class="impex-item-tags"><span class="impex-item-tag itag-avail">In Stock</span><span class="impex-item-tag itag-demand">High Demand</span></div>
         <button class="impex-item-bot" onclick="openImpexOrder('import','Servo-Based AVS')">⚡ Get Import Quote</button>
       </div>
+
+      <!-- SPD -->
       <div class="impex-item-card gold-top">
         <span class="impex-item-icon">🛡️</span>
-        <div class="impex-item-name">Surge Protective Device Units</div>
-        <div class="impex-item-hs">HS CODE: 8535.40</div>
-        <div class="impex-item-desc">Type 1, Type 2, and Type 1+2 combined SPDs for residential, commercial, and industrial installations. Meets IEC 61643-11 standards.</div>
+        <div class="impex-item-name">Surge Protective Devices</div>
+        <div class="impex-item-hs">HS CODE: 8535.40 · Duty: 10%</div>
+        <div class="impex-item-desc">
+          Type 1, Type 2, and Type 1+2 combined SPDs for residential, commercial, and industrial installations. Meets IEC 61643-11. Installed at distribution boards to protect equipment from lightning surges and grid switching transients.
+        </div>
+        <div style="font-size:11px;color:var(--muted);margin:8px 0 10px;line-height:1.7;">
+          <strong style="color:var(--text);">Typical CIF range:</strong> $18–$85 per unit<br>
+          <strong style="color:var(--text);">Landed (Nigeria):</strong> CIF × ~1.45<br>
+          <strong style="color:var(--text);">MOQ:</strong> 10 units for import orders
+        </div>
         <div class="impex-item-tags"><span class="impex-item-tag itag-avail">Available</span><span class="impex-item-tag itag-demand">Growing</span></div>
         <button class="impex-item-bot" onclick="openImpexOrder('import','Surge Protective Device')">⚡ Get Import Quote</button>
       </div>
+
+      <!-- Isolation Transformers -->
       <div class="impex-item-card green-top">
         <span class="impex-item-icon">🏭</span>
         <div class="impex-item-name">Isolation Transformers</div>
-        <div class="impex-item-hs">HS CODE: 8504.21</div>
-        <div class="impex-item-desc">Medical grade and industrial isolation transformers. 1kVA to 50kVA, single and three phase. Used in hospitals, labs, and sensitive electronic environments.</div>
+        <div class="impex-item-hs">HS CODE: 8504.21 · Duty: 5%</div>
+        <div class="impex-item-desc">
+          Medical grade and industrial isolation transformers — 1kVA to 50kVA, single and three phase. Used in hospitals, diagnostic labs, server rooms, and sensitive electronic environments where galvanic isolation is required.
+        </div>
+        <div style="font-size:11px;color:var(--muted);margin:8px 0 10px;line-height:1.7;">
+          <strong style="color:var(--text);">Typical CIF range:</strong> $120–$1,800<br>
+          <strong style="color:var(--text);">Landed (Nigeria):</strong> CIF × ~1.40<br>
+          <strong style="color:var(--text);">Lead time:</strong> 6–10 weeks (order basis)
+        </div>
         <div class="impex-item-tags"><span class="impex-item-tag itag-avail">Order Basis</span><span class="impex-item-tag itag-demand">Specialist</span></div>
         <button class="impex-item-bot" onclick="openImpexOrder('import','Isolation Transformer')">⚡ Get Import Quote</button>
       </div>
+
+      <!-- Power Conditioning -->
+      <div class="impex-item-card">
+        <span class="impex-item-icon">🔌</span>
+        <div class="impex-item-name">Active Harmonic Filters</div>
+        <div class="impex-item-hs">HS CODE: 8504.40 · Duty: 5%</div>
+        <div class="impex-item-desc">
+          Three-phase active harmonic filters for industrial facilities with VFDs, rectifiers, and non-linear loads. Reduces THD to below 5% and improves power factor. Suitable for factories, data centres, and telecoms sites.
+        </div>
+        <div style="font-size:11px;color:var(--muted);margin:8px 0 10px;line-height:1.7;">
+          <strong style="color:var(--text);">Typical CIF range:</strong> $800–$6,000<br>
+          <strong style="color:var(--text);">Landed (Nigeria):</strong> CIF × ~1.42<br>
+          <strong style="color:var(--text);">Lead time:</strong> 6–12 weeks
+        </div>
+        <div class="impex-item-tags"><span class="impex-item-tag itag-avail">Order Basis</span><span class="impex-item-tag itag-demand">Industrial</span></div>
+        <button class="impex-item-bot" onclick="openImpexOrder('import','Active Harmonic Filter')">⚡ Get Import Quote</button>
+      </div>
     </div>
+
     <div class="impex-countries reveal">
       <div class="impex-countries-title">We source from</div>
       <div class="impex-country-pills">
@@ -1035,47 +1099,99 @@ table.price-table tbody tr:hover td { background: rgba(255,255,255,0.02); }
         <span class="impex-pill">🇪🇺 Europe</span>
         <span class="impex-pill">🇯🇵 Japan</span>
         <span class="impex-pill">🇺🇸 USA</span>
+        <span class="impex-pill">🇦🇪 UAE</span>
+      </div>
+    </div>
+
+    <!-- Import duty explainer -->
+    <div style="background:rgba(245,158,11,0.06);border:1px solid rgba(245,158,11,0.18);border-radius:10px;padding:18px 20px;margin-top:28px;">
+      <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:10px;font-weight:700;">Nigerian Import Requirements</div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;">
+        <div style="font-size:12px;color:var(--muted);line-height:1.8;"><strong style="color:var(--text);">Form M</strong><br>Required for all commercial imports above $10,000. We handle the Form M process via an approved Nigerian bank.</div>
+        <div style="font-size:12px;color:var(--muted);line-height:1.8;"><strong style="color:var(--text);">SON Certification</strong><br>Standards Organisation of Nigeria requires product certification for electrical equipment. We ensure all units meet SON requirements before shipping.</div>
+        <div style="font-size:12px;color:var(--muted);line-height:1.8;"><strong style="color:var(--text);">Port Clearance</strong><br>Customs clearance at Apapa/Tincan (Lagos) or Onne (Port Harcourt). We handle CIF, bill of lading, and customs agent coordination.</div>
+        <div style="font-size:12px;color:var(--muted);line-height:1.8;"><strong style="color:var(--text);">Live Cost Calculation</strong><br>Our trade bot calculates your exact landed cost in real-time — run <code style="background:rgba(255,255,255,0.07);padding:1px 5px;border-radius:3px;">/trade import Servo-Based AVS from=China qty=5</code> for an instant breakdown.</div>
       </div>
     </div>
   </div>
 
   <!-- EXPORT PANEL -->
   <div class="impex-panel reveal" id="impexPanelExport">
-    <p style="font-size:13px;color:var(--muted);margin-bottom:24px;line-height:1.7;">We connect Nigerian sellers and surplus equipment owners with international buyers. Whether you have used units, scrap copper, or bulk stock — we can help you find the right buyer and handle the export documentation.</p>
+    <p style="font-size:13px;color:var(--muted);margin-bottom:24px;line-height:1.8;">
+      We connect Nigerian sellers and surplus equipment owners with international buyers across West Africa, Europe, and Asia. Whether you have working used units, scrap copper, or bulk surplus stock — we handle the export documentation, shipping, and buyer matching. All prices are calculated live against current commodity and FX markets.
+    </p>
+
+    <!-- Export explainer -->
+    <div style="background:rgba(245,158,11,0.06);border:1px solid rgba(245,158,11,0.18);border-radius:10px;padding:18px 20px;margin-bottom:28px;">
+      <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:10px;font-weight:700;">How Export Pricing Works</div>
+      <p style="font-size:13px;color:var(--text);line-height:1.8;margin:0;">
+        Export prices are calculated live against international commodity benchmarks.
+        <strong>Scrap copper</strong> is priced against COMEX copper futures ($/tonne).
+        <strong>Aluminium</strong> is priced against LME aluminium.
+        <strong>Used equipment</strong> is priced at a discount to CIF replacement cost, adjusted for condition and age.
+        All prices are shown in both <strong>USD and NGN</strong> at the live exchange rate.
+        Our bot command <code style="background:rgba(255,255,255,0.07);padding:1px 5px;border-radius:3px;">/trade export copper from=Nigeria to=UK qty=1000</code> gives you a live quote including freight and documentation.
+      </p>
+    </div>
+
     <div class="impex-items-grid">
       <div class="impex-item-card gold-top">
         <span class="impex-item-icon">🔶</span>
         <div class="impex-item-name">Scrap Copper</div>
-        <div class="impex-item-hs">HS CODE: 7404.00</div>
-        <div class="impex-item-desc">Bare bright copper, copper wire scrap, and mixed copper from regulated sources. Priced live against COMEX copper futures. Minimum quantity: 500kg.</div>
+        <div class="impex-item-hs">HS CODE: 7404.00 · Export Permit Required</div>
+        <div class="impex-item-desc">Bare bright copper wire, copper busbars, and mixed copper from regulated sources. Priced live against COMEX copper futures. Full export documentation and NExIM bank compliance handled.</div>
+        <div style="font-size:11px;color:var(--muted);margin:8px 0 10px;line-height:1.7;">
+          <strong style="color:var(--text);">Live price:</strong> ~$8,500–$9,200/tonne (COMEX-linked)<br>
+          <strong style="color:var(--text);">Minimum qty:</strong> 500kg per shipment<br>
+          <strong style="color:var(--text);">Buyers:</strong> UK, Germany, China, India
+        </div>
         <div class="impex-item-tags"><span class="impex-item-tag itag-export">Export Ready</span><span class="impex-item-tag itag-demand">High Value</span></div>
         <button class="impex-item-bot" onclick="openImpexOrder('export','Scrap Copper')">📤 Get Export Quote</button>
       </div>
+
       <div class="impex-item-card">
         <span class="impex-item-icon">🪙</span>
         <div class="impex-item-name">Aluminium Scrap</div>
-        <div class="impex-item-hs">HS CODE: 7602.00</div>
-        <div class="impex-item-desc">Aluminium wire, busbars, and extrusion scrap. Priced live against LME aluminium. Ideal for regular export to UK, EU, and Asian buyers.</div>
+        <div class="impex-item-hs">HS CODE: 7602.00 · Export Permit Required</div>
+        <div class="impex-item-desc">Aluminium wire, busbars, conductor offcuts, and extrusion scrap from electrical projects. Priced live against LME aluminium. Consistent demand from UK, EU, and Asian buyers for secondary smelting.</div>
+        <div style="font-size:11px;color:var(--muted);margin:8px 0 10px;line-height:1.7;">
+          <strong style="color:var(--text);">Live price:</strong> ~$2,100–$2,400/tonne (LME-linked)<br>
+          <strong style="color:var(--text);">Minimum qty:</strong> 1 tonne per shipment<br>
+          <strong style="color:var(--text);">Buyers:</strong> UK, EU, Asia
+        </div>
         <div class="impex-item-tags"><span class="impex-item-tag itag-export">Export Ready</span><span class="impex-item-tag itag-demand">Steady</span></div>
         <button class="impex-item-bot" onclick="openImpexOrder('export','Aluminium Scrap')">📤 Get Export Quote</button>
       </div>
+
       <div class="impex-item-card green-top">
         <span class="impex-item-icon">⚡</span>
         <div class="impex-item-name">Used Servo-Based AVS Units</div>
-        <div class="impex-item-hs">HS CODE: 8504.40</div>
-        <div class="impex-item-desc">Tested, working used AVRs from Nigeria. Popular in West African markets — Ghana, Côte d'Ivoire, Cameroon, and Senegal. All units professionally tested before export.</div>
+        <div class="impex-item-hs">HS CODE: 8504.40 · Pre-shipment Testing Required</div>
+        <div class="impex-item-desc">Tested, working used AVRs from Nigeria. Popular in Ghana, Côte d'Ivoire, Cameroon, and Senegal where stabilizers are in high demand but new units are costly. All units professionally tested — output voltage verified, servo motor checked, transformer tested — before export.</div>
+        <div style="font-size:11px;color:var(--muted);margin:8px 0 10px;line-height:1.7;">
+          <strong style="color:var(--text);">Price range:</strong> 40–60% of new CIF value<br>
+          <strong style="color:var(--text);">Min qty:</strong> 5 units (mixed kVA accepted)<br>
+          <strong style="color:var(--text);">Markets:</strong> West Africa, East Africa
+        </div>
         <div class="impex-item-tags"><span class="impex-item-tag itag-export">Export Ready</span><span class="impex-item-tag itag-used">Used / Tokunbo</span></div>
         <button class="impex-item-bot" onclick="openImpexOrder('export','Used Servo-Based AVS Units')">📤 Get Export Quote</button>
       </div>
+
       <div class="impex-item-card gold-top">
         <span class="impex-item-icon">🛡️</span>
         <div class="impex-item-name">Surplus Power Equipment</div>
-        <div class="impex-item-hs">HS CODE: 8504</div>
-        <div class="impex-item-desc">Surplus or decommissioned UPS units, surge protectors, transformers, and switchgear from factories, offices, or telecoms companies looking to clear stock.</div>
+        <div class="impex-item-hs">HS CODE: 8504 · Condition Report Required</div>
+        <div class="impex-item-desc">Surplus or decommissioned UPS units, surge protectors, transformers, and switchgear from factories, offices, or telecoms companies. We assess, value, and find buyers. Any condition considered — working, faulty, or for parts.</div>
+        <div style="font-size:11px;color:var(--muted);margin:8px 0 10px;line-height:1.7;">
+          <strong style="color:var(--text);">Process:</strong> Send photos + specs → we value + find buyer<br>
+          <strong style="color:var(--text);">Timeline:</strong> 2–4 weeks to match buyer<br>
+          <strong style="color:var(--text);">Payment:</strong> USD or NGN at your preference
+        </div>
         <div class="impex-item-tags"><span class="impex-item-tag itag-export">Consignment</span><span class="impex-item-tag itag-used">Any Condition</span></div>
         <button class="impex-item-bot" onclick="openImpexOrder('export','Surplus Power Equipment')">📤 Get Export Quote</button>
       </div>
     </div>
+
     <div class="impex-countries reveal">
       <div class="impex-countries-title">We ship to</div>
       <div class="impex-country-pills">
@@ -1087,19 +1203,58 @@ table.price-table tbody tr:hover td { background: rgba(255,255,255,0.02); }
         <span class="impex-pill">🇸🇳 Senegal</span>
         <span class="impex-pill">🇨🇮 Côte d'Ivoire</span>
         <span class="impex-pill">🇦🇪 UAE</span>
+        <span class="impex-pill">🇮🇳 India</span>
+        <span class="impex-pill">🇨🇲 Cameroon</span>
       </div>
     </div>
   </div>
 
   <!-- HOW IT WORKS PANEL -->
   <div class="impex-panel reveal" id="impexPanelHow">
-    <p style="font-size:13px;color:var(--muted);margin-bottom:28px;line-height:1.7;">Our import and export process is straightforward. We handle documentation, freight, and customs — you just tell us what you need.</p>
+    <p style="font-size:13px;color:var(--muted);margin-bottom:28px;line-height:1.8;">Our import and export process is straightforward. We handle documentation, freight, and customs — you just tell us what you need and where it needs to go.</p>
     <div class="impex-how">
-      <div class="impex-step"><div class="impex-step-num">Step 01</div><div class="impex-step-icon">💬</div><h4>Tell Us What You Need</h4><p>Contact us on WhatsApp or join our Telegram channel. Tell us the product, quantity, route, and your timeline.</p></div>
-      <div class="impex-step"><div class="impex-step-num">Step 02</div><div class="impex-step-icon">📊</div><h4>Get a Live Cost Quote</h4><p>We calculate your full landed cost — goods, freight, insurance, import duty, VAT, and port handling — using real-time market data via our trade bot.</p></div>
-      <div class="impex-step"><div class="impex-step-num">Step 03</div><div class="impex-step-icon">📋</div><h4>Documentation &amp; Compliance</h4><p>We prepare or assist with: commercial invoice, packing list, certificate of origin, Form M, SON/NAFDAC compliance, and HS code classification.</p></div>
-      <div class="impex-step"><div class="impex-step-num">Step 04</div><div class="impex-step-icon">🚢</div><h4>Freight &amp; Shipping</h4><p>We arrange sea freight (20/40ft containers), air freight, or courier depending on quantity and urgency. Full tracking provided.</p></div>
-      <div class="impex-step"><div class="impex-step-num">Step 05</div><div class="impex-step-icon">🏁</div><h4>Clearance &amp; Delivery</h4><p>Customs clearance at Apapa/Tincan or Murtala airport. Last-mile delivery to your location anywhere in Nigeria or delivery to buyer's port abroad.</p></div>
+      <div class="impex-step"><div class="impex-step-num">Step 01</div><div class="impex-step-icon">💬</div><h4>Contact Us</h4><p>Reach us on WhatsApp (+234-903-215-6174), Telegram (@ivoltadmin), or via the trade bot. Tell us the product, quantity, route, and your timeline. For exports, send photos and a brief condition report.</p></div>
+      <div class="impex-step"><div class="impex-step-num">Step 02</div><div class="impex-step-icon">📊</div><h4>Live Cost Quote</h4><p>We calculate your full landed or export cost using real-time market data — goods value, freight, insurance, import duty, VAT, port handling, and last-mile delivery. Our trade bot (<code>/trade import</code> or <code>/trade export</code>) generates this instantly.</p></div>
+      <div class="impex-step"><div class="impex-step-num">Step 03</div><div class="impex-step-icon">📋</div><h4>Documentation</h4><p>We prepare or assist with: commercial invoice, packing list, certificate of origin, Form M (imports), NExIM bank compliance (exports), SON/NAFDAC product certification, and HS code classification.</p></div>
+      <div class="impex-step"><div class="impex-step-num">Step 04</div><div class="impex-step-icon">🚢</div><h4>Freight &amp; Shipping</h4><p>We arrange sea freight (20ft/40ft container or LCL), air freight, or courier depending on quantity and urgency. Full shipment tracking provided from origin to delivery.</p></div>
+      <div class="impex-step"><div class="impex-step-num">Step 05</div><div class="impex-step-icon">🏁</div><h4>Clearance &amp; Delivery</h4><p>Customs clearance at Apapa/Tincan (Lagos) or Murtala airport. Last-mile delivery to your location anywhere in Nigeria. For exports — delivery to the buyer's nominated port or freight forwarder abroad.</p></div>
+    </div>
+  </div>
+
+  <!-- BOT COMMANDS PANEL -->
+  <div class="impex-panel reveal" id="impexPanelBot">
+    <p style="font-size:13px;color:var(--muted);margin-bottom:28px;line-height:1.8;">Our Telegram trade bot calculates live import and export costs for any supported item and route. All prices update in real-time from commodity markets and FX rates. Free to use — no account needed.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px;margin-bottom:32px;">
+      <div style="background:var(--card);border:1px solid var(--border);border-radius:10px;padding:20px;border-left:3px solid var(--cyan);">
+        <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--cyan);margin-bottom:12px;font-weight:700;">Import Commands</div>
+        <code style="display:block;font-size:12px;color:var(--text);background:rgba(0,0,0,0.3);padding:8px 10px;border-radius:6px;margin-bottom:8px;line-height:1.8;">/trade import<br>→ See all importable items</code>
+        <code style="display:block;font-size:12px;color:var(--text);background:rgba(0,0,0,0.3);padding:8px 10px;border-radius:6px;margin-bottom:8px;line-height:1.8;">/trade import Servo-Based AVS from=China to=Nigeria qty=5<br>→ Full landed cost breakdown</code>
+        <code style="display:block;font-size:12px;color:var(--text);background:rgba(0,0,0,0.3);padding:8px 10px;border-radius:6px;line-height:1.8;">/trade margin Servo-Based AVS from=China<br>→ Profit margin analysis</code>
+      </div>
+      <div style="background:var(--card);border:1px solid var(--border);border-radius:10px;padding:20px;border-left:3px solid var(--gold);">
+        <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:12px;font-weight:700;">Export Commands</div>
+        <code style="display:block;font-size:12px;color:var(--text);background:rgba(0,0,0,0.3);padding:8px 10px;border-radius:6px;margin-bottom:8px;line-height:1.8;">/trade export<br>→ See all exportable items</code>
+        <code style="display:block;font-size:12px;color:var(--text);background:rgba(0,0,0,0.3);padding:8px 10px;border-radius:6px;margin-bottom:8px;line-height:1.8;">/trade export copper from=Nigeria to=UK qty=1000<br>→ Export value + freight cost</code>
+        <code style="display:block;font-size:12px;color:var(--text);background:rgba(0,0,0,0.3);padding:8px 10px;border-radius:6px;line-height:1.8;">/trade rates<br>→ Live FX snapshot</code>
+      </div>
+      <div style="background:var(--card);border:1px solid var(--border);border-radius:10px;padding:20px;border-left:3px solid var(--green);">
+        <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--green);margin-bottom:12px;font-weight:700;">What Each Quote Includes</div>
+        <ul style="list-style:none;padding:0;font-size:12px;color:var(--muted);line-height:2.1;">
+          <li>✅ CIF value (goods + freight + insurance)</li>
+          <li>✅ Import duty (HS code specific)</li>
+          <li>✅ VAT (7.5%)</li>
+          <li>✅ Port handling &amp; clearance estimate</li>
+          <li>✅ Last-mile delivery fee (Lagos→your state)</li>
+          <li>✅ FX risk buffer</li>
+          <li>✅ Total landed cost in ₦ and $</li>
+          <li>✅ Suggested retail margin</li>
+        </ul>
+      </div>
+    </div>
+    <div style="text-align:center;">
+      <a href="https://t.me/ivoltbot" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:10px;background:var(--cyan);color:#000;font-weight:700;font-size:14px;padding:14px 32px;border-radius:8px;text-decoration:none;transition:background .2s,transform .2s;" onmouseover="this.style.background='#1d4ed8'" onmouseout="this.style.background='var(--cyan)'">
+        ⚡ Open Trade Bot on Telegram
+      </a>
     </div>
   </div>
 
@@ -1107,7 +1262,7 @@ table.price-table tbody tr:hover td { background: rgba(255,255,255,0.02); }
     <div class="impex-bot-cta-icon">🤖</div>
     <div>
       <h4>Calculate Real-Time Import / Export Costs in Telegram</h4>
-      <p>Our free Telegram bot calculates live landed costs, import duties, freight estimates, and profit margins for every tradeable item — updated in real-time from commodity and FX markets. Run <strong>/trade import</strong> or <strong>/trade export</strong> for an instant quote.</p>
+      <p>Our free Telegram bot calculates live landed costs, import duties, freight estimates, and profit margins for every tradeable item — updated in real-time from commodity and FX markets. Run <strong>/trade import</strong> or <strong>/trade export</strong> for an instant quote with full breakdown. Free to use, no account needed.</p>
     </div>
     <div class="impex-bot-cta-btns">
       <a href="https://t.me/ivoltbot" target="_blank" rel="noopener" class="impex-btn-tg">⚡ Open Trade Bot</a>
@@ -1133,58 +1288,219 @@ table.price-table tbody tr:hover td { background: rgba(255,255,255,0.02); }
   </div>
 </section>
 
-<!-- PRICE LIST -->
+<!-- PRICE LIST & SHOP -->
 <section id="pricelist" class="pricelist-section">
   <div class="reveal">
     <div class="section-tag">Market Rates</div>
-    <h2 class="section-title">Nigeria Price Guide</h2>
-    <p class="section-desc">Current market price ranges for Servo-Based AVS Units and Surge Protective Devices across Nigeria. Use this as a guide when budgeting.</p>
+    <h2 class="section-title">Live Prices &amp; Online Shop</h2>
+    <p class="section-desc">All prices are calculated live from real market data — exchange rates, commodity prices, import duties and logistics — every time you ask. Nothing is hardcoded. Use the Telegram bot to get exact, up-to-the-minute prices.</p>
   </div>
-  <div class="pricelist-notice reveal">
-    <span>⚠️</span>
-    <div>Prices shown are <strong>estimated market ranges</strong> sourced from Nigerian dealers and online platforms (2025). Actual prices vary by brand, location, and availability. Contact us for our exact rates — we aim to beat the market.
-      <div style="margin-top:10px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
-        <span id="priceLastUpdated" style="font-size:11px;color:var(--muted);">Last updated: loading...</span>
-        <button id="priceRefreshBtn" onclick="refreshPrices()" style="background:rgba(37,99,235,0.15);border:1px solid rgba(37,99,235,0.4);color:var(--cyan);border-radius:6px;padding:5px 14px;font-size:11px;font-weight:700;cursor:pointer;letter-spacing:1px;">⟳ REFRESH PRICES</button>
-        <span id="priceRefreshStatus" style="font-size:11px;color:var(--green);display:none;">✓ Prices updated!</span>
+
+  <!-- Two-column intro cards -->
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-bottom:40px;" class="reveal">
+
+    <!-- /price card -->
+    <div style="background:linear-gradient(135deg,rgba(6,36,72,0.7),rgba(37,99,235,0.08));border:1px solid rgba(37,99,235,0.2);border-radius:12px 0 0 12px;padding:36px 32px;position:relative;overflow:hidden;">
+      <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#1e3a8a,#2563eb);"></div>
+      <div style="font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--cyan);margin-bottom:14px;font-weight:700;">Import Landed Prices</div>
+      <div style="font-family:'Montserrat',sans-serif;font-size:clamp(36px,5vw,56px);font-weight:900;line-height:1;color:#34d399;margin-bottom:14px;">/price</div>
+      <p style="font-size:13px;color:var(--muted);line-height:1.8;margin-bottom:20px;max-width:360px;">
+        Shows the <strong style="color:var(--text);">full landed cost</strong> of importing power equipment into Nigeria. Every price is calculated live at the moment you run the command — using the current USD/NGN exchange rate, Brent crude price, and Nigerian import duty schedule.
+      </p>
+      <div style="font-size:12px;color:var(--muted);line-height:2;margin-bottom:20px;">
+        <strong style="color:var(--text);display:block;margin-bottom:6px;">What's included in each price:</strong>
+        <span style="display:flex;align-items:center;gap:8px;">✅ CIF value (goods + international freight + insurance)</span>
+        <span style="display:flex;align-items:center;gap:8px;">✅ Import duty (5–20% depending on HS code)</span>
+        <span style="display:flex;align-items:center;gap:8px;">✅ VAT (7.5% on duty-paid value)</span>
+        <span style="display:flex;align-items:center;gap:8px;">✅ Local logistics (Lagos port to your city)</span>
+        <span style="display:flex;align-items:center;gap:8px;">✅ FX risk buffer (Naira hedging)</span>
+        <span style="display:flex;align-items:center;gap:8px;">✅ Inflation adjustment (Nigerian CPI)</span>
+        <span style="display:flex;align-items:center;gap:8px;">✅ Retail margin (our standard markup)</span>
+      </div>
+      <div style="background:rgba(0,0,0,0.3);border-radius:8px;padding:14px 16px;margin-bottom:20px;">
+        <div style="font-size:10px;letter-spacing:2px;color:var(--cyan);margin-bottom:8px;font-weight:700;">EXAMPLE COMMANDS</div>
+        <code style="display:block;font-size:12px;color:var(--text);line-height:2;">/price<br>/price stabilizers<br>/price surge<br>/price transformers<br>/invoice 5kVA Servo-Based AVS 1 Lagos</code>
+      </div>
+      <a href="https://t.me/ivoltbot" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;background:rgba(16,185,129,0.12);color:var(--green);border:1px solid rgba(16,185,129,0.3);border-radius:8px;padding:10px 20px;font-size:13px;font-weight:700;text-decoration:none;transition:all .2s;" onmouseover="this.style.background='rgba(16,185,129,0.22)'" onmouseout="this.style.background='rgba(16,185,129,0.12)'">
+        ⚡ Run /price on Telegram
+      </a>
+    </div>
+
+    <!-- /shop card -->
+    <div style="background:linear-gradient(135deg,rgba(69,10,10,0.5),rgba(245,158,11,0.07));border:1px solid rgba(245,158,11,0.2);border-radius:0 12px 12px 0;padding:36px 32px;position:relative;overflow:hidden;">
+      <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold),#d97706);"></div>
+      <div style="font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:14px;font-weight:700;">Nigeria Retail Shop</div>
+      <div style="font-family:'Montserrat',sans-serif;font-size:clamp(36px,5vw,56px);font-weight:900;line-height:1;color:#f87171;margin-bottom:14px;">/shop</div>
+      <p style="font-size:13px;color:var(--muted);line-height:1.8;margin-bottom:20px;max-width:360px;">
+        Browse our <strong style="color:var(--text);">Mercury Direct stabilizer catalogue</strong> with live retail prices, stock status, and delivery fees to your state. Every price reflects the current Brent crude price (which drives logistics), the USD/NGN rate, and our current retail margin.
+      </p>
+      <div style="font-size:12px;color:var(--muted);line-height:2;margin-bottom:20px;">
+        <strong style="color:var(--text);display:block;margin-bottom:6px;">What you get from /shop:</strong>
+        <span style="display:flex;align-items:center;gap:8px;">🛒 10 Mercury Direct stabilizers (2kVA–50kVA)</span>
+        <span style="display:flex;align-items:center;gap:8px;">📸 Product photos, specs, and weight</span>
+        <span style="display:flex;align-items:center;gap:8px;">✅ Live stock status (in stock / low / out)</span>
+        <span style="display:flex;align-items:center;gap:8px;">🚚 Live delivery fee to any of Nigeria's 36 states</span>
+        <span style="display:flex;align-items:center;gap:8px;">💰 Price in ₦ and $ with exchange rate shown</span>
+        <span style="display:flex;align-items:center;gap:8px;">🧾 Instant checkout invoice (bank + USDT + PayPal)</span>
+        <span style="display:flex;align-items:center;gap:8px;">⚡ Flash sales and bulk discounts when active</span>
+        <span style="display:flex;align-items:center;gap:8px;">🔔 Back-in-stock and price-drop alerts</span>
+      </div>
+      <div style="background:rgba(0,0,0,0.3);border-radius:8px;padding:14px 16px;margin-bottom:20px;">
+        <div style="font-size:10px;letter-spacing:2px;color:var(--gold);margin-bottom:8px;font-weight:700;">EXAMPLE COMMANDS</div>
+        <code style="display:block;font-size:12px;color:var(--text);line-height:2;">/shop<br>/shop STAB-10KVA-1PH Lagos<br>/invoice STAB-5KVA 2 Abuja<br>/notify stock STAB-10KVA-3PH<br>/compare STAB-5KVA STAB-10KVA-1PH</code>
+      </div>
+      <a href="https://t.me/ivoltbot" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;background:rgba(245,158,11,0.12);color:var(--gold);border:1px solid rgba(245,158,11,0.3);border-radius:8px;padding:10px 20px;font-size:13px;font-weight:700;text-decoration:none;transition:all .2s;" onmouseover="this.style.background='rgba(245,158,11,0.22)'" onmouseout="this.style.background='rgba(245,158,11,0.12)'">
+        🛒 Browse Shop on Telegram
+      </a>
+    </div>
+  </div>
+
+  <!-- Difference between /price and /shop -->
+  <div style="background:rgba(255,255,255,0.03);border:1px solid var(--border);border-radius:12px;padding:28px 32px;margin-bottom:40px;" class="reveal">
+    <div style="font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--muted);margin-bottom:16px;font-weight:700;">📌 /price vs /shop — What's the Difference?</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;">
+      <div>
+        <div style="font-size:14px;font-weight:700;color:var(--cyan);margin-bottom:10px;">/price — Import Cost Tool</div>
+        <p style="font-size:13px;color:var(--muted);line-height:1.8;">Shows what it would cost to import any power equipment into Nigeria from China, UK, Europe, or the USA. Useful for purchasing agents, contractors, and businesses that import their own stock. Covers dozens of equipment types — stabilizers, SPDs, transformers, UPS units, harmonic filters, and more. Prices are the full CIF-to-door landed cost, not just the ex-factory price.</p>
+      </div>
+      <div>
+        <div style="font-size:14px;font-weight:700;color:var(--gold);margin-bottom:10px;">/shop — Buy from iVolt Directly</div>
+        <p style="font-size:13px;color:var(--muted);line-height:1.8;">Shows what we are selling right now from our own stock. These are Mercury Direct stabilizers already in Nigeria — no import, no waiting for clearance. You pay, we arrange delivery. You get a proper invoice with bank transfer, USDT, and PayPal payment options, plus the exact delivery fee to your state calculated live from current diesel prices and distance from Lagos.</p>
       </div>
     </div>
   </div>
+
+  <!-- Market price guide (original table, clearly labelled as a guide) -->
+  <div class="pricelist-notice reveal">
+    <span>📊</span>
+    <div>
+      <strong>Nigeria Market Price Guide (2025)</strong> — estimates from dealers and online platforms.<br>
+      These ranges help you budget and compare. Our actual prices (via the bot) may differ based on live FX and stock.
+      <div style="margin-top:10px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+        <span id="priceLastUpdated" style="font-size:11px;color:var(--muted);">Last updated: loading...</span>
+        <button id="priceRefreshBtn" onclick="refreshPrices()" style="background:rgba(37,99,235,0.15);border:1px solid rgba(37,99,235,0.4);color:var(--cyan);border-radius:6px;padding:5px 14px;font-size:11px;font-weight:700;cursor:pointer;letter-spacing:1px;">⟳ REFRESH PRICES</button>
+        <span id="priceRefreshStatus" style="font-size:11px;color:var(--green);display:none;">✓ Updated!</span>
+      </div>
+    </div>
+  </div>
+
   <div class="pricelist-tabs reveal">
     <button class="ptab active" onclick="switchTab('regulator')">🔌 Servo-Based AVS Units</button>
     <button class="ptab" onclick="switchTab('suppressor')">🛡️ Surge Protective Devices</button>
   </div>
+
   <div class="ptable-panel active reveal" id="tab-regulator">
     <div class="pricelist-table-wrap">
       <table class="price-table">
-        <thead><tr><th>Product / Brand</th><th>KVA Rating</th><th>Phase</th><th>Best Use</th><th>New (₦)</th><th>Tokunbo (₦)</th></tr></thead>
+        <thead><tr><th>Product / Brand</th><th>KVA</th><th>Phase</th><th>Best Use</th><th>New (₦)</th><th>Tokunbo (₦)</th></tr></thead>
         <tbody>
-          <tr><td>Bluegate / Century AVR</td><td>1 KVA</td><td>Single</td><td><span class="use-tag use-home">Home</span></td><td><span class="price-new">₦12,000 – ₦18,000</span></td><td><span class="price-used">₦6,000 – ₦10,000</span></td></tr>
-          <tr><td>Binatone / Sumec Firman</td><td>1.5 – 2 KVA</td><td>Single</td><td><span class="use-tag use-home">Home</span></td><td><span class="price-new">₦18,000 – ₦28,000</span></td><td><span class="price-used">₦9,000 – ₦15,000</span></td></tr>
-          <tr><td>Haier Thermocool / A&amp;E</td><td>3 KVA</td><td>Single</td><td><span class="use-tag use-home">Home</span></td><td><span class="price-new">₦30,000 – ₦45,000</span></td><td><span class="price-used">₦15,000 – ₦25,000</span></td></tr>
-          <tr><td>Bluegate / A&amp;E Servo</td><td>5 KVA</td><td>Single</td><td><span class="use-tag use-office">Office</span></td><td><span class="price-new">₦50,000 – ₦75,000</span></td><td><span class="price-used">₦25,000 – ₦40,000</span></td></tr>
-          <tr><td>PRAG / Zinox Servo</td><td>10 KVA</td><td>Single</td><td><span class="use-tag use-office">Office</span></td><td><span class="price-new">₦120,000 – ₦185,000</span></td><td><span class="price-used">₦60,000 – ₦95,000</span></td></tr>
-          <tr><td>Bluegate / PRAG Servo</td><td>15 KVA</td><td>Single</td><td><span class="use-tag use-office">Office</span></td><td><span class="price-new">₦160,000 – ₦230,000</span></td><td><span class="price-used">₦80,000 – ₦120,000</span></td></tr>
-          <tr><td>Mikano / Apex Servo</td><td>20 KVA</td><td>Single / Three</td><td><span class="use-tag use-industrial">Industrial</span></td><td><span class="price-new">₦220,000 – ₦320,000</span></td><td><span class="price-used">₦110,000 – ₦170,000</span></td></tr>
-          <tr><td>Apex / Industrial Servo</td><td>30 KVA</td><td>Three</td><td><span class="use-tag use-industrial">Industrial</span></td><td><span class="price-new">₦380,000 – ₦520,000</span></td><td><span class="price-used">₦190,000 – ₦280,000</span></td></tr>
-          <tr><td>Heavy-Duty Industrial</td><td>50 KVA</td><td>Three</td><td><span class="use-tag use-industrial">Industrial</span></td><td><span class="price-new">₦650,000 – ₦950,000</span></td><td><span class="price-used">₦320,000 – ₦480,000</span></td></tr>
+          <tr><td>Bluegate / Century AVR</td><td>1 kVA</td><td>Single</td><td><span class="use-tag use-home">Home</span></td><td><span class="price-new">₦12,000 – ₦18,000</span></td><td><span class="price-used">₦6,000 – ₦10,000</span></td></tr>
+          <tr><td>Binatone / Sumec Firman</td><td>2 kVA</td><td>Single</td><td><span class="use-tag use-home">Home</span></td><td><span class="price-new">₦18,000 – ₦30,000</span></td><td><span class="price-used">₦9,000 – ₦16,000</span></td></tr>
+          <tr><td>Mercury / Haier Thermocool</td><td>5 kVA</td><td>Single</td><td><span class="use-tag use-home">Home / Office</span></td><td><span class="price-new">₦50,000 – ₦85,000</span></td><td><span class="price-used">₦25,000 – ₦45,000</span></td></tr>
+          <tr><td>Mercury / PRAG Servo</td><td>10 kVA</td><td>Single</td><td><span class="use-tag use-office">Office</span></td><td><span class="price-new">₦120,000 – ₦200,000</span></td><td><span class="price-used">₦60,000 – ₦105,000</span></td></tr>
+          <tr><td>Mercury / PRAG Servo 3Ph</td><td>10 kVA</td><td>Three</td><td><span class="use-tag use-office">Office</span></td><td><span class="price-new">₦180,000 – ₦280,000</span></td><td><span class="price-used">₦90,000 – ₦145,000</span></td></tr>
+          <tr><td>Mercury / Apex Servo</td><td>15 kVA</td><td>Single</td><td><span class="use-tag use-office">Office</span></td><td><span class="price-new">₦180,000 – ₦270,000</span></td><td><span class="price-used">₦90,000 – ₦140,000</span></td></tr>
+          <tr><td>Mikano / Apex Servo 3Ph</td><td>20 kVA</td><td>Three</td><td><span class="use-tag use-industrial">Industrial</span></td><td><span class="price-new">₦300,000 – ₦420,000</span></td><td><span class="price-used">₦150,000 – ₦220,000</span></td></tr>
+          <tr><td>Industrial Servo 3Ph</td><td>30 kVA</td><td>Three</td><td><span class="use-tag use-industrial">Industrial</span></td><td><span class="price-new">₦420,000 – ₦580,000</span></td><td><span class="price-used">₦210,000 – ₦300,000</span></td></tr>
+          <tr><td>Heavy-Duty Industrial 3Ph</td><td>50 kVA</td><td>Three</td><td><span class="use-tag use-industrial">Industrial</span></td><td><span class="price-new">₦700,000 – ₦1,000,000</span></td><td><span class="price-used">₦350,000 – ₦520,000</span></td></tr>
         </tbody>
       </table>
     </div>
+    <p style="font-size:11px;color:var(--muted);margin-top:12px;line-height:1.7;">⚡ For live Mercury Direct prices with delivery fee to your state, run <strong style="color:var(--cyan);">/shop</strong> on our Telegram bot. The bot shows exact prices from our current stock, not market estimates.</p>
   </div>
+
   <div class="ptable-panel reveal" id="tab-suppressor">
     <div class="pricelist-table-wrap">
       <table class="price-table">
-        <thead><tr><th>Product / Brand</th><th>Capacity</th><th>Ports</th><th>Best Use</th><th>New (₦)</th><th>Tokunbo (₦)</th></tr></thead>
+        <thead><tr><th>Product / Brand</th><th>Capacity</th><th>Type</th><th>Best Use</th><th>New (₦)</th><th>Tokunbo (₦)</th></tr></thead>
         <tbody>
-          <tr><td>Basic Surge Protector Strip</td><td>4 – 6 Socket</td><td>4 – 6</td><td><span class="use-tag use-home">Home</span></td><td><span class="price-new">₦5,000 – ₦12,000</span></td><td><span class="price-na">—</span></td></tr>
-          <tr><td>Nexus / Mercury Surge Guard</td><td>1,000VA</td><td>6 – 8</td><td><span class="use-tag use-home">Home</span></td><td><span class="price-new">₦14,000 – ₦22,000</span></td><td><span class="price-used">₦7,000 – ₦12,000</span></td></tr>
-          <tr><td>APC / Eaton Line Conditioner</td><td>2 KVA</td><td>8+</td><td><span class="use-tag use-office">Office</span></td><td><span class="price-new">₦35,000 – ₦60,000</span></td><td><span class="price-used">₦18,000 – ₦30,000</span></td></tr>
-          <tr><td>APC / Eaton Power Conditioner</td><td>5 KVA</td><td>8+</td><td><span class="use-tag use-office">Office</span></td><td><span class="price-new">₦85,000 – ₦140,000</span></td><td><span class="price-used">₦40,000 – ₦70,000</span></td></tr>
-          <tr><td>Industrial Surge Protective Device</td><td>10 KVA</td><td>Panel-mount</td><td><span class="use-tag use-industrial">Industrial</span></td><td><span class="price-new">₦160,000 – ₦250,000</span></td><td><span class="price-used">₦80,000 – ₦130,000</span></td></tr>
-          <tr><td>Heavy-Duty Suppressor</td><td>20 – 30 KVA</td><td>Panel-mount</td><td><span class="use-tag use-industrial">Industrial</span></td><td><span class="price-new">₦300,000 – ₦500,000</span></td><td><span class="price-used">₦150,000 – ₦260,000</span></td></tr>
+          <tr><td>Type 3 Plug-In Suppressor</td><td>6kA</td><td>Type 3</td><td><span class="use-tag use-home">Home — wall socket</span></td><td><span class="price-new">₦5,000 – ₦14,000</span></td><td><span class="price-na">—</span></td></tr>
+          <tr><td>Type 2 DIN-Rail SPD</td><td>40kA</td><td>Type 2</td><td><span class="use-tag use-home">Home / Office DB</span></td><td><span class="price-new">₦18,000 – ₦35,000</span></td><td><span class="price-used">₦9,000 – ₦18,000</span></td></tr>
+          <tr><td>Type 2 SPD — 3-Phase</td><td>40kA</td><td>Type 2</td><td><span class="use-tag use-office">Office — 3Ph DB</span></td><td><span class="price-new">₦35,000 – ₦65,000</span></td><td><span class="price-used">₦18,000 – ₦35,000</span></td></tr>
+          <tr><td>Type 1+2 Combined SPD</td><td>100kA</td><td>Type 1+2</td><td><span class="use-tag use-office">Service entrance</span></td><td><span class="price-new">₦65,000 – ₦120,000</span></td><td><span class="price-used">₦32,000 – ₦60,000</span></td></tr>
+          <tr><td>Type 1 SPD — Main Entry</td><td>200kA</td><td>Type 1</td><td><span class="use-tag use-industrial">Industrial / Factory</span></td><td><span class="price-new">₦140,000 – ₦260,000</span></td><td><span class="price-used">₦70,000 – ₦130,000</span></td></tr>
+          <tr><td>Data Centre SPD Package</td><td>200kA</td><td>T1+T2+T3</td><td><span class="use-tag use-industrial">Data Centre</span></td><td><span class="price-new">₦350,000 – ₦600,000</span></td><td><span class="price-na">—</span></td></tr>
         </tbody>
       </table>
+    </div>
+    <p style="font-size:11px;color:var(--muted);margin-top:12px;line-height:1.7;">⚡ For live import landed prices on SPDs, run <strong style="color:var(--cyan);">/price surge</strong> on our Telegram bot. For wiring diagrams, run <strong style="color:var(--cyan);">/schematic surge type2 single</strong>.</p>
+  </div>
+
+  <!-- All-features grid -->
+  <div style="margin-top:48px;" class="reveal">
+    <div style="font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--muted);margin-bottom:20px;font-weight:700;text-align:center;">Everything Available Free on the Bot</div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;">
+      <div style="background:var(--card);border:1px solid var(--border);border-radius:8px;padding:14px 16px;">
+        <div style="font-size:18px;margin-bottom:8px;">🛒</div>
+        <div style="font-size:12px;font-weight:700;color:var(--text);margin-bottom:4px;">/shop</div>
+        <div style="font-size:11px;color:var(--muted);line-height:1.6;">Mercury Direct catalogue with live stock, prices and photos</div>
+      </div>
+      <div style="background:var(--card);border:1px solid var(--border);border-radius:8px;padding:14px 16px;">
+        <div style="font-size:18px;margin-bottom:8px;">💰</div>
+        <div style="font-size:12px;font-weight:700;color:var(--text);margin-bottom:4px;">/price</div>
+        <div style="font-size:11px;color:var(--muted);line-height:1.6;">Import landed prices — duty, VAT, logistics, FX risk all included</div>
+      </div>
+      <div style="background:var(--card);border:1px solid var(--border);border-radius:8px;padding:14px 16px;">
+        <div style="font-size:18px;margin-bottom:8px;">🧾</div>
+        <div style="font-size:12px;font-weight:700;color:var(--text);margin-bottom:4px;">/invoice</div>
+        <div style="font-size:11px;color:var(--muted);line-height:1.6;">Instant checkout invoice in NGN + USD with payment details</div>
+      </div>
+      <div style="background:var(--card);border:1px solid var(--border);border-radius:8px;padding:14px 16px;">
+        <div style="font-size:18px;margin-bottom:8px;">🚚</div>
+        <div style="font-size:12px;font-weight:700;color:var(--text);margin-bottom:4px;">/shop [SKU] [state]</div>
+        <div style="font-size:11px;color:var(--muted);line-height:1.6;">Delivery fee to any Nigerian state — live oil-driven calculation</div>
+      </div>
+      <div style="background:var(--card);border:1px solid var(--border);border-radius:8px;padding:14px 16px;">
+        <div style="font-size:18px;margin-bottom:8px;">🔔</div>
+        <div style="font-size:12px;font-weight:700;color:var(--text);margin-bottom:4px;">/notify</div>
+        <div style="font-size:11px;color:var(--muted);line-height:1.6;">Back-in-stock alert and price-drop notification</div>
+      </div>
+      <div style="background:var(--card);border:1px solid var(--border);border-radius:8px;padding:14px 16px;">
+        <div style="font-size:18px;margin-bottom:8px;">⚖️</div>
+        <div style="font-size:12px;font-weight:700;color:var(--text);margin-bottom:4px;">/compare</div>
+        <div style="font-size:11px;color:var(--muted);line-height:1.6;">Side-by-side product comparison with delivery costs</div>
+      </div>
+      <div style="background:var(--card);border:1px solid var(--border);border-radius:8px;padding:14px 16px;">
+        <div style="font-size:18px;margin-bottom:8px;">📐</div>
+        <div style="font-size:12px;font-weight:700;color:var(--text);margin-bottom:4px;">/schematic</div>
+        <div style="font-size:11px;color:var(--muted);line-height:1.6;">Live wiring diagrams for any stabilizer or SPD</div>
+      </div>
+      <div style="background:var(--card);border:1px solid var(--border);border-radius:8px;padding:14px 16px;">
+        <div style="font-size:18px;margin-bottom:8px;">📦</div>
+        <div style="font-size:12px;font-weight:700;color:var(--text);margin-bottom:4px;">/track</div>
+        <div style="font-size:11px;color:var(--muted);line-height:1.6;">Order tracking — status updates from confirmed to delivered</div>
+      </div>
+      <div style="background:var(--card);border:1px solid var(--border);border-radius:8px;padding:14px 16px;">
+        <div style="font-size:18px;margin-bottom:8px;">⚡</div>
+        <div style="font-size:12px;font-weight:700;color:var(--text);margin-bottom:4px;">/flash</div>
+        <div style="font-size:11px;color:var(--muted);line-height:1.6;">Live flash sales — limited-time discounts announced here first</div>
+      </div>
+      <div style="background:var(--card);border:1px solid var(--border);border-radius:8px;padding:14px 16px;">
+        <div style="font-size:18px;margin-bottom:8px;">🔍</div>
+        <div style="font-size:12px;font-weight:700;color:var(--text);margin-bottom:4px;">/search</div>
+        <div style="font-size:11px;color:var(--muted);line-height:1.6;">Search across shop items and import catalogue by keyword</div>
+      </div>
+      <div style="background:var(--card);border:1px solid var(--border);border-radius:8px;padding:14px 16px;">
+        <div style="font-size:18px;margin-bottom:8px;">📈</div>
+        <div style="font-size:12px;font-weight:700;color:var(--text);margin-bottom:4px;">/pricehistory</div>
+        <div style="font-size:11px;color:var(--muted);line-height:1.6;">Price trend chart for any shop item — see if prices are rising or falling</div>
+      </div>
+      <div style="background:var(--card);border:1px solid var(--border);border-radius:8px;padding:14px 16px;">
+        <div style="font-size:18px;margin-bottom:8px;">📱</div>
+        <div style="font-size:12px;font-weight:700;color:var(--text);margin-bottom:4px;">WhatsApp too</div>
+        <div style="font-size:11px;color:var(--muted);line-height:1.6;">All commands work on WhatsApp. Just type <em>shop</em>, <em>price</em>, <em>invoice</em> to start.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div style="text-align:center;margin-top:44px;padding:36px;background:rgba(37,99,235,0.05);border:1px solid rgba(37,99,235,0.15);border-radius:12px;" class="reveal">
+    <div style="font-size:28px;margin-bottom:12px;">🤖</div>
+    <h3 style="font-family:'Montserrat',sans-serif;font-size:20px;font-weight:800;color:#fff;margin-bottom:10px;">Get Your Live Price Right Now</h3>
+    <p style="font-size:13px;color:var(--muted);line-height:1.8;max-width:540px;margin:0 auto 22px;">Open the Telegram bot, type <strong style="color:var(--cyan);">/shop</strong> to browse our in-stock stabilizers or <strong style="color:var(--cyan);">/price</strong> to see full import landed costs. Free to use. No account needed.</p>
+    <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
+      <a href="https://t.me/ivoltbot" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;background:var(--cyan);color:#000;font-weight:700;font-size:13px;padding:12px 28px;border-radius:8px;text-decoration:none;transition:all .2s;">🛒 Open Shop Bot</a>
+      <a href="https://t.me/ivoltpowersolutions" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--text);font-weight:700;font-size:13px;padding:12px 28px;border-radius:8px;text-decoration:none;border:1px solid var(--border);transition:all .2s;">✈️ Join Channel</a>
     </div>
   </div>
 </section>
