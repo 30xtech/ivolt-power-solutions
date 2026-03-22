@@ -426,7 +426,7 @@ section { padding: 100px 5%; position: relative; z-index: 2; }
 .trade-panel.buy .trade-big { color: #34d399; }
 .trade-panel.sell .trade-big { color: #f87171; }
 .trade-panel h3 { font-family: 'Inter', sans-serif; font-size: 20px; font-weight: 700; color: #fff; margin-bottom: 12px; }
-.trade-panel p { font-size: 14px; color: var(--muted); line-height: 1.7; margin-bottom: 28px; max-width: 320px; }
+.trade-panel p { font-size: 14px; color: var(--muted); line-height: 1.7; margin-bottom: 28px; max-width: 100%; }
 .trade-panel a {
   font-family: 'Inter', sans-serif; font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
   text-decoration: none; padding: 10px 24px; border-radius: 4px; display: inline-block; transition: transform .2s, box-shadow .2s;
@@ -841,6 +841,128 @@ table.price-table tbody tr:hover td { background: rgba(255,255,255,0.02); }
   .impex-hero-stats { gap: 20px; }
 }
 
+
+/* ══ RESPONSIVE FIXES FOR PRICE, SHOP & IMPEX NEW SECTIONS ══ */
+
+/* Price/shop two-column card → stack on mobile */
+.priceshop-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+  margin-bottom: 40px;
+}
+.priceshop-card {
+  padding: 36px 32px;
+  position: relative;
+  overflow: hidden;
+}
+.priceshop-card-left  { border-radius: 12px 0 0 12px; }
+.priceshop-card-right { border-radius: 0 12px 12px 0; }
+
+/* Difference explainer two-col → stack */
+.priceshop-diff-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+
+/* Import requirements grid */
+.impex-req-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 14px;
+}
+
+/* Bot commands panel grid */
+.impex-bot-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+/* Feature grid already uses auto-fill minmax — fine */
+
+/* Table — force horizontal scroll on mobile */
+.pricelist-table-wrap { -webkit-overflow-scrolling: touch; }
+
+/* Impex hero inner */
+.impex-hero-inner {
+  display: grid !important;
+  grid-template-columns: 1fr auto;
+  gap: 32px;
+  align-items: center;
+}
+
+@media (max-width: 860px) {
+  /* Price/shop cards → stack vertically */
+  .priceshop-grid { grid-template-columns: 1fr; gap: 16px; }
+  .priceshop-card-left  { border-radius: 12px 12px 0 0; }
+  .priceshop-card-right { border-radius: 0 0 12px 12px; }
+
+  /* Difference explainer → stack */
+  .priceshop-diff-grid { grid-template-columns: 1fr; gap: 20px; }
+
+  /* Impex hero → stack */
+  .impex-hero-inner { grid-template-columns: 1fr !important; }
+  .impex-hero-ctas  { flex-direction: row !important; align-items: flex-start !important; }
+}
+
+@media (max-width: 640px) {
+  /* Cards full padding reduction */
+  .priceshop-card { padding: 24px 18px; }
+
+  /* Impex panels padding */
+  .impex-panel { padding: 0 !important; }
+
+  /* Bot commands grid → 1 col */
+  .impex-bot-grid { grid-template-columns: 1fr; }
+
+  /* Requirements grid → 1 col */
+  .impex-req-grid { grid-template-columns: 1fr; }
+
+  /* Impex items grid → 1 col */
+  .impex-items-grid { grid-template-columns: 1fr !important; }
+
+  /* How-it-works steps */
+  .impex-how { grid-template-columns: 1fr !important; }
+
+  /* Feature mini-grid */
+  .feature-mini-grid { grid-template-columns: 1fr 1fr !important; }
+
+  /* CTA buttons */
+  .priceshop-cta-btns { flex-direction: column !important; }
+  .priceshop-cta-btns a { width: 100%; text-align: center; justify-content: center; }
+
+  /* Inline code blocks */
+  code { word-break: break-all; }
+}
+
+@media (max-width: 480px) {
+  /* Feature mini-grid → 1 col on very small */
+  .feature-mini-grid { grid-template-columns: 1fr !important; }
+
+  /* Impex tabs scroll */
+  .impex-tabs { flex-wrap: wrap; gap: 6px; }
+  .impex-tab  { font-size: 9px; padding: 7px 12px; }
+
+  /* Hero-ctas stack */
+  .impex-hero-ctas { flex-direction: column !important; width: 100%; }
+  .impex-btn-tg, .impex-btn-bot { width: 100%; text-align: center; justify-content: center; }
+
+  /* Price/shop stat values */
+  .impex-stat-val { font-size: 20px; }
+  .impex-hero-stats { gap: 16px; }
+
+  /* Impex pill wrap */
+  .impex-country-pills { gap: 6px; }
+  .impex-pill { font-size: 11px; padding: 4px 10px; }
+
+  /* Item cards */
+  .impex-item-card { padding: 18px 16px; }
+  .impex-item-bot  { font-size: 11px; padding: 10px 16px; }
+}
+
 </style>
 </head>
 <body>
@@ -860,7 +982,7 @@ table.price-table tbody tr:hover td { background: rgba(255,255,255,0.02); }
     <li><a href="#advertise">Advertise</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="#impex">📦 Import &amp; Export</a></li>
-    <li><a href="https://t.me/ivoltbot" target="_blank" rel="noopener" class="nav-tg" style="color:var(--tg);">🛒 Shop on Telegram</a></li>
+    <li><a href="https://t.me/ivoltpowersolutions" target="_blank" rel="noopener" class="nav-tg" style="color:var(--tg);">🛒 Shop on Telegram</a></li>
     <li><a href="tel:+2349032156174" class="nav-cta">Call Now</a></li>
   </ul>
   <div class="hamburger" id="ham" onclick="toggleMenu()">
@@ -878,7 +1000,7 @@ table.price-table tbody tr:hover td { background: rgba(255,255,255,0.02); }
   <a href="#advertise" onclick="toggleMenu()">Advertise</a>
   <a href="#contact" onclick="toggleMenu()">Contact</a>
   <a href="#impex" onclick="toggleMenu()">📦 Import &amp; Export</a>
-  <a href="https://t.me/ivoltbot" target="_blank" rel="noopener" class="mobile-tg" onclick="toggleMenu()">🛒 Shop on Telegram</a>
+  <a href="https://t.me/ivoltpowersolutions" target="_blank" rel="noopener" class="mobile-tg" onclick="toggleMenu()">🛒 Shop on Telegram</a>
 </div>
 
 <!-- HERO -->
@@ -974,7 +1096,7 @@ table.price-table tbody tr:hover td { background: rgba(255,255,255,0.02); }
   </div>
 
   <div class="impex-hero reveal">
-    <div class="impex-hero-inner">
+    <div class="impex-hero-inner" style="display:grid;grid-template-columns:1fr auto;gap:32px;align-items:center;">
       <div>
         <div class="impex-hero-tag">Powered by Live Market Data</div>
         <h3>Live Import &amp; Export<br><span>Cost Calculator</span></h3>
@@ -986,9 +1108,9 @@ table.price-table tbody tr:hover td { background: rgba(255,255,255,0.02); }
           <div><div class="impex-stat-val">Free</div><div class="impex-stat-lbl">No Account Needed</div></div>
         </div>
       </div>
-      <div class="impex-hero-ctas">
-        <a href="https://t.me/ivoltpowersolutions" target="_blank" rel="noopener" class="impex-btn-tg">✈️ Join TG Channel</a>
-        <a href="https://t.me/ivoltbot" target="_blank" rel="noopener" class="impex-btn-bot">⚡ Open Trade Bot</a>
+      <div class="impex-hero-ctas" style="display:flex;flex-direction:column;gap:10px;align-items:flex-end;">
+        <a href="https://t.me/ivoltpowersolutions" target="_blank" rel="noopener" class="impex-btn-tg">✈️ Join Telegram</a>
+        <a href="https://t.me/ivoltpowersolutions" target="_blank" rel="noopener" class="impex-btn-bot">⚡ Open Bot</a>
       </div>
     </div>
   </div>
@@ -1106,7 +1228,7 @@ table.price-table tbody tr:hover td { background: rgba(255,255,255,0.02); }
     <!-- Import duty explainer -->
     <div style="background:rgba(245,158,11,0.06);border:1px solid rgba(245,158,11,0.18);border-radius:10px;padding:18px 20px;margin-top:28px;">
       <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:10px;font-weight:700;">Nigerian Import Requirements</div>
-      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;">
+      <div class="impex-req-grid">
         <div style="font-size:12px;color:var(--muted);line-height:1.8;"><strong style="color:var(--text);">Form M</strong><br>Required for all commercial imports above $10,000. We handle the Form M process via an approved Nigerian bank.</div>
         <div style="font-size:12px;color:var(--muted);line-height:1.8;"><strong style="color:var(--text);">SON Certification</strong><br>Standards Organisation of Nigeria requires product certification for electrical equipment. We ensure all units meet SON requirements before shipping.</div>
         <div style="font-size:12px;color:var(--muted);line-height:1.8;"><strong style="color:var(--text);">Port Clearance</strong><br>Customs clearance at Apapa/Tincan (Lagos) or Onne (Port Harcourt). We handle CIF, bill of lading, and customs agent coordination.</div>
@@ -1212,7 +1334,7 @@ table.price-table tbody tr:hover td { background: rgba(255,255,255,0.02); }
   <!-- HOW IT WORKS PANEL -->
   <div class="impex-panel reveal" id="impexPanelHow">
     <p style="font-size:13px;color:var(--muted);margin-bottom:28px;line-height:1.8;">Our import and export process is straightforward. We handle documentation, freight, and customs — you just tell us what you need and where it needs to go.</p>
-    <div class="impex-how">
+    <div class="impex-how" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:24px;">
       <div class="impex-step"><div class="impex-step-num">Step 01</div><div class="impex-step-icon">💬</div><h4>Contact Us</h4><p>Reach us on WhatsApp (+234-903-215-6174), Telegram (@ivoltadmin), or via the trade bot. Tell us the product, quantity, route, and your timeline. For exports, send photos and a brief condition report.</p></div>
       <div class="impex-step"><div class="impex-step-num">Step 02</div><div class="impex-step-icon">📊</div><h4>Live Cost Quote</h4><p>We calculate your full landed or export cost using real-time market data — goods value, freight, insurance, import duty, VAT, port handling, and last-mile delivery. Our trade bot (<code>/trade import</code> or <code>/trade export</code>) generates this instantly.</p></div>
       <div class="impex-step"><div class="impex-step-num">Step 03</div><div class="impex-step-icon">📋</div><h4>Documentation</h4><p>We prepare or assist with: commercial invoice, packing list, certificate of origin, Form M (imports), NExIM bank compliance (exports), SON/NAFDAC product certification, and HS code classification.</p></div>
@@ -1224,18 +1346,18 @@ table.price-table tbody tr:hover td { background: rgba(255,255,255,0.02); }
   <!-- BOT COMMANDS PANEL -->
   <div class="impex-panel reveal" id="impexPanelBot">
     <p style="font-size:13px;color:var(--muted);margin-bottom:28px;line-height:1.8;">Our Telegram trade bot calculates live import and export costs for any supported item and route. All prices update in real-time from commodity markets and FX rates. Free to use — no account needed.</p>
-    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px;margin-bottom:32px;">
+    <div class="impex-bot-grid">
       <div style="background:var(--card);border:1px solid var(--border);border-radius:10px;padding:20px;border-left:3px solid var(--cyan);">
         <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--cyan);margin-bottom:12px;font-weight:700;">Import Commands</div>
-        <code style="display:block;font-size:12px;color:var(--text);background:rgba(0,0,0,0.3);padding:8px 10px;border-radius:6px;margin-bottom:8px;line-height:1.8;">/trade import<br>→ See all importable items</code>
-        <code style="display:block;font-size:12px;color:var(--text);background:rgba(0,0,0,0.3);padding:8px 10px;border-radius:6px;margin-bottom:8px;line-height:1.8;">/trade import Servo-Based AVS from=China to=Nigeria qty=5<br>→ Full landed cost breakdown</code>
-        <code style="display:block;font-size:12px;color:var(--text);background:rgba(0,0,0,0.3);padding:8px 10px;border-radius:6px;line-height:1.8;">/trade margin Servo-Based AVS from=China<br>→ Profit margin analysis</code>
+        <code style="display:block;font-size:12px;word-break:break-all;overflow-wrap:break-word;color:var(--text);background:rgba(0,0,0,0.3);padding:8px 10px;border-radius:6px;margin-bottom:8px;line-height:1.8;">/trade import<br>→ See all importable items</code>
+        <code style="display:block;font-size:12px;word-break:break-all;overflow-wrap:break-word;color:var(--text);background:rgba(0,0,0,0.3);padding:8px 10px;border-radius:6px;margin-bottom:8px;line-height:1.8;">/trade import Servo-Based AVS from=China to=Nigeria qty=5<br>→ Full landed cost breakdown</code>
+        <code style="display:block;font-size:12px;word-break:break-all;overflow-wrap:break-word;color:var(--text);background:rgba(0,0,0,0.3);padding:8px 10px;border-radius:6px;line-height:1.8;">/trade margin Servo-Based AVS from=China<br>→ Profit margin analysis</code>
       </div>
       <div style="background:var(--card);border:1px solid var(--border);border-radius:10px;padding:20px;border-left:3px solid var(--gold);">
         <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:12px;font-weight:700;">Export Commands</div>
-        <code style="display:block;font-size:12px;color:var(--text);background:rgba(0,0,0,0.3);padding:8px 10px;border-radius:6px;margin-bottom:8px;line-height:1.8;">/trade export<br>→ See all exportable items</code>
-        <code style="display:block;font-size:12px;color:var(--text);background:rgba(0,0,0,0.3);padding:8px 10px;border-radius:6px;margin-bottom:8px;line-height:1.8;">/trade export copper from=Nigeria to=UK qty=1000<br>→ Export value + freight cost</code>
-        <code style="display:block;font-size:12px;color:var(--text);background:rgba(0,0,0,0.3);padding:8px 10px;border-radius:6px;line-height:1.8;">/trade rates<br>→ Live FX snapshot</code>
+        <code style="display:block;font-size:12px;word-break:break-all;overflow-wrap:break-word;color:var(--text);background:rgba(0,0,0,0.3);padding:8px 10px;border-radius:6px;margin-bottom:8px;line-height:1.8;">/trade export<br>→ See all exportable items</code>
+        <code style="display:block;font-size:12px;word-break:break-all;overflow-wrap:break-word;color:var(--text);background:rgba(0,0,0,0.3);padding:8px 10px;border-radius:6px;margin-bottom:8px;line-height:1.8;">/trade export copper from=Nigeria to=UK qty=1000<br>→ Export value + freight cost</code>
+        <code style="display:block;font-size:12px;word-break:break-all;overflow-wrap:break-word;color:var(--text);background:rgba(0,0,0,0.3);padding:8px 10px;border-radius:6px;line-height:1.8;">/trade rates<br>→ Live FX snapshot</code>
       </div>
       <div style="background:var(--card);border:1px solid var(--border);border-radius:10px;padding:20px;border-left:3px solid var(--green);">
         <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--green);margin-bottom:12px;font-weight:700;">What Each Quote Includes</div>
@@ -1252,8 +1374,8 @@ table.price-table tbody tr:hover td { background: rgba(255,255,255,0.02); }
       </div>
     </div>
     <div style="text-align:center;">
-      <a href="https://t.me/ivoltbot" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:10px;background:var(--cyan);color:#000;font-weight:700;font-size:14px;padding:14px 32px;border-radius:8px;text-decoration:none;transition:background .2s,transform .2s;" onmouseover="this.style.background='#1d4ed8'" onmouseout="this.style.background='var(--cyan)'">
-        ⚡ Open Trade Bot on Telegram
+      <a href="https://t.me/ivoltpowersolutions" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:10px;background:var(--cyan);color:#000;font-weight:700;font-size:14px;padding:14px 32px;border-radius:8px;text-decoration:none;transition:background .2s,transform .2s;" onmouseover="this.style.background='#1d4ed8'" onmouseout="this.style.background='var(--cyan)'">
+        ⚡ Open Bot on Telegram
       </a>
     </div>
   </div>
@@ -1265,8 +1387,8 @@ table.price-table tbody tr:hover td { background: rgba(255,255,255,0.02); }
       <p>Our free Telegram bot calculates live landed costs, import duties, freight estimates, and profit margins for every tradeable item — updated in real-time from commodity and FX markets. Run <strong>/trade import</strong> or <strong>/trade export</strong> for an instant quote with full breakdown. Free to use, no account needed.</p>
     </div>
     <div class="impex-bot-cta-btns">
-      <a href="https://t.me/ivoltbot" target="_blank" rel="noopener" class="impex-btn-tg">⚡ Open Trade Bot</a>
-      <a href="https://t.me/ivoltpowersolutions" target="_blank" rel="noopener" class="impex-btn-bot">✈️ Join Channel</a>
+      <a href="https://t.me/ivoltpowersolutions" target="_blank" rel="noopener" class="impex-btn-tg">⚡ Open Bot</a>
+      <a href="https://t.me/ivoltpowersolutions" target="_blank" rel="noopener" class="impex-btn-bot">✈️ Join Telegram</a>
     </div>
   </div>
 </section>
@@ -1297,14 +1419,14 @@ table.price-table tbody tr:hover td { background: rgba(255,255,255,0.02); }
   </div>
 
   <!-- Two-column intro cards -->
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-bottom:40px;" class="reveal">
+  <div class="priceshop-grid reveal" style="box-sizing:border-box;">
 
     <!-- /price card -->
-    <div style="background:linear-gradient(135deg,rgba(6,36,72,0.7),rgba(37,99,235,0.08));border:1px solid rgba(37,99,235,0.2);border-radius:12px 0 0 12px;padding:36px 32px;position:relative;overflow:hidden;">
+    <div class="priceshop-card priceshop-card-left" style="background:linear-gradient(135deg,rgba(6,36,72,0.7),rgba(37,99,235,0.08));border:1px solid rgba(37,99,235,0.2);">
       <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#1e3a8a,#2563eb);"></div>
       <div style="font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--cyan);margin-bottom:14px;font-weight:700;">Import Landed Prices</div>
       <div style="font-family:'Montserrat',sans-serif;font-size:clamp(36px,5vw,56px);font-weight:900;line-height:1;color:#34d399;margin-bottom:14px;">/price</div>
-      <p style="font-size:13px;color:var(--muted);line-height:1.8;margin-bottom:20px;max-width:360px;">
+      <p style="font-size:13px;color:var(--muted);line-height:1.8;margin-bottom:20px;max-width:100%;word-wrap:break-word;">
         Shows the <strong style="color:var(--text);">full landed cost</strong> of importing power equipment into Nigeria. Every price is calculated live at the moment you run the command — using the current USD/NGN exchange rate, Brent crude price, and Nigerian import duty schedule.
       </p>
       <div style="font-size:12px;color:var(--muted);line-height:2;margin-bottom:20px;">
@@ -1317,21 +1439,21 @@ table.price-table tbody tr:hover td { background: rgba(255,255,255,0.02); }
         <span style="display:flex;align-items:center;gap:8px;">✅ Inflation adjustment (Nigerian CPI)</span>
         <span style="display:flex;align-items:center;gap:8px;">✅ Retail margin (our standard markup)</span>
       </div>
-      <div style="background:rgba(0,0,0,0.3);border-radius:8px;padding:14px 16px;margin-bottom:20px;">
+      <div style="background:rgba(0,0,0,0.3);border-radius:8px;padding:14px 16px;margin-bottom:20px;overflow-x:auto;">
         <div style="font-size:10px;letter-spacing:2px;color:var(--cyan);margin-bottom:8px;font-weight:700;">EXAMPLE COMMANDS</div>
-        <code style="display:block;font-size:12px;color:var(--text);line-height:2;">/price<br>/price stabilizers<br>/price surge<br>/price transformers<br>/invoice 5kVA Servo-Based AVS 1 Lagos</code>
+        <code style="display:block;font-size:12px;word-break:break-all;overflow-wrap:break-word;color:var(--text);line-height:2;">/price<br>/price stabilizers<br>/price surge<br>/price transformers<br>/invoice 5kVA Servo-Based AVS 1 Lagos</code>
       </div>
-      <a href="https://t.me/ivoltbot" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;background:rgba(16,185,129,0.12);color:var(--green);border:1px solid rgba(16,185,129,0.3);border-radius:8px;padding:10px 20px;font-size:13px;font-weight:700;text-decoration:none;transition:all .2s;" onmouseover="this.style.background='rgba(16,185,129,0.22)'" onmouseout="this.style.background='rgba(16,185,129,0.12)'">
+      <a href="https://t.me/ivoltpowersolutions" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;background:rgba(16,185,129,0.12);color:var(--green);border:1px solid rgba(16,185,129,0.3);border-radius:8px;padding:10px 20px;font-size:13px;font-weight:700;text-decoration:none;transition:all .2s;" onmouseover="this.style.background='rgba(16,185,129,0.22)'" onmouseout="this.style.background='rgba(16,185,129,0.12)'">
         ⚡ Run /price on Telegram
       </a>
     </div>
 
     <!-- /shop card -->
-    <div style="background:linear-gradient(135deg,rgba(69,10,10,0.5),rgba(245,158,11,0.07));border:1px solid rgba(245,158,11,0.2);border-radius:0 12px 12px 0;padding:36px 32px;position:relative;overflow:hidden;">
+    <div class="priceshop-card priceshop-card-right" style="background:linear-gradient(135deg,rgba(69,10,10,0.5),rgba(245,158,11,0.07));border:1px solid rgba(245,158,11,0.2);">
       <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold),#d97706);"></div>
       <div style="font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:14px;font-weight:700;">Nigeria Retail Shop</div>
       <div style="font-family:'Montserrat',sans-serif;font-size:clamp(36px,5vw,56px);font-weight:900;line-height:1;color:#f87171;margin-bottom:14px;">/shop</div>
-      <p style="font-size:13px;color:var(--muted);line-height:1.8;margin-bottom:20px;max-width:360px;">
+      <p style="font-size:13px;color:var(--muted);line-height:1.8;margin-bottom:20px;max-width:100%;word-wrap:break-word;">
         Browse our <strong style="color:var(--text);">Mercury Direct stabilizer catalogue</strong> with live retail prices, stock status, and delivery fees to your state. Every price reflects the current Brent crude price (which drives logistics), the USD/NGN rate, and our current retail margin.
       </p>
       <div style="font-size:12px;color:var(--muted);line-height:2;margin-bottom:20px;">
@@ -1345,11 +1467,11 @@ table.price-table tbody tr:hover td { background: rgba(255,255,255,0.02); }
         <span style="display:flex;align-items:center;gap:8px;">⚡ Flash sales and bulk discounts when active</span>
         <span style="display:flex;align-items:center;gap:8px;">🔔 Back-in-stock and price-drop alerts</span>
       </div>
-      <div style="background:rgba(0,0,0,0.3);border-radius:8px;padding:14px 16px;margin-bottom:20px;">
+      <div style="background:rgba(0,0,0,0.3);border-radius:8px;padding:14px 16px;margin-bottom:20px;overflow-x:auto;">
         <div style="font-size:10px;letter-spacing:2px;color:var(--gold);margin-bottom:8px;font-weight:700;">EXAMPLE COMMANDS</div>
-        <code style="display:block;font-size:12px;color:var(--text);line-height:2;">/shop<br>/shop STAB-10KVA-1PH Lagos<br>/invoice STAB-5KVA 2 Abuja<br>/notify stock STAB-10KVA-3PH<br>/compare STAB-5KVA STAB-10KVA-1PH</code>
+        <code style="display:block;font-size:12px;word-break:break-all;overflow-wrap:break-word;color:var(--text);line-height:2;">/shop<br>/shop STAB-10KVA-1PH Lagos<br>/invoice STAB-5KVA 2 Abuja<br>/notify stock STAB-10KVA-3PH<br>/compare STAB-5KVA STAB-10KVA-1PH</code>
       </div>
-      <a href="https://t.me/ivoltbot" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;background:rgba(245,158,11,0.12);color:var(--gold);border:1px solid rgba(245,158,11,0.3);border-radius:8px;padding:10px 20px;font-size:13px;font-weight:700;text-decoration:none;transition:all .2s;" onmouseover="this.style.background='rgba(245,158,11,0.22)'" onmouseout="this.style.background='rgba(245,158,11,0.12)'">
+      <a href="https://t.me/ivoltpowersolutions" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;background:rgba(245,158,11,0.12);color:var(--gold);border:1px solid rgba(245,158,11,0.3);border-radius:8px;padding:10px 20px;font-size:13px;font-weight:700;text-decoration:none;transition:all .2s;" onmouseover="this.style.background='rgba(245,158,11,0.22)'" onmouseout="this.style.background='rgba(245,158,11,0.12)'">
         🛒 Browse Shop on Telegram
       </a>
     </div>
@@ -1358,7 +1480,7 @@ table.price-table tbody tr:hover td { background: rgba(255,255,255,0.02); }
   <!-- Difference between /price and /shop -->
   <div style="background:rgba(255,255,255,0.03);border:1px solid var(--border);border-radius:12px;padding:28px 32px;margin-bottom:40px;" class="reveal">
     <div style="font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--muted);margin-bottom:16px;font-weight:700;">📌 /price vs /shop — What's the Difference?</div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;">
+    <div class="priceshop-diff-grid">
       <div>
         <div style="font-size:14px;font-weight:700;color:var(--cyan);margin-bottom:10px;">/price — Import Cost Tool</div>
         <p style="font-size:13px;color:var(--muted);line-height:1.8;">Shows what it would cost to import any power equipment into Nigeria from China, UK, Europe, or the USA. Useful for purchasing agents, contractors, and businesses that import their own stock. Covers dozens of equipment types — stabilizers, SPDs, transformers, UPS units, harmonic filters, and more. Prices are the full CIF-to-door landed cost, not just the ex-factory price.</p>
@@ -1429,7 +1551,7 @@ table.price-table tbody tr:hover td { background: rgba(255,255,255,0.02); }
   <!-- All-features grid -->
   <div style="margin-top:48px;" class="reveal">
     <div style="font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--muted);margin-bottom:20px;font-weight:700;text-align:center;">Everything Available Free on the Bot</div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;">
+    <div class="feature-mini-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;">
       <div style="background:var(--card);border:1px solid var(--border);border-radius:8px;padding:14px 16px;">
         <div style="font-size:18px;margin-bottom:8px;">🛒</div>
         <div style="font-size:12px;font-weight:700;color:var(--text);margin-bottom:4px;">/shop</div>
@@ -1498,9 +1620,9 @@ table.price-table tbody tr:hover td { background: rgba(255,255,255,0.02); }
     <div style="font-size:28px;margin-bottom:12px;">🤖</div>
     <h3 style="font-family:'Montserrat',sans-serif;font-size:20px;font-weight:800;color:#fff;margin-bottom:10px;">Get Your Live Price Right Now</h3>
     <p style="font-size:13px;color:var(--muted);line-height:1.8;max-width:540px;margin:0 auto 22px;">Open the Telegram bot, type <strong style="color:var(--cyan);">/shop</strong> to browse our in-stock stabilizers or <strong style="color:var(--cyan);">/price</strong> to see full import landed costs. Free to use. No account needed.</p>
-    <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
-      <a href="https://t.me/ivoltbot" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;background:var(--cyan);color:#000;font-weight:700;font-size:13px;padding:12px 28px;border-radius:8px;text-decoration:none;transition:all .2s;">🛒 Open Shop Bot</a>
-      <a href="https://t.me/ivoltpowersolutions" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--text);font-weight:700;font-size:13px;padding:12px 28px;border-radius:8px;text-decoration:none;border:1px solid var(--border);transition:all .2s;">✈️ Join Channel</a>
+    <div class="priceshop-cta-btns" style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
+      <a href="https://t.me/ivoltpowersolutions" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;background:var(--cyan);color:#000;font-weight:700;font-size:13px;padding:12px 28px;border-radius:8px;text-decoration:none;transition:all .2s;">🛒 Shop on Telegram</a>
+      <a href="https://t.me/ivoltpowersolutions" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--text);font-weight:700;font-size:13px;padding:12px 28px;border-radius:8px;text-decoration:none;border:1px solid var(--border);transition:all .2s;">✈️ Join Telegram</a>
     </div>
   </div>
 </section>
@@ -1773,8 +1895,8 @@ table.price-table tbody tr:hover td { background: rgba(255,255,255,0.02); }
         <li><a href="tel:+2349032156174">+234 903 215 6174</a></li>
         <li><a href="https://wa.me/2349032156174" target="_blank">💬 WhatsApp Us</a></li>
         <li><a href="https://x.com/TradesByBami" target="_blank">𝕏 @TradesByBami</a></li>
-        <li><a href="https://t.me/ivoltpowersolutions" target="_blank" rel="noopener" class="tg-footer">✈️ Import &amp; Export Channel</a></li>
-        <li><a href="https://t.me/ivoltbot" target="_blank" rel="noopener" class="tg-footer">⚡ Trade Calculator Bot</a></li>
+        <li><a href="https://t.me/ivoltpowersolutions" target="_blank" rel="noopener" class="tg-footer">✈️ iVolt Telegram Channel</a></li>
+        <li><a href="https://t.me/ivoltpowersolutions" target="_blank" rel="noopener" class="tg-footer">⚡ iVolt Shop &amp; Trade Bot</a></li>
       </ul>
     </div>
   </div>
