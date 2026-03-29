@@ -1746,9 +1746,79 @@ img, svg, video { max-width: 100%; }
   .ivolt-stock-in    { background: rgba(16,185,129,0.15); color: #34d399; border: 1px solid rgba(16,185,129,0.3); }
   .ivolt-stock-low   { background: rgba(245,158,11,0.15); color: #fbbf24; border: 1px solid rgba(245,158,11,0.3); }
   .ivolt-stock-out   { background: rgba(220,38,38,0.12);  color: #f87171; border: 1px solid rgba(220,38,38,0.25); }
+  .ivolt-category { margin-bottom: 36px; }
+  .ivolt-category-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px; font-weight: 800;
+    letter-spacing: 3px; text-transform: uppercase;
+    color: var(--cyan); margin-bottom: 14px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .ivolt-category-title::before {
+    content: ''; display: block;
+    width: 24px; height: 1px; background: var(--cyan);
+  }
+  .ivolt-category-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 12px;
+  }
+  @media (max-width: 480px) {
+    .ivolt-category-grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 320px) {
+    .ivolt-category-grid { grid-template-columns: 1fr; }
+  }
   </style>
 
   <script>
+  var FIREBASE_URL = "https://x-dashboard-b1098-default-rtdb.europe-west1.firebasedatabase.app/shop_catalogue.json?auth=HtSaOvwz7W9HzLzbnFcufeBZECKoez995SehKNKP";
+
+  function formatPrice(item) {
+    // Try every common price field name
+    var fields = ['retail_ngn','price_ngn','price','retail_price','cost','amount'];
+    for (var i = 0; i < fields.length; i++) {
+      var v = item[fields[i]];
+      if (v !== null && v !== undefined && v !== '' && v !== 0 && !isNaN(Number(v))) {
+        return '&#8358;' + Number(v).toLocaleString('en-NG');
+      }
+    }
+    return '<span style="font-size:12px;color:var(--muted);font-weight:600;letter-spacing:1px;">CALL FOR PRICE</span>';
+  }
+
+  function formatStock(val) {
+    var raw = (val || 'IN_STOCK').toString();
+    var lower = raw.toLowerCase();
+    var cls = (lower.includes('out') || lower.includes('unavail')) ? 'ivolt-stock-out'
+             : lower.includes('low') ? 'ivolt-stock-low'
+             : 'ivolt-stock-in';
+    var dot = lower.includes('out') ? '✕' : lower.includes('low') ? '!' : '●';
+    var label = raw.replace(/_/g,' ').replace(/\w/g, function(c){ return c.toUpperCase(); });
+    return '<span class="ivolt-stock-badge ' + cls + '">' + dot + ' ' + label + '</span>';
+  }
+
+  function renderItems(items, categoryName) {
+    // items is an object of {sku: itemData} OR an array
+    var entries = Array.isArray(items) ? items.map(function(v,i){return [i,v];}) : Object.entries(items);
+    entries = entries.filter(function(e){ return e[1] && typeof e[1] === 'object'; });
+    if (!entries.length) return '';
+
+    return '<div class="ivolt-category">'
+      + '<div class="ivolt-category-title">' + categoryName + '</div>'
+      + '<div class="ivolt-category-grid">'
+      + entries.map(function(entry) {
+          var item = entry[1];
+          if (!item || typeof item !== 'object') return '';
+          var name = item.name || item.product_name || item.title || String(entry[0]);
+          return '<div class="ivolt-item">'
+            + '<div class="ivolt-item-name">' + name + '</div>'
+            + '<div class="ivolt-item-price">' + formatPrice(item) + '</div>'
+            + formatStock(item.stock_level || item.stock || item.availability)
+            + '</div>';
+        }).join('')
+      + '</div></div>';
+  }
+
   function loadIvoltPrices() {
     var loading = document.getElementById('ivolt-loading');
     var error   = document.getElementById('ivolt-error');
@@ -1762,51 +1832,46 @@ img, svg, video { max-width: 100%; }
     footer.style.display  = 'none';
     if (btn) btn.textContent = '↻ Refreshing…';
 
-    fetch("https://x-dashboard-b1098-default-rtdb.europe-west1.firebasedatabase.app/shop_catalogue_flat.json?auth=HtSaOvwz7W9HzLzbnFcufeBZECKoez995SehKNKP")
+    fetch(FIREBASE_URL)
       .then(function(r) {
-        if (!r.ok) throw new Error('Network error ' + r.status);
+        if (!r.ok) throw new Error('HTTP ' + r.status);
         return r.json();
       })
-      .then(function(items) {
-        if (!items || typeof items !== 'object') throw new Error('No data');
-        var entries = Object.entries(items);
-        if (entries.length === 0) throw new Error('Empty catalogue');
+      .then(function(data) {
+        if (!data || typeof data !== 'object') throw new Error('No data returned');
 
-        grid.innerHTML = entries.map(function(entry) {
-          var sku  = entry[0];
-          var item = entry[1];
-          var price = item.retail_ngn ? '₦' + Number(item.retail_ngn).toLocaleString('en-NG') : 'POA';
-          var stock = (item.stock_level || '').toString().toLowerCase();
-          var badgeClass = stock.includes('out') ? 'ivolt-stock-out'
-                         : stock.includes('low') ? 'ivolt-stock-low'
-                         : 'ivolt-stock-in';
-          var dot = stock.includes('out') ? '✕' : stock.includes('low') ? '!' : '●';
-          var stockLabel = item.stock_level || 'In Stock';
+        var html = '';
+        var totalItems = 0;
 
-          return '<div class="ivolt-item">'
-            + '<div class="ivolt-item-sku">' + sku + '</div>'
-            + '<div class="ivolt-item-name">' + (item.name || sku) + '</div>'
-            + '<div class="ivolt-item-price">' + price + '</div>'
-            + '<span class="ivolt-stock-badge ' + badgeClass + '">' + dot + ' ' + stockLabel + '</span>'
-            + '</div>';
-        }).join('');
+        // data is { "Batteries": {...}, "Solar & Inverters": {...}, ... }
+        Object.entries(data).forEach(function(catEntry) {
+          var catName  = catEntry[0];
+          var catItems = catEntry[1];
+          if (!catItems || typeof catItems !== 'object') return;
+          html += renderItems(catItems, catName);
+          totalItems += Object.keys(catItems).length;
+        });
+
+        if (!html || totalItems === 0) throw new Error('No items found in catalogue');
 
         loading.style.display = 'none';
-        grid.style.display    = 'grid';
-        footer.style.display  = 'block';
+        grid.innerHTML = html;
+        grid.style.display = 'block';
+        footer.style.display = 'block';
         document.getElementById('ivolt-timestamp').textContent =
-          'Updated ' + new Date().toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'});
+          'Updated ' + new Date().toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'})
+          + ' · ' + totalItems + ' items';
         if (btn) btn.textContent = '↻ Refresh';
       })
       .catch(function(err) {
-        console.error('iVolt price fetch error:', err);
+        console.error('iVolt prices error:', err);
         loading.style.display = 'none';
         error.style.display   = 'block';
+        document.querySelector('#ivolt-error div').textContent = 'Error: ' + err.message;
         if (btn) btn.textContent = '↻ Refresh';
       });
   }
 
-  // Auto-load on page ready
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', loadIvoltPrices);
   } else {
