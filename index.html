@@ -1746,79 +1746,9 @@ img, svg, video { max-width: 100%; }
   .ivolt-stock-in    { background: rgba(16,185,129,0.15); color: #34d399; border: 1px solid rgba(16,185,129,0.3); }
   .ivolt-stock-low   { background: rgba(245,158,11,0.15); color: #fbbf24; border: 1px solid rgba(245,158,11,0.3); }
   .ivolt-stock-out   { background: rgba(220,38,38,0.12);  color: #f87171; border: 1px solid rgba(220,38,38,0.25); }
-  .ivolt-category { margin-bottom: 36px; }
-  .ivolt-category-title {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 11px; font-weight: 800;
-    letter-spacing: 3px; text-transform: uppercase;
-    color: var(--cyan); margin-bottom: 14px;
-    display: flex; align-items: center; gap: 10px;
-  }
-  .ivolt-category-title::before {
-    content: ''; display: block;
-    width: 24px; height: 1px; background: var(--cyan);
-  }
-  .ivolt-category-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 12px;
-  }
-  @media (max-width: 480px) {
-    .ivolt-category-grid { grid-template-columns: 1fr 1fr; }
-  }
-  @media (max-width: 320px) {
-    .ivolt-category-grid { grid-template-columns: 1fr; }
-  }
   </style>
 
   <script>
-  var FIREBASE_URL = "https://x-dashboard-b1098-default-rtdb.europe-west1.firebasedatabase.app/shop_catalogue.json?auth=HtSaOvwz7W9HzLzbnFcufeBZECKoez995SehKNKP";
-
-  function formatPrice(item) {
-    // Try every common price field name
-    var fields = ['retail_ngn','price_ngn','price','retail_price','cost','amount'];
-    for (var i = 0; i < fields.length; i++) {
-      var v = item[fields[i]];
-      if (v !== null && v !== undefined && v !== '' && v !== 0 && !isNaN(Number(v))) {
-        return '&#8358;' + Number(v).toLocaleString('en-NG');
-      }
-    }
-    return '<span style="font-size:12px;color:var(--muted);font-weight:600;letter-spacing:1px;">CALL FOR PRICE</span>';
-  }
-
-  function formatStock(val) {
-    var raw = (val || 'IN_STOCK').toString();
-    var lower = raw.toLowerCase();
-    var cls = (lower.includes('out') || lower.includes('unavail')) ? 'ivolt-stock-out'
-             : lower.includes('low') ? 'ivolt-stock-low'
-             : 'ivolt-stock-in';
-    var dot = lower.includes('out') ? '✕' : lower.includes('low') ? '!' : '●';
-    var label = raw.replace(/_/g,' ').replace(/\w/g, function(c){ return c.toUpperCase(); });
-    return '<span class="ivolt-stock-badge ' + cls + '">' + dot + ' ' + label + '</span>';
-  }
-
-  function renderItems(items, categoryName) {
-    // items is an object of {sku: itemData} OR an array
-    var entries = Array.isArray(items) ? items.map(function(v,i){return [i,v];}) : Object.entries(items);
-    entries = entries.filter(function(e){ return e[1] && typeof e[1] === 'object'; });
-    if (!entries.length) return '';
-
-    return '<div class="ivolt-category">'
-      + '<div class="ivolt-category-title">' + categoryName + '</div>'
-      + '<div class="ivolt-category-grid">'
-      + entries.map(function(entry) {
-          var item = entry[1];
-          if (!item || typeof item !== 'object') return '';
-          var name = item.name || item.product_name || item.title || String(entry[0]);
-          return '<div class="ivolt-item">'
-            + '<div class="ivolt-item-name">' + name + '</div>'
-            + '<div class="ivolt-item-price">' + formatPrice(item) + '</div>'
-            + formatStock(item.stock_level || item.stock || item.availability)
-            + '</div>';
-        }).join('')
-      + '</div></div>';
-  }
-
   function loadIvoltPrices() {
     var loading = document.getElementById('ivolt-loading');
     var error   = document.getElementById('ivolt-error');
@@ -1832,46 +1762,51 @@ img, svg, video { max-width: 100%; }
     footer.style.display  = 'none';
     if (btn) btn.textContent = '↻ Refreshing…';
 
-    fetch(FIREBASE_URL)
+    fetch("https://x-dashboard-b1098-default-rtdb.europe-west1.firebasedatabase.app/shop_catalogue_flat.json?auth=HtSaOvwz7W9HzLzbnFcufeBZECKoez995SehKNKP")
       .then(function(r) {
-        if (!r.ok) throw new Error('HTTP ' + r.status);
+        if (!r.ok) throw new Error('Network error ' + r.status);
         return r.json();
       })
-      .then(function(data) {
-        if (!data || typeof data !== 'object') throw new Error('No data returned');
+      .then(function(items) {
+        if (!items || typeof items !== 'object') throw new Error('No data');
+        var entries = Object.entries(items);
+        if (entries.length === 0) throw new Error('Empty catalogue');
 
-        var html = '';
-        var totalItems = 0;
+        grid.innerHTML = entries.map(function(entry) {
+          var sku  = entry[0];
+          var item = entry[1];
+          var price = item.retail_ngn ? '₦' + Number(item.retail_ngn).toLocaleString('en-NG') : 'POA';
+          var stock = (item.stock_level || '').toString().toLowerCase();
+          var badgeClass = stock.includes('out') ? 'ivolt-stock-out'
+                         : stock.includes('low') ? 'ivolt-stock-low'
+                         : 'ivolt-stock-in';
+          var dot = stock.includes('out') ? '✕' : stock.includes('low') ? '!' : '●';
+          var stockLabel = item.stock_level || 'In Stock';
 
-        // data is { "Batteries": {...}, "Solar & Inverters": {...}, ... }
-        Object.entries(data).forEach(function(catEntry) {
-          var catName  = catEntry[0];
-          var catItems = catEntry[1];
-          if (!catItems || typeof catItems !== 'object') return;
-          html += renderItems(catItems, catName);
-          totalItems += Object.keys(catItems).length;
-        });
-
-        if (!html || totalItems === 0) throw new Error('No items found in catalogue');
+          return '<div class="ivolt-item">'
+            + '<div class="ivolt-item-sku">' + sku + '</div>'
+            + '<div class="ivolt-item-name">' + (item.name || sku) + '</div>'
+            + '<div class="ivolt-item-price">' + price + '</div>'
+            + '<span class="ivolt-stock-badge ' + badgeClass + '">' + dot + ' ' + stockLabel + '</span>'
+            + '</div>';
+        }).join('');
 
         loading.style.display = 'none';
-        grid.innerHTML = html;
-        grid.style.display = 'block';
-        footer.style.display = 'block';
+        grid.style.display    = 'grid';
+        footer.style.display  = 'block';
         document.getElementById('ivolt-timestamp').textContent =
-          'Updated ' + new Date().toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'})
-          + ' · ' + totalItems + ' items';
+          'Updated ' + new Date().toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'});
         if (btn) btn.textContent = '↻ Refresh';
       })
       .catch(function(err) {
-        console.error('iVolt prices error:', err);
+        console.error('iVolt price fetch error:', err);
         loading.style.display = 'none';
         error.style.display   = 'block';
-        document.querySelector('#ivolt-error div').textContent = 'Error: ' + err.message;
         if (btn) btn.textContent = '↻ Refresh';
       });
   }
 
+  // Auto-load on page ready
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', loadIvoltPrices);
   } else {
@@ -1934,6 +1869,304 @@ img, svg, video { max-width: 100%; }
     </div>
     <p style="font-size:11px;color:var(--muted);margin-top:12px;line-height:1.7;">For live import landed prices on SPDs, run <strong style="color:var(--cyan);">/price surge</strong> on our Telegram bot. For wiring diagrams, run <strong style="color:var(--cyan);">/schematic surge type2 single</strong>.</p>
   </div>
+
+
+  <!-- ══ INVERTER & BATTERY SIZING CALCULATOR ══ -->
+  <div class="reveal" style="margin-top:56px;">
+    <div style="display:flex;align-items:center;gap:14px;margin-bottom:8px;">
+      <div style="width:4px;height:48px;background:linear-gradient(180deg,#f59e0b,#ea580c);border-radius:2px;flex-shrink:0;"></div>
+      <div>
+        <div style="font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:4px;">Free Tool</div>
+        <div style="font-family:'Montserrat',sans-serif;font-size:22px;font-weight:800;color:#fff;line-height:1.2;">Inverter & Battery Sizing Calculator</div>
+      </div>
+    </div>
+    <p style="font-size:13px;color:var(--muted);line-height:1.8;margin-bottom:28px;padding-left:18px;">Select your home type or enter a custom load to instantly calculate the inverter KVA, battery bank size, solar array, and estimated cost for your setup.</p>
+
+    <style>
+    .inv-calc { background:rgba(245,158,11,0.04); border:1px solid rgba(245,158,11,0.18); border-radius:14px; padding:28px 24px; }
+    .inv-preset-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(140px,1fr)); gap:10px; margin-bottom:24px; }
+    .inv-preset-btn {
+      background:rgba(255,255,255,0.04); border:1px solid var(--border);
+      border-radius:10px; padding:14px 12px; cursor:pointer; text-align:center;
+      transition:all .2s; font-family:'Inter',sans-serif;
+    }
+    .inv-preset-btn:hover, .inv-preset-btn.active {
+      background:rgba(245,158,11,0.12); border-color:rgba(245,158,11,0.5);
+      transform:translateY(-2px); box-shadow:0 6px 20px rgba(245,158,11,0.12);
+    }
+    .inv-preset-icon { font-size:24px; margin-bottom:6px; }
+    .inv-preset-label { font-size:11px; font-weight:700; color:var(--text); letter-spacing:.3px; }
+    .inv-preset-sub { font-size:10px; color:var(--muted); margin-top:3px; }
+    .inv-field-row { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:16px; }
+    @media(max-width:500px){ .inv-field-row { grid-template-columns:1fr; } }
+    .inv-label { font-size:10px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:var(--muted); margin-bottom:6px; }
+    .inv-input {
+      width:100%; background:rgba(255,255,255,0.04); border:1px solid var(--border);
+      border-radius:8px; padding:10px 14px; color:var(--text);
+      font-size:13px; font-family:'Inter',sans-serif; outline:none;
+      transition:border-color .2s;
+    }
+    .inv-input:focus { border-color:rgba(245,158,11,0.5); }
+    .inv-select { appearance:none; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23888' d='M6 8L1 3h10z'/%3E%3C/svg%3E"); background-repeat:no-repeat; background-position:right 12px center; padding-right:32px; cursor:pointer; }
+    .inv-checkbox-row { display:flex; align-items:center; gap:10px; margin-bottom:20px; cursor:pointer; }
+    .inv-checkbox { width:18px; height:18px; accent-color:var(--gold); cursor:pointer; }
+    .inv-calc-btn {
+      width:100%; padding:14px; border-radius:10px;
+      background:linear-gradient(135deg,#f59e0b,#ea580c);
+      color:#000; font-weight:800; font-size:14px; letter-spacing:.5px;
+      border:none; cursor:pointer; font-family:'Montserrat',sans-serif;
+      transition:opacity .2s, transform .2s;
+    }
+    .inv-calc-btn:hover { opacity:.9; transform:translateY(-1px); }
+    .inv-result {
+      display:none; margin-top:24px;
+      background:rgba(255,255,255,0.03); border:1px solid rgba(245,158,11,0.2);
+      border-radius:12px; padding:24px;
+    }
+    .inv-result.show { display:block; }
+    .inv-result-section { margin-bottom:20px; }
+    .inv-result-title { font-size:10px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--gold); margin-bottom:12px; }
+    .inv-spec-grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+    @media(max-width:480px){ .inv-spec-grid { grid-template-columns:1fr; } }
+    .inv-spec-card {
+      background:rgba(255,255,255,0.04); border:1px solid var(--border);
+      border-radius:9px; padding:14px;
+    }
+    .inv-spec-icon { font-size:20px; margin-bottom:6px; }
+    .inv-spec-name { font-size:10px; color:var(--muted); margin-bottom:4px; font-weight:600; text-transform:uppercase; letter-spacing:1px; }
+    .inv-spec-value { font-size:16px; font-weight:800; color:#fff; font-family:'Montserrat',sans-serif; }
+    .inv-spec-sub { font-size:11px; color:var(--muted); margin-top:3px; }
+    .inv-cost-row { display:flex; justify-content:space-between; align-items:center; padding:8px 0; border-bottom:1px solid rgba(255,255,255,0.05); font-size:13px; }
+    .inv-cost-row:last-child { border-bottom:none; font-weight:800; color:#fff; font-size:15px; padding-top:12px; }
+    .inv-cost-label { color:var(--muted); }
+    .inv-cost-value { color:var(--gold); font-family:'Montserrat',sans-serif; font-weight:700; }
+    .inv-cta-row { display:flex; gap:10px; margin-top:20px; flex-wrap:wrap; }
+    .inv-cta-btn {
+      flex:1; min-width:140px; padding:11px 18px; border-radius:8px;
+      font-size:12px; font-weight:700; text-decoration:none; text-align:center;
+      transition:opacity .2s; font-family:'Inter',sans-serif;
+    }
+    .inv-cta-primary { background:var(--cyan); color:#000; }
+    .inv-cta-secondary { background:rgba(255,255,255,0.06); color:var(--text); border:1px solid var(--border); }
+    .inv-appliance-table { width:100%; border-collapse:collapse; margin-bottom:8px; }
+    .inv-appliance-table td { font-size:12px; color:var(--muted); padding:4px 0; }
+    .inv-appliance-table td:last-child { text-align:right; color:var(--text); font-weight:600; }
+    </style>
+
+    <div class="inv-calc">
+      <!-- Presets -->
+      <div style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);font-weight:700;margin-bottom:12px;">Select Home Type</div>
+      <div class="inv-preset-grid">
+        <div class="inv-preset-btn" onclick="invSelectPreset('1bed',this)">
+          <div class="inv-preset-icon">🛏</div>
+          <div class="inv-preset-label">1-Bedroom</div>
+          <div class="inv-preset-sub">~800W</div>
+        </div>
+        <div class="inv-preset-btn" onclick="invSelectPreset('2bed',this)">
+          <div class="inv-preset-icon">🏠</div>
+          <div class="inv-preset-label">2–3 Bedroom</div>
+          <div class="inv-preset-sub">~2,000W</div>
+        </div>
+        <div class="inv-preset-btn" onclick="invSelectPreset('4bed',this)">
+          <div class="inv-preset-icon">🏡</div>
+          <div class="inv-preset-label">4+ Bedroom</div>
+          <div class="inv-preset-sub">~4,500W</div>
+        </div>
+        <div class="inv-preset-btn" onclick="invSelectPreset('office',this)">
+          <div class="inv-preset-icon">🏢</div>
+          <div class="inv-preset-label">Small Office</div>
+          <div class="inv-preset-sub">~3,000W</div>
+        </div>
+        <div class="inv-preset-btn" onclick="invSelectPreset('custom',this)" id="invCustomBtn">
+          <div class="inv-preset-icon">⚙️</div>
+          <div class="inv-preset-label">Custom</div>
+          <div class="inv-preset-sub">Enter watts</div>
+        </div>
+      </div>
+
+      <!-- Custom / override fields -->
+      <div class="inv-field-row">
+        <div>
+          <div class="inv-label">Total Load (Watts)</div>
+          <input type="number" id="invWatts" class="inv-input" placeholder="e.g. 3500" min="100" max="500000">
+        </div>
+        <div>
+          <div class="inv-label">Daily Backup Hours</div>
+          <input type="number" id="invHours" class="inv-input" value="8" min="1" max="24">
+        </div>
+      </div>
+      <div class="inv-field-row">
+        <div>
+          <div class="inv-label">Battery Days (Without Sun)</div>
+          <input type="number" id="invDays" class="inv-input" value="1" min="1" max="7">
+        </div>
+        <div>
+          <div class="inv-label">USD/NGN Rate</div>
+          <input type="number" id="invRate" class="inv-input" value="1640" min="100">
+        </div>
+      </div>
+      <label class="inv-checkbox-row">
+        <input type="checkbox" id="invSolar" class="inv-checkbox" checked>
+        <span style="font-size:13px;color:var(--text);">Include solar panels (recommended)</span>
+      </label>
+
+      <button class="inv-calc-btn" onclick="invCalculate()">⚡ Calculate My System</button>
+
+      <!-- Result -->
+      <div class="inv-result" id="invResult">
+        <div class="inv-result-section">
+          <div class="inv-result-title" id="invResultTitle">Your System</div>
+          <div class="inv-spec-grid" id="invSpecGrid"></div>
+        </div>
+        <div class="inv-result-section" id="invApplianceSection" style="display:none;">
+          <div class="inv-result-title">Appliances Included</div>
+          <table class="inv-appliance-table" id="invApplianceTable"></table>
+        </div>
+        <div class="inv-result-section">
+          <div class="inv-result-title">Estimated Cost Breakdown</div>
+          <div id="invCostRows"></div>
+        </div>
+        <div class="inv-cta-row">
+          <a href="https://t.me/ivoltpowersolutions" target="_blank" rel="noopener" class="inv-cta-btn inv-cta-primary">📦 Shop Inverters on Telegram</a>
+          <a href="https://wa.me/2349032156174" target="_blank" rel="noopener" class="inv-cta-btn inv-cta-secondary">📞 Get Exact Quote</a>
+        </div>
+        <div style="margin-top:14px;font-size:11px;color:var(--muted);line-height:1.7;">
+          ⚠️ These are estimates to help you budget. Actual cost varies by brand, battery chemistry (AGM vs LiFePO4), and installation complexity.
+          For an exact quote, contact our team or run <strong style="color:var(--gold);">/inverter home=2bed</strong> on our Telegram bot.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+  var INV_PRESETS = {
+    '1bed':   {label:'1-Bedroom Apartment',    watts:800,  hours:8,  appliances:[['LED Lights ×4',40],['Fans ×2',150],['TV',100],['Decoder',30],['Fridge',150],['Chargers',30],['Router',25]]},
+    '2bed':   {label:'2–3 Bedroom Flat',       watts:2000, hours:8,  appliances:[['LED Lights ×8',80],['Fans ×3',225],['TV ×2',200],['Decoder',30],['Fridge',200],['Washing Machine',500],['Laptops ×2',120],['Chargers',60],['Router',25]]},
+    '4bed':   {label:'4+ Bedroom House',       watts:4500, hours:8,  appliances:[['LED Lights ×12',120],['Fans ×5',375],['TV ×3',300],['Fridge/Freezer',400],['AC 1.5HP',1200],['Washing Machine',500],['Water Pump',750],['Laptops ×3',180],['Chargers',80],['Router',30]]},
+    'office': {label:'Small Office',           watts:3000, hours:10, appliances:[['LED Lights ×10',100],['Computers ×5',500],['Monitors ×5',600],['AC 1HP',800],['Printers',200],['Server',300],['Router',100],['Chargers',120]]},
+    'custom': {label:'Custom Load',            watts:null, hours:8,  appliances:[]}
+  };
+  var invCurrentPreset = null;
+
+  function invSelectPreset(key, el) {
+    document.querySelectorAll('.inv-preset-btn').forEach(function(b){b.classList.remove('active')});
+    el.classList.add('active');
+    invCurrentPreset = key;
+    var p = INV_PRESETS[key];
+    if (p && p.watts) {
+      document.getElementById('invWatts').value = p.watts;
+      document.getElementById('invHours').value = p.hours;
+    } else {
+      document.getElementById('invWatts').value = '';
+    }
+  }
+
+  function invFmt(n) { return '\u20a6' + Math.round(n).toLocaleString('en-NG'); }
+
+  function invCalculate() {
+    var watts = parseFloat(document.getElementById('invWatts').value);
+    var hours = parseFloat(document.getElementById('invHours').value) || 8;
+    var days  = parseFloat(document.getElementById('invDays').value)  || 1;
+    var rate  = parseFloat(document.getElementById('invRate').value)  || 1640;
+    var solar = document.getElementById('invSolar').checked;
+    var preset = invCurrentPreset ? INV_PRESETS[invCurrentPreset] : null;
+
+    if (!watts || watts < 100) {
+      document.getElementById('invWatts').style.borderColor = '#dc2626';
+      document.getElementById('invWatts').focus();
+      return;
+    }
+    document.getElementById('invWatts').style.borderColor = '';
+
+    // Inverter KVA
+    var rawKva = (watts * 1.25) / 1000;
+    var stdKva = [1,1.5,2,2.4,3,3.5,5,7.5,10,15,20];
+    var invKva = stdKva.find(function(k){return k >= rawKva;}) || 20;
+
+    // Battery
+    var energyKwh  = watts * hours * days / 1000;
+    var battKwh    = energyKwh * 1.25;
+    var volt       = invKva <= 2 ? 12 : invKva <= 5 ? 24 : 48;
+    var ahRaw      = (battKwh * 1000) / volt;
+    var stdAh      = [100,150,200,250,300,400,500,600];
+    var battAh     = stdAh.find(function(a){return a >= ahRaw;}) || 600;
+    var seriesN    = volt / 12;
+    var battLabel  = battAh + 'Ah ' + volt + 'V';
+    if (seriesN > 1) battLabel += ' (' + seriesN + '× ' + Math.round(battAh/seriesN) + 'Ah 12V series)';
+
+    // Solar
+    var panelW = 400, panelCount = 0, mpptA = 0;
+    if (solar) {
+      panelCount = Math.max(1, Math.round((battKwh * 1000) / (5.5 * 0.85 * panelW) + 0.5));
+      mpptA = Math.round((panelCount * panelW) / volt);
+    }
+
+    // Prices
+    var INV_USD = {1:120,1.5:160,2:200,2.4:260,3:320,3.5:400,5:560,7.5:850,10:1200,15:1900,20:2800};
+    var invUsd    = INV_USD[invKva] || invKva * 130;
+    var invNgn    = invUsd * rate * 1.35;
+    var batNgn    = (battAh / 100) * 85000 * seriesN;
+    var solarNgn  = solar ? panelCount * 85000 : 0;
+    var mpptNgn   = solar ? (mpptA <= 40 ? 45000 : mpptA <= 60 ? 85000 : 140000) : 0;
+    var installNgn= Math.max(25000, invKva * 8000);
+    var totalNgn  = invNgn + batNgn + solarNgn + mpptNgn + installNgn;
+
+    // Render specs
+    var specs = [
+      {icon:'⚡', name:'Inverter Size',   value: invKva + ' KVA',       sub: 'Pure Sine Wave'},
+      {icon:'🔋', name:'Battery Bank',    value: battLabel,              sub: battKwh.toFixed(1) + ' kWh usable'},
+    ];
+    if (solar) {
+      specs.push({icon:'☀️', name:'Solar Array', value: panelCount + '× ' + panelW + 'W', sub: (panelCount*panelW*5.5/1000).toFixed(1) + ' kWh/day est.'});
+      specs.push({icon:'🔌', name:'MPPT Charger', value: mpptA + 'A',    sub: 'Charge controller'});
+    }
+    specs.push({icon:'📦', name:'Daily Backup',  value: hours + ' hours',  sub: 'At full load'});
+    specs.push({icon:'☁️', name:'Autonomy',       value: days + ' day' + (days>1?'s':''), sub: 'Without sun'});
+
+    document.getElementById('invSpecGrid').innerHTML = specs.map(function(s){
+      return '<div class="inv-spec-card"><div class="inv-spec-icon">'+s.icon+'</div>'
+        +'<div class="inv-spec-name">'+s.name+'</div>'
+        +'<div class="inv-spec-value">'+s.value+'</div>'
+        +'<div class="inv-spec-sub">'+s.sub+'</div></div>';
+    }).join('');
+
+    // Appliances
+    var appSection = document.getElementById('invApplianceSection');
+    if (preset && preset.appliances && preset.appliances.length) {
+      document.getElementById('invApplianceTable').innerHTML = preset.appliances.map(function(a){
+        return '<tr><td>'+a[0]+'</td><td>'+a[1]+'W</td></tr>';
+      }).join('') + '<tr style="border-top:1px solid rgba(255,255,255,0.08);"><td style="padding-top:8px;font-weight:700;color:#fff;">Total</td><td style="padding-top:8px;font-weight:700;color:var(--gold);">'+watts+'W</td></tr>';
+      appSection.style.display = 'block';
+    } else {
+      appSection.style.display = 'none';
+    }
+
+    // Cost rows
+    var rows = [
+      ['Inverter (' + invKva + ' KVA Pure Sine)', invFmt(invNgn)],
+      ['Battery bank (' + battLabel + ')', invFmt(batNgn)],
+    ];
+    if (solar) {
+      rows.push(['Solar panels (' + panelCount + '× ' + panelW + 'W)', invFmt(solarNgn)]);
+      rows.push(['MPPT charge controller (' + mpptA + 'A)', invFmt(mpptNgn)]);
+    }
+    rows.push(['Installation & commissioning', invFmt(installNgn)]);
+    rows.push(['TOTAL ESTIMATE', invFmt(totalNgn)]);
+
+    document.getElementById('invCostRows').innerHTML = rows.map(function(r, i){
+      return '<div class="inv-cost-row">'
+        +'<span class="inv-cost-label">'+r[0]+'</span>'
+        +'<span class="inv-cost-value">'+r[1]+'</span>'
+        +'</div>';
+    }).join('');
+
+    var lbl = preset ? preset.label : 'Custom — ' + watts.toLocaleString() + 'W';
+    document.getElementById('invResultTitle').textContent = lbl;
+    var result = document.getElementById('invResult');
+    result.classList.add('show');
+    result.scrollIntoView({behavior:'smooth', block:'start'});
+  }
+  </script>
 
   <!-- All-features grid -->
   <div style="margin-top:48px;" class="reveal">
