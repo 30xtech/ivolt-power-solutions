@@ -1659,28 +1659,10 @@ img, svg, video { max-width: 100%; }
         </div>
         <div style="font-family:'Montserrat',sans-serif;font-size:18px;font-weight:800;color:#fff;">iVolt Current Catalogue</div>
       </div>
-      <button onclick="loadIvoltPrices()" id="ivolt-refresh-btn" style="background:rgba(16,185,129,0.12);border:1px solid rgba(16,185,129,0.35);color:var(--green);border-radius:8px;padding:8px 18px;font-size:11px;font-weight:700;cursor:pointer;letter-spacing:1px;font-family:'Inter',sans-serif;transition:all .2s;" onmouseover="this.style.background='rgba(16,185,129,0.22)'" onmouseout="this.style.background='rgba(16,185,129,0.12)'">↻ Refresh</button>
-    </div>
-
-    <!-- Loading state -->
-    <div id="ivolt-loading" style="text-align:center;padding:40px;background:var(--card);border:1px solid var(--border);border-radius:12px;">
-      <div style="font-size:24px;margin-bottom:12px;animation:spin 1s linear infinite;display:inline-block;">⟳</div>
-      <div style="font-size:13px;color:var(--muted);">Loading live prices from iVolt database…</div>
-    </div>
-
-    <!-- Error state -->
-    <div id="ivolt-error" style="display:none;text-align:center;padding:40px;background:rgba(220,38,38,0.06);border:1px solid rgba(220,38,38,0.2);border-radius:12px;">
-      <div style="font-size:24px;margin-bottom:10px;">⚠️</div>
-      <div style="font-size:13px;color:var(--muted);">Unable to load live prices right now.</div>
-      <button onclick="loadIvoltPrices()" style="margin-top:14px;background:rgba(220,38,38,0.12);border:1px solid rgba(220,38,38,0.3);color:#f87171;border-radius:6px;padding:7px 18px;font-size:11px;font-weight:700;cursor:pointer;font-family:'Inter',sans-serif;">Try Again</button>
     </div>
 
     <!-- Price grid -->
-    <div id="ivolt-prices" style="display:none;"></div>
-
-    <div id="ivolt-footer" style="display:none;font-size:11px;color:var(--muted);margin-top:12px;text-align:right;">
-      Prices from iVolt live database · <span id="ivolt-timestamp"></span>
-    </div>
+    <div id="ivolt-prices"></div>
   </div>
 
   <style>
@@ -1749,69 +1731,18 @@ img, svg, video { max-width: 100%; }
   </style>
 
   <script>
-  function loadIvoltPrices() {
-    var loading = document.getElementById('ivolt-loading');
-    var error   = document.getElementById('ivolt-error');
-    var grid    = document.getElementById('ivolt-prices');
-    var footer  = document.getElementById('ivolt-footer');
-    var btn     = document.getElementById('ivolt-refresh-btn');
-
-    loading.style.display = 'block';
-    error.style.display   = 'none';
-    grid.style.display    = 'none';
-    footer.style.display  = 'none';
-    if (btn) btn.textContent = '↻ Refreshing…';
-
-    fetch("https://x-dashboard-b1098-default-rtdb.europe-west1.firebasedatabase.app/shop_catalogue_flat.json?auth=HtSaOvwz7W9HzLzbnFcufeBZECKoez995SehKNKP")
-      .then(function(r) {
-        if (!r.ok) throw new Error('Network error ' + r.status);
-        return r.json();
-      })
-      .then(function(items) {
-        if (!items || typeof items !== 'object') throw new Error('No data');
-        var entries = Object.entries(items);
-        if (entries.length === 0) throw new Error('Empty catalogue');
-
-        grid.innerHTML = entries.map(function(entry) {
-          var sku  = entry[0];
-          var item = entry[1];
-          var price = item.retail_ngn ? '₦' + Number(item.retail_ngn).toLocaleString('en-NG') : 'POA';
-          var stock = (item.stock_level || '').toString().toLowerCase();
-          var badgeClass = stock.includes('out') ? 'ivolt-stock-out'
-                         : stock.includes('low') ? 'ivolt-stock-low'
-                         : 'ivolt-stock-in';
-          var dot = stock.includes('out') ? '✕' : stock.includes('low') ? '!' : '●';
-          var stockLabel = item.stock_level || 'In Stock';
-
-          return '<div class="ivolt-item">'
-            + '<div class="ivolt-item-sku">' + sku + '</div>'
-            + '<div class="ivolt-item-name">' + (item.name || sku) + '</div>'
-            + '<div class="ivolt-item-price">' + price + '</div>'
-            + '<span class="ivolt-stock-badge ' + badgeClass + '">' + dot + ' ' + stockLabel + '</span>'
-            + '</div>';
-        }).join('');
-
-        loading.style.display = 'none';
-        grid.style.display    = 'grid';
-        footer.style.display  = 'block';
-        document.getElementById('ivolt-timestamp').textContent =
-          'Updated ' + new Date().toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'});
-        if (btn) btn.textContent = '↻ Refresh';
-      })
-      .catch(function(err) {
-        console.error('iVolt price fetch error:', err);
-        loading.style.display = 'none';
-        error.style.display   = 'block';
-        if (btn) btn.textContent = '↻ Refresh';
-      });
-  }
-
-  // Auto-load on page ready
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', loadIvoltPrices);
-  } else {
-    loadIvoltPrices();
-  }
+fetch("https://x-dashboard-b1098-default-rtdb.europe-west1.firebasedatabase.app/shop_catalogue_flat.json?auth=YOUR_API_KEY")
+  .then(r => r.json())
+  .then(items => {
+    const el = document.getElementById('ivolt-prices');
+    el.innerHTML = Object.entries(items).map(([sku, item]) =>
+      `<div class="ivolt-item">
+        <strong>${item.name}</strong><br>
+        NGN ${Number(item.retail_ngn).toLocaleString()}<br>
+        Stock: ${item.stock_level}
+       </div>`
+    ).join('');
+  });
   </script>
 
   <!-- Market price guide (original table, clearly labelled as a guide) -->
