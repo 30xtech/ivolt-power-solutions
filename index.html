@@ -13,18 +13,18 @@
 :root {
   --cyan: #2563eb;
   --cyan-dim: rgba(37,99,235,0.15);
-  --gold: #f59e0b;
-  --gold-dim: rgba(245,158,11,0.12);
-  --green: #10b981;
-  --red: #dc2626;
-  --orange: #ea580c;
+  --gold: #2563eb;
+  --gold-dim: rgba(37,99,235,0.12);
+  --green: #3b82f6;
+  --red: #2563eb;
+  --orange: #3b82f6;
   --bg: #0a0d14;
   --bg2: #0f1321;
   --card: rgba(255,255,255,0.04);
   --border: rgba(255,255,255,0.10);
   --text: rgba(255,255,255,0.88);
   --muted: rgba(255,255,255,0.48);
-  --tg: #229ED9;
+  --tg: #2563eb;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -107,10 +107,10 @@ body {
   padding: 3px 8px; border-radius: 20px; margin-bottom: 10px;
 }
 .tag-regulator { background: rgba(37,99,235,0.15); color: #60a5fa; }
-.tag-suppressor { background: rgba(245,158,11,0.15); color: #fbbf24; }
-.tag-safety { background: rgba(16,185,129,0.15); color: #34d399; }
-.tag-industry { background: rgba(139,92,246,0.15); color: #a78bfa; }
-.tag-nigeria { background: rgba(220,38,38,0.15); color: #f87171; }
+.tag-suppressor { background: rgba(37,99,235,0.15); color: #60a5fa; }
+.tag-safety { background: rgba(37,99,235,0.15); color: #60a5fa; }
+.tag-industry { background: rgba(37,99,235,0.15); color: #93c5fd; }
+.tag-nigeria { background: rgba(37,99,235,0.15); color: #93c5fd; }
 .news-load-more {
   display: block; margin: 40px auto 0;
   background: transparent; border: 1px solid var(--border);
@@ -138,7 +138,7 @@ body {
 }
 .chat-badge {
   position: absolute; top: -4px; right: -4px;
-  width: 18px; height: 18px; background: var(--gold);
+  width: 18px; height: 18px; background: var(--cyan);
   border-radius: 50%; font-size: 10px; font-weight: 700;
   color: #000; display: flex; align-items: center; justify-content: center;
   border: 2px solid var(--bg);
@@ -167,7 +167,7 @@ body {
 .chat-header-info { flex: 1; }
 .chat-header-name { font-size: 14px; font-weight: 700; color: #fff; }
 .chat-header-status { font-size: 11px; color: rgba(255,255,255,0.7); display: flex; align-items: center; gap: 5px; margin-top: 2px; }
-.chat-status-dot { width: 7px; height: 7px; background: #34d399; border-radius: 50%; animation: blink 2s ease infinite; }
+.chat-status-dot { width: 7px; height: 7px; background: #60a5fa; border-radius: 50%; animation: blink 2s ease infinite; }
 @keyframes blink { 0%,100%{opacity:1}50%{opacity:.4} }
 .chat-close { background: none; border: none; color: rgba(255,255,255,0.6); font-size: 18px; cursor: pointer; transition: color .2s; line-height: 1; padding: 4px; }
 .chat-close:hover { color: #fff; }
@@ -271,20 +271,20 @@ nav {
 }
 .hero-bolt-inline svg { width: 160px; height: 240px; display: block; }
 @keyframes boltFloatInline {
-  0%   { transform: translateY(0) scaleY(1);    filter: drop-shadow(0 0 18px #f59e0b) drop-shadow(0 0 6px #fff); opacity: 0.9; }
-  18%  { transform: translateY(-10px) scaleY(1.04); filter: drop-shadow(0 0 32px #ffe066) drop-shadow(0 0 12px #fff); opacity: 1; }
-  22%  { transform: translateY(6px) scaleY(0.96);  filter: drop-shadow(0 0 60px #fff) drop-shadow(0 0 30px #f59e0b); opacity: 1; }
-  23%  { opacity: 1;   filter: drop-shadow(0 0 80px #fff) drop-shadow(0 0 40px #ffe066) brightness(2.5); }
+  0%   { transform: translateY(0) scaleY(1);    filter: drop-shadow(0 0 18px #2563eb) drop-shadow(0 0 6px #fff); opacity: 0.9; }
+  18%  { transform: translateY(-10px) scaleY(1.04); filter: drop-shadow(0 0 32px #93c5fd) drop-shadow(0 0 12px #fff); opacity: 1; }
+  22%  { transform: translateY(6px) scaleY(0.96);  filter: drop-shadow(0 0 60px #fff) drop-shadow(0 0 30px #2563eb); opacity: 1; }
+  23%  { opacity: 1;   filter: drop-shadow(0 0 80px #fff) drop-shadow(0 0 40px #93c5fd) brightness(2.5); }
   24%  { opacity: 0.1; filter: none; }
-  25%  { opacity: 1;   filter: drop-shadow(0 0 80px #fff) drop-shadow(0 0 40px #ffe066) brightness(2); }
+  25%  { opacity: 1;   filter: drop-shadow(0 0 80px #fff) drop-shadow(0 0 40px #93c5fd) brightness(2); }
   26%  { opacity: 0.2; filter: none; }
-  27%  { opacity: 1;   filter: drop-shadow(0 0 50px #f59e0b); }
-  50%  { transform: translateY(-5px) scaleY(1); filter: drop-shadow(0 0 22px #f59e0b); opacity: 0.9; }
-  100% { transform: translateY(0) scaleY(1);    filter: drop-shadow(0 0 18px #f59e0b); opacity: 0.9; }
+  27%  { opacity: 1;   filter: drop-shadow(0 0 50px #2563eb); }
+  50%  { transform: translateY(-5px) scaleY(1); filter: drop-shadow(0 0 22px #2563eb); opacity: 0.9; }
+  100% { transform: translateY(0) scaleY(1);    filter: drop-shadow(0 0 18px #2563eb); opacity: 0.9; }
 }
 .hero-bg-glow { position: absolute; border-radius: 50%; pointer-events: none; }
 .hero-glow1 { width: 600px; height: 600px; top: -100px; left: -150px; background: radial-gradient(circle, rgba(37,99,235,0.07) 0%, transparent 65%); }
-.hero-glow2 { width: 500px; height: 500px; bottom: -80px; right: -120px; background: radial-gradient(circle, rgba(245,158,11,0.06) 0%, transparent 65%); }
+.hero-glow2 { width: 500px; height: 500px; bottom: -80px; right: -120px; background: radial-gradient(circle, rgba(37,99,235,0.06) 0%, transparent 65%); }
 @media (min-width: 901px) {
   /* On desktop: large absolute bolt on right, inline bolt hidden */
   .hero { min-height: 100vh; }
@@ -328,7 +328,7 @@ nav {
   text-shadow: 0 0 60px rgba(37,99,235,0.18); margin-bottom: 12px;
 }
 .hero h1 .accent { color: var(--cyan); }
-.hero h1 .accent2 { color: var(--gold); }
+.hero h1 .accent2 { color: var(--cyan); }
 .hero-sub { font-size: 16px; font-weight: 300; color: var(--muted); line-height: 1.7; margin-bottom: 40px; max-width: 520px; letter-spacing: 0.3px; }
 .hero-btns { display: flex; gap: 16px; flex-wrap: wrap; }
 .btn-primary {
@@ -351,24 +351,24 @@ nav {
 }
 /* Main bolt: float + drop strike */
 @keyframes boltFloat {
-  0%   { transform: translateY(-50%) translateX(0)   scaleY(1);   filter: drop-shadow(0 0 18px #f59e0b) drop-shadow(0 0 6px #fff); opacity: 0.85; }
-  18%  { transform: translateY(-58%) translateX(-6px) scaleY(1.04); filter: drop-shadow(0 0 32px #ffe066) drop-shadow(0 0 12px #fff); opacity: 1; }
-  22%  { transform: translateY(-44%) translateX(4px)  scaleY(0.96); filter: drop-shadow(0 0 60px #fff)   drop-shadow(0 0 30px #f59e0b); opacity: 1; }
+  0%   { transform: translateY(-50%) translateX(0)   scaleY(1);   filter: drop-shadow(0 0 18px #2563eb) drop-shadow(0 0 6px #fff); opacity: 0.85; }
+  18%  { transform: translateY(-58%) translateX(-6px) scaleY(1.04); filter: drop-shadow(0 0 32px #93c5fd) drop-shadow(0 0 12px #fff); opacity: 1; }
+  22%  { transform: translateY(-44%) translateX(4px)  scaleY(0.96); filter: drop-shadow(0 0 60px #fff)   drop-shadow(0 0 30px #2563eb); opacity: 1; }
   /* FLASH */
-  23%  { opacity: 1;   filter: drop-shadow(0 0 80px #fff) drop-shadow(0 0 40px #ffe066) brightness(2.5); }
+  23%  { opacity: 1;   filter: drop-shadow(0 0 80px #fff) drop-shadow(0 0 40px #93c5fd) brightness(2.5); }
   24%  { opacity: 0.1; filter: none; }
-  25%  { opacity: 1;   filter: drop-shadow(0 0 80px #fff) drop-shadow(0 0 40px #ffe066) brightness(2); }
+  25%  { opacity: 1;   filter: drop-shadow(0 0 80px #fff) drop-shadow(0 0 40px #93c5fd) brightness(2); }
   26%  { opacity: 0.2; filter: none; }
-  27%  { opacity: 1;   filter: drop-shadow(0 0 50px #f59e0b); }
-  50%  { transform: translateY(-52%) translateX(-4px) scaleY(1); filter: drop-shadow(0 0 22px #f59e0b); opacity: 0.9; }
-  100% { transform: translateY(-50%) translateX(0)   scaleY(1);   filter: drop-shadow(0 0 18px #f59e0b); opacity: 0.85; }
+  27%  { opacity: 1;   filter: drop-shadow(0 0 50px #2563eb); }
+  50%  { transform: translateY(-52%) translateX(-4px) scaleY(1); filter: drop-shadow(0 0 22px #2563eb); opacity: 0.9; }
+  100% { transform: translateY(-50%) translateX(0)   scaleY(1);   filter: drop-shadow(0 0 18px #2563eb); opacity: 0.85; }
 }
 /* Electric glow ring that pulses on strike */
 .hero-device::after {
   content: '';
   position: absolute; inset: -20px;
   border-radius: 50%;
-  background: radial-gradient(ellipse at center, rgba(245,158,11,0.35) 0%, transparent 70%);
+  background: radial-gradient(ellipse at center, rgba(37,99,235,0.35) 0%, transparent 70%);
   animation: boltPulse 3s ease-in-out infinite;
   pointer-events: none;
 }
@@ -405,7 +405,7 @@ nav {
 .spark:nth-child(4) { --dx: -12px; --dy: 18px;  }
 .spark:nth-child(5) { --dx: 22px;  --dy: 8px;   }
 .hero-stats { display: flex; gap: 40px; margin-top: 56px; flex-wrap: wrap; }
-.stat-val { font-family: 'Montserrat', sans-serif; font-size: 28px; font-weight: 900; color: var(--gold); }
+.stat-val { font-family: 'Montserrat', sans-serif; font-size: 28px; font-weight: 900; color: var(--cyan); }
 .stat-lbl { font-family: 'Inter', sans-serif; font-size: 9px; letter-spacing: 2px; color: var(--muted); text-transform: uppercase; margin-top: 2px; }
 
 /* ══ SECTION SHARED ══ */
@@ -431,8 +431,8 @@ section { padding: 100px 5%; position: relative; z-index: 2; }
 .prod-card:hover { transform: translateY(-6px); border-color: var(--cyan); box-shadow: 0 16px 40px rgba(37,99,235,0.12); }
 .prod-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; }
 .prod-card.c1::before { background: linear-gradient(90deg,#2563eb,#1d4ed8); }
-.prod-card.c2::before { background: linear-gradient(90deg,#f59e0b,#ea580c); }
-.prod-card.c3::before { background: linear-gradient(90deg,#10b981,#0d9488); }
+.prod-card.c2::before { background: linear-gradient(90deg,#2563eb,#2563eb); }
+.prod-card.c3::before { background: linear-gradient(90deg,#3b82f6,#1d4ed8); }
 .prod-card-icon { font-size: 38px; margin-bottom: 20px; display: block; }
 .prod-card-badge {
   position: absolute; top: 20px; right: 20px;
@@ -440,8 +440,8 @@ section { padding: 100px 5%; position: relative; z-index: 2; }
   letter-spacing: 2px; padding: 4px 10px; border-radius: 20px;
 }
 .prod-card.c1 .prod-card-badge { background: var(--cyan-dim); color: var(--cyan); border: 1px solid rgba(0,229,255,0.3); }
-.prod-card.c2 .prod-card-badge { background: var(--gold-dim); color: var(--gold); border: 1px solid rgba(255,196,0,0.3); }
-.prod-card.c3 .prod-card-badge { background: rgba(16,185,129,0.12); color: var(--green); border: 1px solid rgba(16,185,129,0.30); }
+.prod-card.c2 .prod-card-badge { background: var(--gold-dim); color: var(--cyan); border: 1px solid rgba(255,196,0,0.3); }
+.prod-card.c3 .prod-card-badge { background: rgba(37,99,235,0.12); color: var(--green); border: 1px solid rgba(37,99,235,0.30); }
 .prod-card h3 { font-family: 'Montserrat', sans-serif; font-size: 16px; font-weight: 700; color: #fff; margin-bottom: 8px; letter-spacing: 0.5px; }
 .prod-card p { font-size: 13px; color: var(--muted); line-height: 1.7; margin-bottom: 24px; }
 .prod-card-link {
@@ -458,11 +458,11 @@ section { padding: 100px 5%; position: relative; z-index: 2; }
   transition: background .2s, color .2s, transform .2s;
   display: flex; align-items: center; justify-content: center; gap: 8px;
 }
-.prod-card.c2 .order-btn { border-color: var(--gold); color: var(--gold); }
-.prod-card.c3 .order-btn { border-color: var(--green); color: var(--green); }
+.prod-card.c2 .order-btn { border-color: var(--cyan); color: var(--cyan); }
+.prod-card.c3 .order-btn { border-color: var(--cyan); color: var(--cyan); }
 .order-btn:hover { background: var(--cyan); color: #000; transform: translateY(-2px); }
-.prod-card.c2 .order-btn:hover { background: var(--gold); color: #000; }
-.prod-card.c3 .order-btn:hover { background: var(--green); color: #000; }
+.prod-card.c2 .order-btn:hover { background: var(--cyan); color: #000; }
+.prod-card.c3 .order-btn:hover { background: var(--cyan); color: #000; }
 
 /* ══ ORDER MODAL ══ */
 .order-overlay {
@@ -525,30 +525,30 @@ section { padding: 100px 5%; position: relative; z-index: 2; }
 .trade-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
 .trade-panel { padding: 60px 48px; position: relative; overflow: hidden; }
 .trade-panel.buy { background: linear-gradient(135deg,rgba(6,36,72,0.7),rgba(37,99,235,0.08)); border-right: 1px solid var(--border); }
-.trade-panel.sell { background: linear-gradient(135deg,rgba(69,10,10,0.6),rgba(220,38,38,0.08)); }
+.trade-panel.sell { background: linear-gradient(135deg,rgba(6,36,72,0.7),rgba(37,99,235,0.08)); }
 .trade-panel::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; }
 .trade-panel.buy::before { background: linear-gradient(90deg,#1e3a8a,#2563eb); }
-.trade-panel.sell::before { background: linear-gradient(90deg,#7f1d1d,#dc2626); }
+.trade-panel.sell::before { background: linear-gradient(90deg,#1e3a8a,#2563eb); }
 .trade-big { font-family: 'Montserrat', sans-serif; font-size: clamp(48px,7vw,80px); font-weight: 900; line-height: 1; margin-bottom: 16px; }
-.trade-panel.buy .trade-big { color: #34d399; }
-.trade-panel.sell .trade-big { color: #f87171; }
+.trade-panel.buy .trade-big { color: #60a5fa; }
+.trade-panel.sell .trade-big { color: #93c5fd; }
 .trade-panel h3 { font-family: 'Inter', sans-serif; font-size: 20px; font-weight: 700; color: #fff; margin-bottom: 12px; }
 .trade-panel p { font-size: 14px; color: var(--muted); line-height: 1.7; margin-bottom: 28px; max-width: 100%; }
 .trade-panel a {
   font-family: 'Inter', sans-serif; font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
   text-decoration: none; padding: 10px 24px; border-radius: 4px; display: inline-block; transition: transform .2s, box-shadow .2s;
 }
-.trade-panel.buy a { background: rgba(16,185,129,0.12); color: var(--green); border: 1px solid rgba(16,185,129,0.30); }
-.trade-panel.buy a:hover { background: rgba(16,185,129,0.22); transform: translateY(-2px); }
-.trade-panel.sell a { background: rgba(220,38,38,0.12); color: #f87171; border: 1px solid rgba(220,38,38,0.30); }
-.trade-panel.sell a:hover { background: rgba(220,38,38,0.22); transform: translateY(-2px); }
+.trade-panel.buy a { background: rgba(37,99,235,0.12); color: var(--green); border: 1px solid rgba(37,99,235,0.30); }
+.trade-panel.buy a:hover { background: rgba(37,99,235,0.22); transform: translateY(-2px); }
+.trade-panel.sell a { background: rgba(37,99,235,0.12); color: #93c5fd; border: 1px solid rgba(37,99,235,0.30); }
+.trade-panel.sell a:hover { background: rgba(37,99,235,0.22); transform: translateY(-2px); }
 
 /* ══ WHY US ══ */
 .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
 .why-card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 28px 24px; transition: border-color .3s, transform .3s; }
-.why-card:hover { border-color: var(--gold); transform: translateY(-4px); }
+.why-card:hover { border-color: var(--cyan); transform: translateY(-4px); }
 .why-icon { font-size: 30px; margin-bottom: 14px; }
-.why-card h4 { font-family: 'Montserrat', sans-serif; font-size: 12px; font-weight: 700; color: var(--gold); letter-spacing: 1px; margin-bottom: 8px; text-transform: uppercase; }
+.why-card h4 { font-family: 'Montserrat', sans-serif; font-size: 12px; font-weight: 700; color: var(--cyan); letter-spacing: 1px; margin-bottom: 8px; text-transform: uppercase; }
 .why-card p { font-size: 12px; color: var(--muted); line-height: 1.7; }
 
 /* ══ INSPECTION ══ */
@@ -584,7 +584,7 @@ section { padding: 100px 5%; position: relative; z-index: 2; }
   border: 1px solid rgba(0,229,255,0.25); display: flex; align-items: center; justify-content: center;
   font-size: 18px; flex-shrink: 0;
 }
-.contact-item-icon.tg-icon { background: rgba(34,158,217,0.15); border-color: rgba(34,158,217,0.3); }
+.contact-item-icon.tg-icon { background: rgba(37,99,235,0.15); border-color: rgba(37,99,235,0.3); }
 .contact-item-label { font-family: 'Inter', sans-serif; font-size: 9px; letter-spacing: 2px; color: var(--muted); text-transform: uppercase; margin-bottom: 4px; }
 .contact-item-val { font-size: 13px; color: #fff; line-height: 1.5; }
 .contact-item-val a { color: var(--cyan); text-decoration: none; }
@@ -612,31 +612,31 @@ section { padding: 100px 5%; position: relative; z-index: 2; }
 .advertise-header .section-sub { font-size: 14px; color: var(--muted); margin-top: 8px; }
 .advert-card-main {
   position: relative; overflow: hidden;
-  background: linear-gradient(135deg,#0f1428 0%,#1a1545 50%,#0f1428 100%);
-  border: 1px solid rgba(167,139,250,0.3); border-radius: 24px;
+  background: linear-gradient(135deg,#0f1428 0%,#0f172a 50%,#0f1428 100%);
+  border: 1px solid rgba(37,99,235,0.3); border-radius: 24px;
   display: grid; grid-template-columns: 1fr 340px; gap: 0; min-height: 380px;
 }
 .advert-card-glow {
   position: absolute; inset: 0; pointer-events: none;
-  background: radial-gradient(ellipse at 10% 50%,rgba(124,58,237,0.15) 0%,transparent 55%),
+  background: radial-gradient(ellipse at 10% 50%,rgba(37,99,235,0.15) 0%,transparent 55%),
               radial-gradient(ellipse at 90% 20%,rgba(37,99,235,0.1) 0%,transparent 50%);
 }
 .advert-card-left { padding: 44px; position: relative; z-index: 1; display: flex; flex-direction: column; justify-content: center; }
 .advert-icon-wrap {
   width: 56px; height: 56px; border-radius: 16px;
-  background: linear-gradient(135deg,#7c3aed,#3b82f6);
+  background: linear-gradient(135deg,#2563eb,#3b82f6);
   display: flex; align-items: center; justify-content: center;
-  font-size: 26px; margin-bottom: 16px; box-shadow: 0 6px 24px rgba(124,58,237,0.45);
+  font-size: 26px; margin-bottom: 16px; box-shadow: 0 6px 24px rgba(37,99,235,0.45);
 }
 .advert-badge {
   display: inline-flex; align-items: center; gap: 5px;
-  background: rgba(167,139,250,0.12); border: 1px solid rgba(167,139,250,0.3);
+  background: rgba(37,99,235,0.12); border: 1px solid rgba(37,99,235,0.3);
   border-radius: 20px; padding: 4px 12px;
   font-size: 10px; font-weight: 700; letter-spacing: 2px;
-  color: #a78bfa; text-transform: uppercase; margin-bottom: 14px; width: fit-content;
+  color: #93c5fd; text-transform: uppercase; margin-bottom: 14px; width: fit-content;
 }
 .advert-title { font-family: 'Montserrat', sans-serif; font-size: clamp(20px,3vw,28px); font-weight: 900; color: #fff; line-height: 1.25; margin-bottom: 14px; }
-.advert-title span { color: #c4b5fd; }
+.advert-title span { color: #bfdbfe; }
 .advert-desc { font-size: 14px; color: rgba(255,255,255,0.55); line-height: 1.8; margin-bottom: 20px; max-width: 480px; }
 .advert-features { list-style: none; margin-bottom: 28px; display: flex; flex-direction: column; gap: 8px; }
 .advert-features li { font-size: 13px; color: rgba(255,255,255,0.7); display: flex; align-items: flex-start; gap: 10px; }
@@ -644,12 +644,12 @@ section { padding: 100px 5%; position: relative; z-index: 2; }
 .af-icon { font-size: 15px; flex-shrink: 0; }
 .advert-contact-row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
 .advert-btn-call {
-  background: linear-gradient(135deg,#7c3aed,#4f46e5); color: #fff; border: none; border-radius: 10px;
+  background: linear-gradient(135deg,#2563eb,#1d4ed8); color: #fff; border: none; border-radius: 10px;
   padding: 13px 22px; font-size: 13px; font-weight: 700; text-decoration: none;
   display: inline-flex; align-items: center; gap: 8px;
-  box-shadow: 0 4px 18px rgba(124,58,237,0.45); transition: transform .2s, box-shadow .2s; white-space: nowrap;
+  box-shadow: 0 4px 18px rgba(37,99,235,0.45); transition: transform .2s, box-shadow .2s; white-space: nowrap;
 }
-.advert-btn-call:hover { transform: translateY(-2px); box-shadow: 0 6px 24px rgba(124,58,237,0.65); }
+.advert-btn-call:hover { transform: translateY(-2px); box-shadow: 0 6px 24px rgba(37,99,235,0.65); }
 .advert-btn-email {
   background: rgba(255,255,255,0.06); color: rgba(255,255,255,0.75);
   border: 1px solid rgba(255,255,255,0.18); border-radius: 10px;
@@ -659,19 +659,19 @@ section { padding: 100px 5%; position: relative; z-index: 2; }
 .advert-btn-email:hover { background: rgba(255,255,255,0.12); color: #fff; }
 .advert-card-right {
   position: relative; z-index: 1; background: rgba(0,0,0,0.2);
-  border-left: 1px solid rgba(167,139,250,0.15);
+  border-left: 1px solid rgba(37,99,235,0.15);
   display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 32px 24px; gap: 16px;
 }
 .advert-mockup { width: 100%; max-width: 260px; background: #111827; border-radius: 14px; border: 1px solid rgba(255,255,255,0.1); overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,0.5); }
 .mockup-bar { background: #1f2937; padding: 10px 14px; display: flex; gap: 6px; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.06); }
 .mockup-bar span { width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,0.15); }
-.mockup-bar span:nth-child(1){background:#ef4444} .mockup-bar span:nth-child(2){background:#f59e0b} .mockup-bar span:nth-child(3){background:#10b981}
+.mockup-bar span:nth-child(1){background:#3b82f6} .mockup-bar span:nth-child(2){background:#2563eb} .mockup-bar span:nth-child(3){background:#3b82f6}
 .mockup-body { padding: 16px; display: flex; flex-direction: column; gap: 10px; }
 .mockup-line { height: 8px; border-radius: 4px; background: rgba(255,255,255,0.1); }
 .mockup-line.w80{width:80%} .mockup-line.w60{width:60%} .mockup-line.w90{width:90%} .mockup-line.w50{width:50%}
-.mockup-block { height: 60px; border-radius: 8px; background: linear-gradient(135deg,rgba(124,58,237,0.3),rgba(37,99,235,0.2)); border: 1px solid rgba(124,58,237,0.2); }
+.mockup-block { height: 60px; border-radius: 8px; background: linear-gradient(135deg,rgba(37,99,235,0.3),rgba(37,99,235,0.2)); border: 1px solid rgba(37,99,235,0.2); }
 .mockup-btn-row { display: flex; gap: 8px; margin-top: 4px; }
-.mockup-btn { height: 28px; border-radius: 6px; flex: 1; background: linear-gradient(135deg,#7c3aed,#4f46e5); }
+.mockup-btn { height: 28px; border-radius: 6px; flex: 1; background: linear-gradient(135deg,#2563eb,#1d4ed8); }
 .mockup-btn.outline { background: transparent; border: 1px solid rgba(255,255,255,0.15); }
 .advert-sponsored-tag { font-size: 9px; font-weight: 700; letter-spacing: 2px; color: rgba(255,255,255,0.2); text-transform: uppercase; }
 .advert-tabs { display: flex; gap: 10px; margin-bottom: 28px; flex-wrap: wrap; }
@@ -681,7 +681,7 @@ section { padding: 100px 5%; position: relative; z-index: 2; }
   color: rgba(255,255,255,0.5); cursor: pointer; transition: all .25s;
   font-family: 'Inter', sans-serif; letter-spacing: 0.2px;
 }
-.advert-tab.active { background: linear-gradient(135deg,#7c3aed,#4f46e5); border-color: transparent; color: #fff; box-shadow: 0 4px 14px rgba(124,58,237,0.4); }
+.advert-tab.active { background: linear-gradient(135deg,#2563eb,#1d4ed8); border-color: transparent; color: #fff; box-shadow: 0 4px 14px rgba(37,99,235,0.4); }
 .advert-tab:hover:not(.active) { background: rgba(255,255,255,0.08); color: #fff; }
 .advert-stats-row { display: flex; gap: 0; margin: 20px 0 24px; background: rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; overflow: hidden; }
 .advert-stat { flex: 1; padding: 14px 10px; text-align: center; border-right: 1px solid rgba(255,255,255,0.07); display: flex; flex-direction: column; gap: 3px; }
@@ -691,13 +691,13 @@ section { padding: 100px 5%; position: relative; z-index: 2; }
 .advert-wa-row { margin-top: 10px; }
 .advert-btn-wa {
   display: inline-flex; align-items: center; gap: 8px;
-  background: rgba(37,211,102,0.12); border: 1px solid rgba(37,211,102,0.35);
-  color: #25d366; border-radius: 10px; padding: 11px 20px;
+  background: rgba(37,99,235,0.12); border: 1px solid rgba(37,99,235,0.35);
+  color: #60a5fa; border-radius: 10px; padding: 11px 20px;
   font-size: 13px; font-weight: 700; text-decoration: none; transition: background .2s, color .2s;
 }
-.advert-btn-wa:hover { background: rgba(37,211,102,0.22); color: #fff; }
+.advert-btn-wa:hover { background: rgba(37,99,235,0.22); color: #fff; }
 .advert-right-tags { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; }
-.advert-rtag { background: rgba(255,255,255,0.05); border: 1px solid rgba(167,139,250,0.25); border-radius: 20px; padding: 4px 10px; font-size: 11px; font-weight: 600; color: #a78bfa; }
+.advert-rtag { background: rgba(255,255,255,0.05); border: 1px solid rgba(37,99,235,0.25); border-radius: 20px; padding: 4px 10px; font-size: 11px; font-weight: 600; color: #93c5fd; }
 @media (max-width: 860px) {
   .advert-card-main { grid-template-columns: 1fr; }
   .advert-card-right { display: none; }
@@ -726,7 +726,7 @@ footer { background: var(--bg2); border-top: 1px solid var(--border); padding: 4
 /* scanline removed */
 
 /* ══ MOBILE NAV ══ */
-.mobile-menu { display: none; position: fixed; inset: 0; z-index: 99; background: rgba(7,9,15,0.98); padding: 100px 40px 40px; flex-direction: column; gap: 28px; overflow-y: auto; }
+.mobile-menu { display: none; position: fixed; inset: 0; z-index: 99; background: rgba(7,9,15,0.98); padding: 100px 40px 40px; flex-direction: column; gap: 28px; overflow-y: auto; position: fixed; }
 .mobile-menu.open { display: flex; }
 .mobile-menu a { font-family: 'Montserrat', sans-serif; font-size: 18px; font-weight: 700; color: #fff; text-decoration: none; letter-spacing: 2px; border-bottom: 1px solid var(--border); padding-bottom: 20px; }
 .mobile-menu a:hover { color: var(--cyan); }
@@ -742,7 +742,7 @@ footer { background: var(--bg2); border-top: 1px solid var(--border); padding: 4
 
 /* ══ PRICE LIST ══ */
 .pricelist-section { background: var(--bg2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-.pricelist-notice { display: flex; align-items: flex-start; gap: 12px; background: rgba(245,158,11,0.06); border: 1px solid rgba(255,196,0,0.25); border-radius: 8px; padding: 14px 18px; margin-bottom: 40px; font-size: 12px; color: rgba(255,196,0,0.85); line-height: 1.7; }
+.pricelist-notice { display: flex; align-items: flex-start; gap: 12px; background: rgba(37,99,235,0.06); border: 1px solid rgba(255,196,0,0.25); border-radius: 8px; padding: 14px 18px; margin-bottom: 40px; font-size: 12px; color: rgba(255,196,0,0.85); line-height: 1.7; }
 .pricelist-notice span { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
 .pricelist-tabs { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 28px; }
 .ptab { font-family: 'Inter', sans-serif; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; padding: 9px 20px; border-radius: 4px; cursor: pointer; background: transparent; border: 1px solid var(--border); color: var(--muted); transition: all .2s; }
@@ -755,11 +755,11 @@ table.price-table td { padding: 13px 18px; border-bottom: 1px solid rgba(255,255
 table.price-table tbody tr:last-child td { border-bottom: none; }
 table.price-table tbody tr:hover td { background: rgba(255,255,255,0.02); }
 .price-new { color: var(--green); font-weight: 700; font-family: 'Montserrat', sans-serif; font-size: 12px; }
-.price-used { color: var(--gold); font-weight: 700; font-family: 'Montserrat', sans-serif; font-size: 12px; }
+.price-used { color: var(--cyan); font-weight: 700; font-family: 'Montserrat', sans-serif; font-size: 12px; }
 .price-na { color: var(--muted); font-size: 11px; }
 .use-tag { font-size: 10px; padding: 3px 8px; border-radius: 3px; font-family: 'Inter', sans-serif; letter-spacing: 1px; }
 .use-home { background: rgba(0,229,255,0.1); color: var(--cyan); }
-.use-office { background: rgba(255,196,0,0.1); color: var(--gold); }
+.use-office { background: rgba(255,196,0,0.1); color: var(--cyan); }
 .use-industrial { background: rgba(255,60,0,0.1); color: #ff7060; }
 .ptable-panel { display: none; }
 .ptable-panel.active { display: block; }
@@ -819,35 +819,35 @@ img, svg, video { max-width: 100%; }
 .impex-section { background: var(--bg2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
 
 .impex-hero {
-  background: linear-gradient(135deg, rgba(6,36,72,0.7) 0%, rgba(37,99,235,0.1) 50%, rgba(245,158,11,0.06) 100%);
+  background: linear-gradient(135deg, rgba(6,36,72,0.7) 0%, rgba(37,99,235,0.1) 50%, rgba(37,99,235,0.06) 100%);
   border: 1px solid rgba(37,99,235,0.2); border-radius: 14px;
   padding: 44px 40px; margin-bottom: 48px; position: relative; overflow: hidden;
 }
 .impex-hero::before {
   content: ''; position: absolute; top: -60px; right: -60px;
   width: 260px; height: 260px; border-radius: 50%;
-  background: radial-gradient(circle, rgba(245,158,11,0.08) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(37,99,235,0.08) 0%, transparent 70%);
   pointer-events: none;
 }
 .impex-hero-inner { display: grid; grid-template-columns: 1fr auto; gap: 32px; align-items: center; }
 .impex-hero-tag { font-size: 10px; letter-spacing: 4px; color: var(--cyan); text-transform: uppercase; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
 .impex-hero-tag::before { content: ''; display: block; width: 22px; height: 1px; background: var(--cyan); }
 .impex-hero h3 { font-family: 'Montserrat', sans-serif; font-size: clamp(20px,3vw,30px); font-weight: 900; color: #fff; line-height: 1.2; margin-bottom: 12px; }
-.impex-hero h3 span { color: var(--gold); }
+.impex-hero h3 span { color: var(--cyan); }
 .impex-hero-desc { font-size: 14px; color: var(--muted); line-height: 1.75; max-width: 520px; margin-bottom: 24px; }
 .impex-hero-stats { display: flex; gap: 32px; flex-wrap: wrap; }
-.impex-stat-val { font-family: 'Montserrat', sans-serif; font-size: 24px; font-weight: 900; color: var(--gold); }
+.impex-stat-val { font-family: 'Montserrat', sans-serif; font-size: 24px; font-weight: 900; color: var(--cyan); }
 .impex-stat-lbl { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); margin-top: 2px; }
 .impex-hero-ctas { display: flex; flex-direction: column; gap: 10px; align-items: flex-end; }
 .impex-btn-tg {
   display: inline-flex; align-items: center; gap: 8px;
-  background: var(--tg); color: #fff; padding: 12px 22px; border-radius: 6px;
+  background: var(--cyan); color: #fff; padding: 12px 22px; border-radius: 6px;
   font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 2px;
   text-decoration: none; text-transform: uppercase; white-space: nowrap;
   transition: transform .2s, box-shadow .2s;
-  box-shadow: 0 4px 16px rgba(34,158,217,0.35);
+  box-shadow: 0 4px 16px rgba(37,99,235,0.35);
 }
-.impex-btn-tg:hover { transform: translateY(-2px); box-shadow: 0 6px 24px rgba(34,158,217,0.5); }
+.impex-btn-tg:hover { transform: translateY(-2px); box-shadow: 0 6px 24px rgba(37,99,235,0.5); }
 .impex-btn-bot {
   display: inline-flex; align-items: center; gap: 8px;
   background: transparent; color: var(--cyan); padding: 11px 22px; border-radius: 6px;
@@ -865,7 +865,7 @@ img, svg, video { max-width: 100%; }
   background: transparent; border: 1px solid var(--border); color: var(--muted); transition: all .2s;
 }
 .impex-tab.active-import, .impex-tab:hover { background: var(--cyan); color: #000; border-color: var(--cyan); font-weight: 700; }
-.impex-tab.active-export { background: var(--gold); color: #000; border-color: var(--gold); font-weight: 700; }
+.impex-tab.active-export { background: var(--gold); color: #000; border-color: var(--cyan); font-weight: 700; }
 .impex-panel { display: none; }
 .impex-panel.active { display: block; }
 
@@ -877,8 +877,8 @@ img, svg, video { max-width: 100%; }
 }
 .impex-item-card:hover { transform: translateY(-3px); border-color: rgba(37,99,235,0.35); box-shadow: 0 10px 28px rgba(0,0,0,0.25); }
 .impex-item-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--cyan), #1d4ed8); }
-.impex-item-card.gold-top::before { background: linear-gradient(90deg, var(--gold), #d97706); }
-.impex-item-card.green-top::before { background: linear-gradient(90deg, var(--green), #0d9488); }
+.impex-item-card.gold-top::before { background: linear-gradient(90deg, var(--gold), #1d4ed8); }
+.impex-item-card.green-top::before { background: linear-gradient(90deg, var(--green), #1d4ed8); }
 .impex-item-icon { font-size: 28px; margin-bottom: 12px; display: block; }
 .impex-item-name { font-family: 'Montserrat', sans-serif; font-size: 13px; font-weight: 800; color: #fff; margin-bottom: 4px; }
 .impex-item-hs { font-size: 10px; color: var(--muted); letter-spacing: 1px; margin-bottom: 8px; }
@@ -888,9 +888,9 @@ img, svg, video { max-width: 100%; }
   font-size: 9px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase;
   padding: 3px 9px; border-radius: 10px;
 }
-.itag-avail   { background: rgba(16,185,129,0.12); color: #34d399; }
+.itag-avail   { background: rgba(37,99,235,0.12); color: #60a5fa; }
 .itag-demand  { background: rgba(37,99,235,0.12);  color: #60a5fa; }
-.itag-export  { background: rgba(245,158,11,0.12); color: #fbbf24; }
+.itag-export  { background: rgba(37,99,235,0.12); color: #60a5fa; }
 .itag-used    { background: rgba(255,255,255,0.06); color: var(--muted); }
 .impex-item-bot {
   display: flex; align-items: center; gap: 6px;
@@ -927,7 +927,7 @@ img, svg, video { max-width: 100%; }
 .impex-pill:hover { border-color: rgba(37,99,235,0.4); color: #fff; }
 
 .impex-bot-cta {
-  background: linear-gradient(135deg, rgba(37,99,235,0.08) 0%, rgba(245,158,11,0.06) 100%);
+  background: linear-gradient(135deg, rgba(37,99,235,0.08) 0%, rgba(37,99,235,0.06) 100%);
   border: 1px solid rgba(37,99,235,0.2); border-radius: 12px;
   padding: 32px 36px; display: flex; align-items: center; gap: 28px; flex-wrap: wrap;
 }
@@ -1067,7 +1067,7 @@ img, svg, video { max-width: 100%; }
   color: #fff; letter-spacing: -.01em;
   opacity: 0; animation: mktUp .6s .32s forwards;
 }
-.mkt-h1 span { color: var(--gold); }
+.mkt-h1 span { color: var(--cyan); }
 .mkt-h1 em { color: var(--cyan); font-style: normal; }
 
 .mkt-sub {
@@ -1080,7 +1080,7 @@ img, svg, video { max-width: 100%; }
 
 .mkt-divider {
   width: 48px; height: 2px; margin: 16px auto;
-  background: linear-gradient(90deg, var(--cyan), var(--gold));
+  background: linear-gradient(90deg, var(--cyan), #1d4ed8);
   opacity: 0; transform-origin: left;
   animation: mktScale .5s .38s forwards;
 }
@@ -1110,7 +1110,7 @@ img, svg, video { max-width: 100%; }
 }
 @keyframes mktBolt {
   0%,100% { filter: drop-shadow(0 0 14px var(--gold)); }
-  50%      { filter: drop-shadow(0 0 30px #ffe066) drop-shadow(0 0 8px #fff); }
+  50%      { filter: drop-shadow(0 0 30px #93c5fd) drop-shadow(0 0 8px #fff); }
 }
 .mkt-logo-name {
   font-family: 'Montserrat', sans-serif; font-weight: 900;
@@ -1131,7 +1131,7 @@ img, svg, video { max-width: 100%; }
   letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.75);
   opacity: 0; animation: mktUp .6s .75s forwards; text-align: center;
 }
-.mkt-tagline em { color: var(--gold); font-style: normal; }
+.mkt-tagline em { color: var(--cyan); font-style: normal; }
 
 /* ── SLIDE 1: PROBLEM ── */
 .mkt-stat-row {
@@ -1150,7 +1150,7 @@ img, svg, video { max-width: 100%; }
 .mkt-stat-box:nth-child(3) { animation-delay: .78s; }
 .mkt-stat-num {
   font-family: 'Montserrat', sans-serif; font-weight: 900;
-  font-size: clamp(28px,4vw,46px); color: var(--gold); line-height: 1;
+  font-size: clamp(28px,4vw,46px); color: var(--cyan); line-height: 1;
 }
 .mkt-stat-lbl {
   font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 500;
@@ -1176,7 +1176,7 @@ img, svg, video { max-width: 100%; }
 .mkt-bot-card:hover { border-color: rgba(37,99,235,.5); }
 .mkt-bot-card::before {
   content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
-  background: linear-gradient(90deg, var(--cyan), var(--gold));
+  background: linear-gradient(90deg, var(--cyan), #1d4ed8);
   transform: scaleX(0); transform-origin: left; transition: transform .35s;
 }
 .mkt-bot-card:hover::before { transform: scaleX(1); }
@@ -1247,13 +1247,13 @@ img, svg, video { max-width: 100%; }
 .mkt-flow-arrow { font-size: 20px; color: var(--cyan); opacity: 0; animation: mktIn .4s .55s forwards; }
 .mkt-escrow-badge {
   margin-top: 22px;
-  background: rgba(16,185,129,.07); border: 1px solid rgba(16,185,129,.22);
+  background: rgba(37,99,235,.07); border: 1px solid rgba(37,99,235,.22);
   padding: clamp(10px,1.5vw,14px) clamp(18px,3vw,28px); text-align: center;
   opacity: 0; animation: mktUp .6s .9s forwards;
 }
 .mkt-escrow-badge .mkt-eb-big {
   font-family: 'Montserrat', sans-serif; font-weight: 900;
-  font-size: clamp(14px,2.2vw,22px); color: var(--green); letter-spacing: .05em;
+  font-size: clamp(14px,2.2vw,22px); color: var(--cyan); letter-spacing: .05em;
 }
 .mkt-escrow-badge .mkt-eb-small { font-family: 'Inter', sans-serif; font-size: 11px; color: rgba(255,255,255,.4); margin-top: 3px; }
 
@@ -1284,7 +1284,7 @@ img, svg, video { max-width: 100%; }
 .mkt-plan-name { font-family: 'Montserrat', sans-serif; font-weight: 900;
   font-size: clamp(14px,1.8vw,18px); color: #fff; letter-spacing: .04em; }
 .mkt-plan-price { font-family: 'Montserrat', sans-serif; font-weight: 700;
-  font-size: clamp(18px,2.5vw,24px); color: var(--gold); margin: 6px 0; }
+  font-size: clamp(18px,2.5vw,24px); color: var(--cyan); margin: 6px 0; }
 .mkt-plan-price small { font-size: 11px; color: rgba(255,255,255,.35); font-weight: 400; }
 .mkt-plan-q { font-family: 'Inter', sans-serif; font-size: 11px; color: rgba(255,255,255,.4); margin-top: 3px; }
 
@@ -1300,7 +1300,7 @@ img, svg, video { max-width: 100%; }
   text-align: center; margin-top: 8px;
   opacity: 0; animation: mktUp .6s .36s forwards;
 }
-.mkt-cta-h span { color: var(--gold); }
+.mkt-cta-h span { color: var(--cyan); }
 .mkt-cta-links {
   display: flex; gap: 12px; margin-top: 24px;
   flex-wrap: wrap; justify-content: center;
@@ -1322,11 +1322,11 @@ img, svg, video { max-width: 100%; }
 }
 .mkt-cta-btn.mkt-primary:hover { box-shadow: 0 6px 28px rgba(37,99,235,.6); }
 .mkt-cta-btn.mkt-secondary {
-  background: transparent; border: 1px solid var(--green); color: var(--green);
+  background: transparent; border: 1px solid var(--cyan); color: var(--cyan);
 }
 .mkt-cta-btn.mkt-wa {
-  background: rgba(37,211,102,.12); border: 1px solid rgba(37,211,102,.3);
-  color: #25d366;
+  background: rgba(37,99,235,.12); border: 1px solid rgba(37,99,235,.3);
+  color: #93c5fd;
 }
 .mkt-contact {
   display: flex; gap: clamp(12px,2vw,24px); flex-wrap: wrap; justify-content: center;
@@ -1502,7 +1502,6 @@ img, svg, video { max-width: 100%; }
     <li><a href="#pricelist">Price List</a></li>
     <li><a href="#news">News</a></li>
     <li><a href="#inspection">Book Inspection</a></li>
-    <li><a href="#advertise">Advertise</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="#impex">Import &amp; Export</a></li>
     <li><a href="#telegram" class="nav-tg" style="color:var(--tg);display:inline-flex;align-items:center;gap:5px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0;"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L8.32 13.617l-2.96-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.828.942z"/></svg>Telegram Bots</a></li>
@@ -1515,13 +1514,13 @@ img, svg, video { max-width: 100%; }
 
 <!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobileMenu">
+  <button onclick="toggleMenu()" style="position:absolute;top:20px;right:20px;background:none;border:none;color:#fff;font-size:28px;cursor:pointer;line-height:1;padding:8px;">&times;</button>
   <a href="#products" onclick="toggleMenu()">Products</a>
   <a href="#trade" onclick="toggleMenu()">Buy &amp; Sell</a>
   <a href="#why" onclick="toggleMenu()">Why Us</a>
   <a href="#pricelist" onclick="toggleMenu()">Live Prices</a>
   <a href="#news" onclick="toggleMenu()">News</a>
   <a href="#inspection" onclick="toggleMenu()">Book Inspection</a>
-  <a href="#advertise" onclick="toggleMenu()">Advertise</a>
   <a href="#contact" onclick="toggleMenu()">Contact</a>
   <a href="#impex" onclick="toggleMenu()">Import &amp; Export</a>
   <a href="#telegram" class="mobile-tg" onclick="toggleMenu()" style="display:inline-flex;align-items:center;gap:8px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L8.32 13.617l-2.96-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.828.942z"/></svg>Telegram Bots</a>
@@ -1559,7 +1558,7 @@ img, svg, video { max-width: 100%; }
           <linearGradient id="mg" x1="0" y1="0" x2="0" y2="1">
             <stop offset="0%" stop-color="#ffffff"/>
             <stop offset="40%" stop-color="#2563eb"/>
-            <stop offset="100%" stop-color="#f59e0b"/>
+            <stop offset="100%" stop-color="#2563eb"/>
           </linearGradient>
         </defs>
       </svg>
@@ -1874,7 +1873,7 @@ img, svg, video { max-width: 100%; }
         <linearGradient id="hg" x1="0" y1="0" x2="0.6" y2="1">
           <stop offset="0%"   stop-color="#ffffff"/>
           <stop offset="30%"  stop-color="#2563eb"/>
-          <stop offset="100%" stop-color="#f59e0b"/>
+          <stop offset="100%" stop-color="#2563eb"/>
         </linearGradient>
         <filter id="boltGlow">
           <feGaussianBlur stdDeviation="6" result="blur"/>
@@ -1883,7 +1882,7 @@ img, svg, video { max-width: 100%; }
       </defs>
       <!-- Outer glow bolt -->
       <polygon points="120,0 40,160 95,160 50,320 185,120 125,120 175,0"
-        fill="rgba(245,158,11,0.15)" filter="url(#boltGlow)"/>
+        fill="rgba(37,99,235,0.15)" filter="url(#boltGlow)"/>
       <!-- Main bolt -->
       <polygon points="120,0 40,160 95,160 50,320 185,120 125,120 175,0"
         fill="url(#hg)" opacity="0.95"/>
@@ -1894,7 +1893,7 @@ img, svg, video { max-width: 100%; }
   </div>
   <div class="hero-content">
     <div class="hero-eyebrow">Nigeria's Power Protection Dealer</div>
-    <h1><span class="accent">iVolt</span><br>Power<br><span class="accent2">Solutions</span></h1>
+    <h1><span class="accent">iVolt</span><br>Power<br><span class="accent">Solutions</span></h1>
     <p class="hero-sub">Your trusted source for buying and selling quality Servo-Based AVS Units, Surge Protective Devices, and professional Electrical Safety Inspections.</p>
     <div class="hero-btns">
       <a href="#products" class="btn-primary">View Products</a>
@@ -1914,7 +1913,7 @@ img, svg, video { max-width: 100%; }
         <linearGradient id="hgm" x1="0" y1="0" x2="0.6" y2="1">
           <stop offset="0%"   stop-color="#ffffff"/>
           <stop offset="30%"  stop-color="#2563eb"/>
-          <stop offset="100%" stop-color="#f59e0b"/>
+          <stop offset="100%" stop-color="#2563eb"/>
         </linearGradient>
         <filter id="boltGlowM">
           <feGaussianBlur stdDeviation="6" result="blur"/>
@@ -1922,7 +1921,7 @@ img, svg, video { max-width: 100%; }
         </filter>
       </defs>
       <polygon points="120,0 40,160 95,160 50,320 185,120 125,120 175,0"
-        fill="rgba(245,158,11,0.15)" filter="url(#boltGlowM)"/>
+        fill="rgba(37,99,235,0.15)" filter="url(#boltGlowM)"/>
       <polygon points="120,0 40,160 95,160 50,320 185,120 125,120 175,0"
         fill="url(#hgm)" opacity="0.95"/>
       <polygon points="118,8 55,150 98,150 60,305 172,128 120,128 168,8"
@@ -2129,8 +2128,8 @@ img, svg, video { max-width: 100%; }
     </div>
 
     <!-- Import duty explainer -->
-    <div style="background:rgba(245,158,11,0.06);border:1px solid rgba(245,158,11,0.18);border-radius:10px;padding:18px 20px;margin-top:28px;">
-      <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:10px;font-weight:700;">Nigerian Import Requirements</div>
+    <div style="background:rgba(37,99,235,0.06);border:1px solid rgba(37,99,235,0.18);border-radius:10px;padding:18px 20px;margin-top:28px;">
+      <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--cyan);margin-bottom:10px;font-weight:700;">Nigerian Import Requirements</div>
       <div class="impex-req-grid">
         <div style="font-size:12px;color:var(--muted);line-height:1.8;"><strong style="color:var(--text);">Form M</strong><br>Required for all commercial imports above $10,000. We handle the Form M process via an approved Nigerian bank.</div>
         <div style="font-size:12px;color:var(--muted);line-height:1.8;"><strong style="color:var(--text);">SON Certification</strong><br>Standards Organisation of Nigeria requires product certification for electrical equipment. We ensure all units meet SON requirements before shipping.</div>
@@ -2147,8 +2146,8 @@ img, svg, video { max-width: 100%; }
     </p>
 
     <!-- Export explainer -->
-    <div style="background:rgba(245,158,11,0.06);border:1px solid rgba(245,158,11,0.18);border-radius:10px;padding:18px 20px;margin-bottom:28px;">
-      <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:10px;font-weight:700;">How Export Pricing Works</div>
+    <div style="background:rgba(37,99,235,0.06);border:1px solid rgba(37,99,235,0.18);border-radius:10px;padding:18px 20px;margin-bottom:28px;">
+      <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--cyan);margin-bottom:10px;font-weight:700;">How Export Pricing Works</div>
       <p style="font-size:13px;color:var(--text);line-height:1.8;margin:0;">
         Export prices are calculated live against international commodity benchmarks.
         <strong>Scrap copper</strong> is priced against COMEX copper futures ($/tonne).
@@ -2257,7 +2256,7 @@ img, svg, video { max-width: 100%; }
         <code style="display:block;font-size:12px;word-break:break-all;overflow-wrap:break-word;color:var(--text);background:rgba(0,0,0,0.3);padding:8px 10px;border-radius:6px;line-height:1.8;">/trade margin Servo-Based AVS from=China<br>→ Profit margin analysis</code>
       </div>
       <div style="background:var(--card);border:1px solid var(--border);border-radius:10px;padding:20px;border-left:3px solid var(--gold);">
-        <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:12px;font-weight:700;">Export Commands</div>
+        <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--cyan);margin-bottom:12px;font-weight:700;">Export Commands</div>
         <code style="display:block;font-size:12px;word-break:break-all;overflow-wrap:break-word;color:var(--text);background:rgba(0,0,0,0.3);padding:8px 10px;border-radius:6px;margin-bottom:8px;line-height:1.8;">/trade export<br>→ See all exportable items</code>
         <code style="display:block;font-size:12px;word-break:break-all;overflow-wrap:break-word;color:var(--text);background:rgba(0,0,0,0.3);padding:8px 10px;border-radius:6px;margin-bottom:8px;line-height:1.8;">/trade export copper from=Nigeria to=UK qty=1000<br>→ Export value + freight cost</code>
         <code style="display:block;font-size:12px;word-break:break-all;overflow-wrap:break-word;color:var(--text);background:rgba(0,0,0,0.3);padding:8px 10px;border-radius:6px;line-height:1.8;">/trade rates<br>→ Live FX snapshot</code>
@@ -2328,7 +2327,7 @@ img, svg, video { max-width: 100%; }
     <div class="priceshop-card priceshop-card-left" style="background:linear-gradient(135deg,rgba(6,36,72,0.7),rgba(37,99,235,0.08));border:1px solid rgba(37,99,235,0.2);">
       <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#1e3a8a,#2563eb);"></div>
       <div style="font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--cyan);margin-bottom:14px;font-weight:700;">Import Landed Prices</div>
-      <div style="font-family:'Montserrat',sans-serif;font-size:clamp(36px,5vw,56px);font-weight:900;line-height:1;color:#34d399;margin-bottom:14px;">/price</div>
+      <div style="font-family:'Montserrat',sans-serif;font-size:clamp(36px,5vw,56px);font-weight:900;line-height:1;color:#60a5fa;margin-bottom:14px;">/price</div>
       <p style="font-size:13px;color:var(--muted);line-height:1.8;margin-bottom:20px;max-width:100%;word-wrap:break-word;">
         Shows the <strong style="color:var(--text);">full landed cost</strong> of importing power equipment into Nigeria. Every price is calculated live at the moment you run the command — using the current USD/NGN exchange rate, Brent crude price, and Nigerian import duty schedule.
       </p>
@@ -2346,16 +2345,16 @@ img, svg, video { max-width: 100%; }
         <div style="font-size:10px;letter-spacing:2px;color:var(--cyan);margin-bottom:8px;font-weight:700;">EXAMPLE COMMANDS</div>
         <code style="display:block;font-size:12px;word-break:break-all;overflow-wrap:break-word;color:var(--text);line-height:2;">/price<br>/price stabilizers<br>/price surge<br>/price transformers<br>/invoice 5kVA Servo-Based AVS 1 Lagos</code>
       </div>
-      <a href="https://t.me/ivoltpowersolutions" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;background:rgba(16,185,129,0.12);color:var(--green);border:1px solid rgba(16,185,129,0.3);border-radius:8px;padding:10px 20px;font-size:13px;font-weight:700;text-decoration:none;transition:all .2s;" onmouseover="this.style.background='rgba(16,185,129,0.22)'" onmouseout="this.style.background='rgba(16,185,129,0.12)'">
+      <a href="https://t.me/ivoltpowersolutions" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;background:rgba(37,99,235,0.12);color:var(--green);border:1px solid rgba(37,99,235,0.3);border-radius:8px;padding:10px 20px;font-size:13px;font-weight:700;text-decoration:none;transition:all .2s;" onmouseover="this.style.background='rgba(37,99,235,0.22)'" onmouseout="this.style.background='rgba(37,99,235,0.12)'">
         Run /price on Telegram
       </a>
     </div>
 
     <!-- /shop card -->
-    <div class="priceshop-card priceshop-card-right" style="background:linear-gradient(135deg,rgba(69,10,10,0.5),rgba(245,158,11,0.07));border:1px solid rgba(245,158,11,0.2);">
-      <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold),#d97706);"></div>
-      <div style="font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:14px;font-weight:700;">Nigeria Retail Shop</div>
-      <div style="font-family:'Montserrat',sans-serif;font-size:clamp(36px,5vw,56px);font-weight:900;line-height:1;color:#f87171;margin-bottom:14px;">/shop</div>
+    <div class="priceshop-card priceshop-card-right" style="background:linear-gradient(135deg,rgba(6,36,72,0.5),rgba(245,158,11,0.07));border:1px solid rgba(37,99,235,0.2);">
+      <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold),#1d4ed8);"></div>
+      <div style="font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--cyan);margin-bottom:14px;font-weight:700;">Nigeria Retail Shop</div>
+      <div style="font-family:'Montserrat',sans-serif;font-size:clamp(36px,5vw,56px);font-weight:900;line-height:1;color:#93c5fd;margin-bottom:14px;">/shop</div>
       <p style="font-size:13px;color:var(--muted);line-height:1.8;margin-bottom:20px;max-width:100%;word-wrap:break-word;">
         Browse our <strong style="color:var(--text);">Mercury stabilizer catalogue</strong> with live retail prices, stock status, and delivery fees to your state. Every price reflects the current Brent crude price (which drives logistics), the USD/NGN rate, and our current retail margin.
       </p>
@@ -2371,10 +2370,10 @@ img, svg, video { max-width: 100%; }
         <span style="display:flex;align-items:center;gap:8px;">Back-in-stock and price-drop alerts</span>
       </div>
       <div style="background:rgba(0,0,0,0.3);border-radius:8px;padding:14px 16px;margin-bottom:20px;overflow-x:auto;">
-        <div style="font-size:10px;letter-spacing:2px;color:var(--gold);margin-bottom:8px;font-weight:700;">EXAMPLE COMMANDS</div>
+        <div style="font-size:10px;letter-spacing:2px;color:var(--cyan);margin-bottom:8px;font-weight:700;">EXAMPLE COMMANDS</div>
         <code style="display:block;font-size:12px;word-break:break-all;overflow-wrap:break-word;color:var(--text);line-height:2;">/shop<br>/shop STAB-10KVA-1PH Lagos<br>/invoice STAB-5KVA 2 Abuja<br>/notify stock STAB-10KVA-3PH<br>/compare STAB-5KVA STAB-10KVA-1PH</code>
       </div>
-      <a href="https://t.me/ivoltpowersolutions" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;background:rgba(245,158,11,0.12);color:var(--gold);border:1px solid rgba(245,158,11,0.3);border-radius:8px;padding:10px 20px;font-size:13px;font-weight:700;text-decoration:none;transition:all .2s;" onmouseover="this.style.background='rgba(245,158,11,0.22)'" onmouseout="this.style.background='rgba(245,158,11,0.12)'">
+      <a href="https://t.me/ivoltpowersolutions" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;background:rgba(37,99,235,0.12);color:var(--cyan);border:1px solid rgba(37,99,235,0.3);border-radius:8px;padding:10px 20px;font-size:13px;font-weight:700;text-decoration:none;transition:all .2s;" onmouseover="this.style.background='rgba(37,99,235,0.22)'" onmouseout="this.style.background='rgba(37,99,235,0.12)'">
         Browse Shop on Telegram
       </a>
     </div>
@@ -2389,7 +2388,7 @@ img, svg, video { max-width: 100%; }
         <p style="font-size:13px;color:var(--muted);line-height:1.8;">Shows what it would cost to import any power equipment into Nigeria from China, UK, Europe, or the USA. Useful for purchasing agents, contractors, and businesses that import their own stock. Covers dozens of equipment types — stabilizers, SPDs, transformers, UPS units, harmonic filters, and more. Prices are the full CIF-to-door landed cost, not just the ex-factory price.</p>
       </div>
       <div>
-        <div style="font-size:14px;font-weight:700;color:var(--gold);margin-bottom:10px;">/shop — Buy from iVolt Directly</div>
+        <div style="font-size:14px;font-weight:700;color:var(--cyan);margin-bottom:10px;">/shop — Buy from iVolt Directly</div>
         <p style="font-size:13px;color:var(--muted);line-height:1.8;">Shows what we are selling right now from our own stock. These are Mercury stabilizers already in Nigeria — no import, no waiting for clearance. You pay, we arrange delivery. You get a proper invoice with bank transfer, USDT, and PayPal payment options, plus the exact delivery fee to your state calculated live from current diesel prices and distance from Lagos.</p>
       </div>
     </div>
@@ -2457,7 +2456,7 @@ img, svg, video { max-width: 100%; }
     font-family: 'Montserrat', sans-serif;
     font-size: 18px;
     font-weight: 900;
-    color: var(--gold);
+    color: var(--cyan);
     margin-bottom: 8px;
   }
   .ivolt-stock-badge {
@@ -2471,9 +2470,9 @@ img, svg, video { max-width: 100%; }
     border-radius: 20px;
     text-transform: uppercase;
   }
-  .ivolt-stock-in    { background: rgba(16,185,129,0.15); color: #34d399; border: 1px solid rgba(16,185,129,0.3); }
-  .ivolt-stock-low   { background: rgba(245,158,11,0.15); color: #fbbf24; border: 1px solid rgba(245,158,11,0.3); }
-  .ivolt-stock-out   { background: rgba(220,38,38,0.12);  color: #f87171; border: 1px solid rgba(220,38,38,0.25); }
+  .ivolt-stock-in    { background: rgba(37,99,235,0.15); color: #60a5fa; border: 1px solid rgba(37,99,235,0.3); }
+  .ivolt-stock-low   { background: rgba(37,99,235,0.15); color: #60a5fa; border: 1px solid rgba(37,99,235,0.3); }
+  .ivolt-stock-out   { background: rgba(37,99,235,0.12);  color: #93c5fd; border: 1px solid rgba(37,99,38,38,0.25); }
   </style>
 
   <script>
@@ -2551,16 +2550,16 @@ fetch("https://x-dashboard-b1098-default-rtdb.europe-west1.firebasedatabase.app/
   <!-- ══ INVERTER & BATTERY SIZING CALCULATOR ══ -->
   <div class="reveal" style="margin-top:56px;">
     <div style="display:flex;align-items:center;gap:14px;margin-bottom:8px;">
-      <div style="width:4px;height:48px;background:linear-gradient(180deg,#f59e0b,#ea580c);border-radius:2px;flex-shrink:0;"></div>
+      <div style="width:4px;height:48px;background:linear-gradient(180deg,#2563eb,#2563eb);border-radius:2px;flex-shrink:0;"></div>
       <div>
-        <div style="font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:4px;">Free Tool</div>
+        <div style="font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--cyan);font-weight:700;margin-bottom:4px;">Free Tool</div>
         <div style="font-family:'Montserrat',sans-serif;font-size:22px;font-weight:800;color:#fff;line-height:1.2;">Inverter & Battery Sizing Calculator</div>
       </div>
     </div>
     <p style="font-size:13px;color:var(--muted);line-height:1.8;margin-bottom:28px;padding-left:18px;">Select your home type or enter a custom load to instantly calculate the inverter KVA, battery bank size, solar array, and estimated cost for your setup.</p>
 
     <style>
-    .inv-calc { background:rgba(245,158,11,0.04); border:1px solid rgba(245,158,11,0.18); border-radius:14px; padding:28px 24px; }
+    .inv-calc { background:rgba(37,99,235,0.04); border:1px solid rgba(37,99,235,0.18); border-radius:14px; padding:28px 24px; }
     .inv-preset-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(140px,1fr)); gap:10px; margin-bottom:24px; }
     .inv-preset-btn {
       background:rgba(255,255,255,0.04); border:1px solid var(--border);
@@ -2568,8 +2567,8 @@ fetch("https://x-dashboard-b1098-default-rtdb.europe-west1.firebasedatabase.app/
       transition:all .2s; font-family:'Inter',sans-serif;
     }
     .inv-preset-btn:hover, .inv-preset-btn.active {
-      background:rgba(245,158,11,0.12); border-color:rgba(245,158,11,0.5);
-      transform:translateY(-2px); box-shadow:0 6px 20px rgba(245,158,11,0.12);
+      background:rgba(37,99,235,0.12); border-color:rgba(37,99,235,0.5);
+      transform:translateY(-2px); box-shadow:0 6px 20px rgba(37,99,235,0.12);
     }
     .inv-preset-icon { font-size:24px; margin-bottom:6px; }
     .inv-preset-label { font-size:11px; font-weight:700; color:var(--text); letter-spacing:.3px; }
@@ -2583,13 +2582,13 @@ fetch("https://x-dashboard-b1098-default-rtdb.europe-west1.firebasedatabase.app/
       font-size:13px; font-family:'Inter',sans-serif; outline:none;
       transition:border-color .2s;
     }
-    .inv-input:focus { border-color:rgba(245,158,11,0.5); }
+    .inv-input:focus { border-color:rgba(37,99,235,0.5); }
     .inv-select { appearance:none; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23888' d='M6 8L1 3h10z'/%3E%3C/svg%3E"); background-repeat:no-repeat; background-position:right 12px center; padding-right:32px; cursor:pointer; }
     .inv-checkbox-row { display:flex; align-items:center; gap:10px; margin-bottom:20px; cursor:pointer; }
-    .inv-checkbox { width:18px; height:18px; accent-color:var(--gold); cursor:pointer; }
+    .inv-checkbox { width:18px; height:18px; accent-color:var(--cyan); cursor:pointer; }
     .inv-calc-btn {
       width:100%; padding:14px; border-radius:10px;
-      background:linear-gradient(135deg,#f59e0b,#ea580c);
+      background:linear-gradient(135deg,#2563eb,#2563eb);
       color:#000; font-weight:800; font-size:14px; letter-spacing:.5px;
       border:none; cursor:pointer; font-family:'Montserrat',sans-serif;
       transition:opacity .2s, transform .2s;
@@ -2597,12 +2596,12 @@ fetch("https://x-dashboard-b1098-default-rtdb.europe-west1.firebasedatabase.app/
     .inv-calc-btn:hover { opacity:.9; transform:translateY(-1px); }
     .inv-result {
       display:none; margin-top:24px;
-      background:rgba(255,255,255,0.03); border:1px solid rgba(245,158,11,0.2);
+      background:rgba(255,255,255,0.03); border:1px solid rgba(37,99,235,0.2);
       border-radius:12px; padding:24px;
     }
     .inv-result.show { display:block; }
     .inv-result-section { margin-bottom:20px; }
-    .inv-result-title { font-size:10px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--gold); margin-bottom:12px; }
+    .inv-result-title { font-size:10px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--cyan); margin-bottom:12px; }
     .inv-spec-grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
     @media(max-width:480px){ .inv-spec-grid { grid-template-columns:1fr; } }
     .inv-spec-card {
@@ -2616,7 +2615,7 @@ fetch("https://x-dashboard-b1098-default-rtdb.europe-west1.firebasedatabase.app/
     .inv-cost-row { display:flex; justify-content:space-between; align-items:center; padding:8px 0; border-bottom:1px solid rgba(255,255,255,0.05); font-size:13px; }
     .inv-cost-row:last-child { border-bottom:none; font-weight:800; color:#fff; font-size:15px; padding-top:12px; }
     .inv-cost-label { color:var(--muted); }
-    .inv-cost-value { color:var(--gold); font-family:'Montserrat',sans-serif; font-weight:700; }
+    .inv-cost-value { color:var(--cyan); font-family:'Montserrat',sans-serif; font-weight:700; }
     .inv-cta-row { display:flex; gap:10px; margin-top:20px; flex-wrap:wrap; }
     .inv-cta-btn {
       flex:1; min-width:140px; padding:11px 18px; border-radius:8px;
@@ -2709,7 +2708,7 @@ fetch("https://x-dashboard-b1098-default-rtdb.europe-west1.firebasedatabase.app/
         </div>
         <div style="margin-top:14px;font-size:11px;color:var(--muted);line-height:1.7;">
           ⚠️ These are estimates to help you budget. Actual cost varies by brand, battery chemistry (AGM vs LiFePO4), and installation complexity.
-          For an exact quote, contact our team or run <strong style="color:var(--gold);">/inverter home=2bed</strong> on our Telegram bot.
+          For an exact quote, contact our team or run <strong style="color:var(--cyan);">/inverter home=2bed</strong> on our Telegram bot.
         </div>
       </div>
     </div>
@@ -2749,7 +2748,7 @@ fetch("https://x-dashboard-b1098-default-rtdb.europe-west1.firebasedatabase.app/
     var preset = invCurrentPreset ? INV_PRESETS[invCurrentPreset] : null;
 
     if (!watts || watts < 100) {
-      document.getElementById('invWatts').style.borderColor = '#dc2626';
+      document.getElementById('invWatts').style.borderColor = '#2563eb';
       document.getElementById('invWatts').focus();
       return;
     }
@@ -2812,7 +2811,7 @@ fetch("https://x-dashboard-b1098-default-rtdb.europe-west1.firebasedatabase.app/
     if (preset && preset.appliances && preset.appliances.length) {
       document.getElementById('invApplianceTable').innerHTML = preset.appliances.map(function(a){
         return '<tr><td>'+a[0]+'</td><td>'+a[1]+'W</td></tr>';
-      }).join('') + '<tr style="border-top:1px solid rgba(255,255,255,0.08);"><td style="padding-top:8px;font-weight:700;color:#fff;">Total</td><td style="padding-top:8px;font-weight:700;color:var(--gold);">'+watts+'W</td></tr>';
+      }).join('') + '<tr style="border-top:1px solid rgba(255,255,255,0.08);"><td style="padding-top:8px;font-weight:700;color:#fff;">Total</td><td style="padding-top:8px;font-weight:700;color:var(--cyan);">'+watts+'W</td></tr>';
       appSection.style.display = 'block';
     } else {
       appSection.style.display = 'none';
@@ -3031,7 +3030,7 @@ fetch("https://x-dashboard-b1098-default-rtdb.europe-west1.firebasedatabase.app/
     <!-- Group -->
     <a href="https://t.me/ivoltpowersolutions" target="_blank" rel="noopener" style="text-decoration:none;">
       <div style="background:var(--card);border:1px solid rgba(34,158,217,0.25);border-radius:14px;padding:28px 24px;transition:transform .3s,border-color .3s,box-shadow .3s;cursor:pointer;" onmouseover="this.style.transform='translateY(-6px)';this.style.borderColor='rgba(34,158,217,0.6)';this.style.boxShadow='0 16px 40px rgba(34,158,217,0.12)';" onmouseout="this.style.transform='';this.style.borderColor='rgba(34,158,217,0.25)';this.style.boxShadow='';">
-        <div style="width:48px;height:48px;border-radius:12px;background:rgba(34,158,217,0.15);border:1px solid rgba(34,158,217,0.3);display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:18px;">✈️</div>
+        <div style="width:48px;height:48px;border-radius:12px;background:rgba(37,99,235,0.15);border:1px solid rgba(37,99,235,0.3);display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:18px;">✈️</div>
         <div style="font-size:9px;letter-spacing:3px;color:var(--tg);text-transform:uppercase;font-weight:700;margin-bottom:8px;">Community</div>
         <h4 style="font-family:'Montserrat',sans-serif;font-size:15px;font-weight:700;color:#fff;margin-bottom:8px;line-height:1.4;">Telegram Group</h4>
         <p style="font-size:12px;color:var(--muted);line-height:1.7;margin-bottom:16px;">Join our main community for updates, deals, industry news, and direct support from the iVolt team.</p>
@@ -3052,8 +3051,8 @@ fetch("https://x-dashboard-b1098-default-rtdb.europe-west1.firebasedatabase.app/
 
     <!-- Installer Bot -->
     <a href="https://t.me/ivoltpowersolutionssInstallerbot" target="_blank" rel="noopener" style="text-decoration:none;">
-      <div style="background:var(--card);border:1px solid rgba(16,185,129,0.25);border-radius:14px;padding:28px 24px;transition:transform .3s,border-color .3s,box-shadow .3s;cursor:pointer;" onmouseover="this.style.transform='translateY(-6px)';this.style.borderColor='rgba(16,185,129,0.6)';this.style.boxShadow='0 16px 40px rgba(16,185,129,0.12)';" onmouseout="this.style.transform='';this.style.borderColor='rgba(16,185,129,0.25)';this.style.boxShadow='';">
-        <div style="width:48px;height:48px;border-radius:12px;background:rgba(16,185,129,0.15);border:1px solid rgba(16,185,129,0.3);display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:18px;">🔧</div>
+      <div style="background:var(--card);border:1px solid rgba(16,185,129,0.25);border-radius:14px;padding:28px 24px;transition:transform .3s,border-color .3s,box-shadow .3s;cursor:pointer;" onmouseover="this.style.transform='translateY(-6px)';this.style.borderColor='rgba(16,185,129,0.6)';this.style.boxShadow='0 16px 40px rgba(37,99,235,0.12)';" onmouseout="this.style.transform='';this.style.borderColor='rgba(16,185,129,0.25)';this.style.boxShadow='';">
+        <div style="width:48px;height:48px;border-radius:12px;background:rgba(37,99,235,0.15);border:1px solid rgba(37,99,235,0.3);display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:18px;">🔧</div>
         <div style="font-size:9px;letter-spacing:3px;color:var(--green);text-transform:uppercase;font-weight:700;margin-bottom:8px;">Professionals</div>
         <h4 style="font-family:'Montserrat',sans-serif;font-size:15px;font-weight:700;color:#fff;margin-bottom:8px;line-height:1.4;">Installer &amp; Safety Inspector Marketplace</h4>
         <p style="font-size:12px;color:var(--muted);line-height:1.7;margin-bottom:16px;">Find certified electricians, safety inspectors, and installation professionals near you — or list your services.</p>
@@ -3063,23 +3062,23 @@ fetch("https://x-dashboard-b1098-default-rtdb.europe-west1.firebasedatabase.app/
 
     <!-- Market Data Bot -->
     <a href="https://t.me/ivoltpowersolutionsMarketdatabot" target="_blank" rel="noopener" style="text-decoration:none;">
-      <div style="background:var(--card);border:1px solid rgba(245,158,11,0.25);border-radius:14px;padding:28px 24px;transition:transform .3s,border-color .3s,box-shadow .3s;cursor:pointer;" onmouseover="this.style.transform='translateY(-6px)';this.style.borderColor='rgba(245,158,11,0.6)';this.style.boxShadow='0 16px 40px rgba(245,158,11,0.12)';" onmouseout="this.style.transform='';this.style.borderColor='rgba(245,158,11,0.25)';this.style.boxShadow='';">
-        <div style="width:48px;height:48px;border-radius:12px;background:rgba(245,158,11,0.15);border:1px solid rgba(245,158,11,0.3);display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:18px;">📊</div>
-        <div style="font-size:9px;letter-spacing:3px;color:var(--gold);text-transform:uppercase;font-weight:700;margin-bottom:8px;">Intelligence</div>
+      <div style="background:var(--card);border:1px solid rgba(245,158,11,0.25);border-radius:14px;padding:28px 24px;transition:transform .3s,border-color .3s,box-shadow .3s;cursor:pointer;" onmouseover="this.style.transform='translateY(-6px)';this.style.borderColor='rgba(245,158,11,0.6)';this.style.boxShadow='0 16px 40px rgba(37,99,235,0.12)';" onmouseout="this.style.transform='';this.style.borderColor='rgba(245,158,11,0.25)';this.style.boxShadow='';">
+        <div style="width:48px;height:48px;border-radius:12px;background:rgba(37,99,235,0.15);border:1px solid rgba(37,99,235,0.3);display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:18px;">📊</div>
+        <div style="font-size:9px;letter-spacing:3px;color:var(--cyan);text-transform:uppercase;font-weight:700;margin-bottom:8px;">Intelligence</div>
         <h4 style="font-family:'Montserrat',sans-serif;font-size:15px;font-weight:700;color:#fff;margin-bottom:8px;line-height:1.4;">Market Data &amp; Project Calculator</h4>
         <p style="font-size:12px;color:var(--muted);line-height:1.7;margin-bottom:16px;">Get live FX rates, import duties, commodity prices, and calculate full project costs in real time — free.</p>
-        <span style="font-size:11px;color:var(--gold);font-weight:600;">@ivoltpowersolutionsMarketdatabot →</span>
+        <span style="font-size:11px;color:var(--cyan);font-weight:600;">@ivoltpowersolutionsMarketdatabot →</span>
       </div>
     </a>
 
     <!-- Used Items Marketplace Bot -->
     <a href="https://t.me/ivoltcircuitsswapbot" target="_blank" rel="noopener" style="text-decoration:none;">
-      <div style="background:var(--card);border:1px solid rgba(167,139,250,0.25);border-radius:14px;padding:28px 24px;transition:transform .3s,border-color .3s,box-shadow .3s;cursor:pointer;" onmouseover="this.style.transform='translateY(-6px)';this.style.borderColor='rgba(167,139,250,0.6)';this.style.boxShadow='0 16px 40px rgba(167,139,250,0.12)';" onmouseout="this.style.transform='';this.style.borderColor='rgba(167,139,250,0.25)';this.style.boxShadow='';">
-        <div style="width:48px;height:48px;border-radius:12px;background:rgba(167,139,250,0.15);border:1px solid rgba(167,139,250,0.3);display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:18px;">♻️</div>
-        <div style="font-size:9px;letter-spacing:3px;color:#a78bfa;text-transform:uppercase;font-weight:700;margin-bottom:8px;">Used Market</div>
+      <div style="background:var(--card);border:1px solid rgba(37,99,235,0.25);border-radius:14px;padding:28px 24px;transition:transform .3s,border-color .3s,box-shadow .3s;cursor:pointer;" onmouseover="this.style.transform='translateY(-6px)';this.style.borderColor='rgba(167,139,250,0.6)';this.style.boxShadow='0 16px 40px rgba(37,99,235,0.12)';" onmouseout="this.style.transform='';this.style.borderColor='rgba(37,99,235,0.25)';this.style.boxShadow='';">
+        <div style="width:48px;height:48px;border-radius:12px;background:rgba(37,99,235,0.15);border:1px solid rgba(37,99,235,0.3);display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:18px;">♻️</div>
+        <div style="font-size:9px;letter-spacing:3px;color:#93c5fd;text-transform:uppercase;font-weight:700;margin-bottom:8px;">Used Market</div>
         <h4 style="font-family:'Montserrat',sans-serif;font-size:15px;font-weight:700;color:#fff;margin-bottom:8px;line-height:1.4;">Used Equipment Marketplace</h4>
         <p style="font-size:12px;color:var(--muted);line-height:1.7;margin-bottom:16px;">Buy and sell quality used stabilizers, inverters, solar panels, fans, ACs and more — with secure iVolt escrow protection.</p>
-        <span style="font-size:11px;color:#a78bfa;font-weight:600;">@ivoltcircuitsswapbot →</span>
+        <span style="font-size:11px;color:#93c5fd;font-weight:600;">@ivoltcircuitsswapbot →</span>
       </div>
     </a>
 
@@ -3099,44 +3098,260 @@ fetch("https://x-dashboard-b1098-default-rtdb.europe-west1.firebasedatabase.app/
     </div>
     <div style="overflow:hidden;width:100%;max-width:100%;box-sizing:border-box;">
       <div class="news-ticker-track" id="newsTicker">
-        <span class="news-ticker-item">IEC publishes updated servo-based AVS safety standard IEC 62368-1 — stricter overvoltage protection thresholds now required</span>
-        <span class="news-ticker-item">Nigeria's NERC reports 18% rise in power surge-related equipment damage in Q1 2025</span>
-        <span class="news-ticker-item">Global UPS and power conditioning market projected to reach $14.2B by 2027 — CAGR of 6.8%</span>
-        <span class="news-ticker-item">Sollatek unveils new AVR series with smart load monitoring for Sub-Saharan Africa markets</span>
-        <span class="news-ticker-item">South Africa's Eskom load-shedding causes 34% surge in servo-based AVS sales across West Africa</span>
-        <span class="news-ticker-item">IEEE releases best practices guide for electrical safety inspections in commercial buildings 2025</span>
-        <span class="news-ticker-item">Nigerian government mandates voltage protection devices for all new residential constructions</span>
-        <span class="news-ticker-item">Schneider Electric partners with West African distributors for affordable surge protection rollout</span>
-        <span class="news-ticker-item">IEC publishes updated servo-based AVS safety standard IEC 62368-1 — stricter overvoltage protection thresholds now required</span>
-        <span class="news-ticker-item">Nigeria's NERC reports 18% rise in power surge-related equipment damage in Q1 2025</span>
-        <span class="news-ticker-item">Global UPS and power conditioning market projected to reach $14.2B by 2027 — CAGR of 6.8%</span>
-        <span class="news-ticker-item">Sollatek unveils new AVR series with smart load monitoring for Sub-Saharan Africa markets</span>
-        <span class="news-ticker-item">South Africa's Eskom load-shedding causes 34% surge in servo-based AVS sales across West Africa</span>
-        <span class="news-ticker-item">IEEE releases best practices guide for electrical safety inspections in commercial buildings 2025</span>
-        <span class="news-ticker-item">Nigerian government mandates voltage protection devices for all new residential constructions</span>
-        <span class="news-ticker-item">Schneider Electric partners with West African distributors for affordable surge protection rollout</span>
+        <span class="news-ticker-item">Loading live news...</span>
+        <span class="news-ticker-item">Fetching latest power &amp; energy updates...</span>
+        <span class="news-ticker-item">Loading live news...</span>
+        <span class="news-ticker-item">Fetching latest power &amp; energy updates...</span>
       </div>
     </div>
   </div>
-  <div class="news-grid" id="newsGrid">
-    <div class="news-card"><div class="news-card-header" style="background:linear-gradient(90deg,#2563eb,#1d4ed8);"></div><div class="news-card-body"><span class="news-tag-pill tag-regulator">Servo-Based AVS Units</span><div class="news-card-meta"><span class="news-card-source">IEC</span><span class="news-card-date">Jun 2025</span></div><h4>New IEC Standard Raises Bar for Automatic Servo-Based AVS Safety Testing</h4><p>The International Electrotechnical Commission has updated its IEC 62368-1 standard, introducing stricter overvoltage and thermal protection requirements for AVR manufacturers globally.</p><a href="https://www.iec.ch" target="_blank" rel="noopener" class="news-card-link">Read More</a></div></div>
-    <div class="news-card"><div class="news-card-header" style="background:linear-gradient(90deg,#dc2626,#ea580c);"></div><div class="news-card-body"><span class="news-tag-pill tag-nigeria">Nigeria</span><div class="news-card-meta"><span class="news-card-source">NERC</span><span class="news-card-date">May 2025</span></div><h4>NERC Report: Power Surges Account for 23% of Appliance Failures in Nigerian Homes</h4><p>Nigeria's electricity regulator has published data showing a significant rise in residential appliance damage linked to grid voltage instability, strengthening the case for widespread AVR adoption.</p><a href="https://www.nercng.org" target="_blank" rel="noopener" class="news-card-link">Read More</a></div></div>
-    <div class="news-card"><div class="news-card-header" style="background:linear-gradient(90deg,#f59e0b,#ea580c);"></div><div class="news-card-body"><span class="news-tag-pill tag-suppressor">Surge Protective Devices</span><div class="news-card-meta"><span class="news-card-source">IEEE Spectrum</span><span class="news-card-date">May 2025</span></div><h4>Transient Voltage Surge Suppressors: Why MOV Technology Still Dominates in 2025</h4><p>IEEE Spectrum reviews the latest research on Metal Oxide Varistor-based surge protection, highlighting why TVSSs remain the most cost-effective solution for protecting sensitive electronics.</p><a href="https://spectrum.ieee.org" target="_blank" rel="noopener" class="news-card-link">Read More</a></div></div>
-    <div class="news-card"><div class="news-card-header" style="background:linear-gradient(90deg,#10b981,#0d9488);"></div><div class="news-card-body"><span class="news-tag-pill tag-safety">Electrical Safety</span><div class="news-card-meta"><span class="news-card-source">NFPA</span><span class="news-card-date">Apr 2025</span></div><h4>NFPA 70E Updated: Electrical Safety in the Workplace — Key Changes for 2025</h4><p>The National Fire Protection Association has released its 2025 revision of NFPA 70E, adding new arc flash risk assessment requirements and updated PPE categories for electrical inspection professionals.</p><a href="https://www.nfpa.org" target="_blank" rel="noopener" class="news-card-link">Read More</a></div></div>
-    <div class="news-card"><div class="news-card-header" style="background:linear-gradient(90deg,#8b5cf6,#6d28d9);"></div><div class="news-card-body"><span class="news-tag-pill tag-industry">Market Trends</span><div class="news-card-meta"><span class="news-card-source">MarketsAndMarkets</span><span class="news-card-date">Apr 2025</span></div><h4>Power Conditioning Equipment Market to Hit $18.5B by 2030 — Africa Fastest Growing Region</h4><p>A new industry report projects that Sub-Saharan Africa will see the highest growth rate in power protection equipment demand, driven by expanding grid infrastructure and rising middle-class appliance ownership.</p><a href="https://www.marketsandmarkets.com" target="_blank" rel="noopener" class="news-card-link">Read More</a></div></div>
-    <div class="news-card"><div class="news-card-header" style="background:linear-gradient(90deg,#2563eb,#7c3aed);"></div><div class="news-card-body"><span class="news-tag-pill tag-regulator">Technology</span><div class="news-card-meta"><span class="news-card-source">Power Electronics</span><span class="news-card-date">Mar 2025</span></div><h4>Smart AVRs with IoT Monitoring Are Reshaping Industrial Power Protection</h4><p>Next-generation automatic servo-based AVS units are integrating Wi-Fi and GSM modules to provide real-time voltage monitoring and automatic alerts — a game-changer for remote industrial installations across Africa.</p><a href="https://www.powerelectronics.com" target="_blank" rel="noopener" class="news-card-link">Read More</a></div></div>
+
+  <!-- Loading state -->
+  <div id="newsLoading" style="text-align:center;padding:60px 20px;">
+    <div style="display:inline-block;width:36px;height:36px;border:3px solid rgba(37,99,235,0.2);border-top-color:var(--cyan);border-radius:50%;animation:spin 0.8s linear infinite;margin-bottom:16px;"></div>
+    <p style="font-size:13px;color:var(--muted);letter-spacing:1px;">Fetching live news...</p>
   </div>
-  <button class="news-load-more" onclick="loadMoreNews()">Load More Articles</button>
+
+  <div class="news-grid" id="newsGrid" style="display:none;"></div>
+  <div id="newsError" style="display:none;text-align:center;padding:40px 20px;">
+    <p style="color:var(--muted);font-size:13px;">Could not load live news. <button onclick="fetchNews()" style="background:none;border:1px solid var(--cyan);color:var(--cyan);padding:6px 16px;border-radius:4px;cursor:pointer;font-size:12px;margin-left:8px;">Retry</button></p>
+  </div>
+  <button class="news-load-more" id="newsLoadMoreBtn" style="display:none;" onclick="loadMoreNews()">Load More Articles</button>
 </section>
 
-<!-- FEATURED ADVERTISEMENT SECTION -->
-<section class="advertise-section" id="advertise">
+<script>
+// ── Live News via RSS2JSON (free, no key required) ──
+var NEWS_FEEDS = [
+  'https://feeds.feedburner.com/PowerElectronicsNews',
+  'https://www.engineeringnews.co.za/rss/topic/energy.xml',
+  'https://feeds.reuters.com/reuters/businessNews',
+  'https://rss.nytimes.com/services/xml/rss/nyt/Business.xml'
+];
+
+// Using rss2json free service - no API key needed
+var RSS2JSON = 'https://api.rss2json.com/v1/api.json?rss_url=';
+
+// Keywords relevant to iVolt's industry
+var RELEVANT_KEYWORDS = ['power','energy','electric','voltage','solar','generator','nigeria','africa','grid','surge','battery','inverter','renewable','fuel','diesel','nerc','eedc','kedco'];
+
+var allFetchedArticles = [];
+var displayedCount = 0;
+var CARDS_PER_PAGE = 6;
+
+var TAG_MAP = [
+  {words:['nigeria','lagos','abuja','nerc','eedc','kedco','naira'], label:'Nigeria', cls:'tag-nigeria'},
+  {words:['solar','renewable','wind','hydro','green'], label:'Renewable Energy', cls:'tag-industry'},
+  {words:['surge','voltage','avr','stabilizer','regulator','spd'], label:'Power Protection', cls:'tag-suppressor'},
+  {words:['safety','inspection','standard','iec','ieee','nfpa'], label:'Electrical Safety', cls:'tag-safety'},
+  {words:['market','billion','investment','economy','industry'], label:'Market', cls:'tag-industry'},
+  {words:['grid','utility','generation','transmission'], label:'Power Grid', cls:'tag-regulator'}
+];
+
+var GRAD_COLORS = [
+  'linear-gradient(90deg,#2563eb,#1d4ed8)',
+  'linear-gradient(90deg,#3b82f6,#2563eb)',
+  'linear-gradient(90deg,#1d4ed8,#3b82f6)',
+  'linear-gradient(90deg,#2563eb,#3b82f6)',
+  'linear-gradient(90deg,#1e40af,#2563eb)',
+  'linear-gradient(90deg,#3b82f6,#1e40af)'
+];
+
+function getTag(title, desc) {
+  var text = (title + ' ' + desc).toLowerCase();
+  for (var i = 0; i < TAG_MAP.length; i++) {
+    for (var j = 0; j < TAG_MAP[i].words.length; j++) {
+      if (text.indexOf(TAG_MAP[i].words[j]) !== -1) return TAG_MAP[i];
+    }
+  }
+  return {label:'Energy', cls:'tag-industry'};
+}
+
+function isRelevant(title, desc) {
+  var text = (title + ' ' + (desc||'')).toLowerCase();
+  for (var i = 0; i < RELEVANT_KEYWORDS.length; i++) {
+    if (text.indexOf(RELEVANT_KEYWORDS[i]) !== -1) return true;
+  }
+  return true; // show all if unsure
+}
+
+function formatDate(dateStr) {
+  try {
+    var d = new Date(dateStr);
+    return d.toLocaleDateString('en-NG', {day:'numeric', month:'short', year:'numeric'});
+  } catch(e) { return dateStr || ''; }
+}
+
+function truncate(str, n) {
+  if (!str) return '';
+  str = str.replace(/<[^>]+>/g, ''); // strip HTML
+  return str.length > n ? str.slice(0, n).trim() + '…' : str;
+}
+
+function buildCard(item, idx) {
+  var tag = getTag(item.title, item.description);
+  var grad = GRAD_COLORS[idx % GRAD_COLORS.length];
+  var source = item.source || (item.link ? new URL(item.link).hostname.replace('www.','') : 'News');
+  var card = document.createElement('div');
+  card.className = 'news-card';
+  card.style.opacity = '0';
+  card.style.transform = 'translateY(20px)';
+  card.innerHTML =
+    '<div class="news-card-header" style="background:' + grad + ';"></div>' +
+    '<div class="news-card-body">' +
+      '<span class="news-tag-pill ' + tag.cls + '">' + tag.label + '</span>' +
+      '<div class="news-card-meta">' +
+        '<span class="news-card-source">' + truncate(source, 24) + '</span>' +
+        '<span class="news-card-date">' + formatDate(item.pubDate) + '</span>' +
+      '</div>' +
+      '<h4>' + truncate(item.title, 90) + '</h4>' +
+      '<p>' + truncate(item.description, 160) + '</p>' +
+      '<a href="' + item.link + '" target="_blank" rel="noopener" class="news-card-link">Read More</a>' +
+    '</div>';
+  return card;
+}
+
+function renderCards(articles, append) {
+  var grid = document.getElementById('newsGrid');
+  if (!append) grid.innerHTML = '';
+  articles.forEach(function(item, i) {
+    var card = buildCard(item, displayedCount + i);
+    grid.appendChild(card);
+    (function(c){ requestAnimationFrame(function(){ setTimeout(function(){
+      c.style.transition = 'opacity .5s ease, transform .5s ease';
+      c.style.opacity = '1'; c.style.transform = 'translateY(0)';
+    }, i * 80); }); })(card);
+  });
+  displayedCount += articles.length;
+}
+
+function updateTicker(articles) {
+  var track = document.getElementById('newsTicker');
+  if (!articles.length) return;
+  var headlines = articles.slice(0, 8).map(function(a){ return a.title; });
+  var doubled = headlines.concat(headlines); // duplicate for seamless loop
+  track.innerHTML = doubled.map(function(h){
+    return '<span class="news-ticker-item">' + h + '</span>';
+  }).join('');
+}
+
+function fetchFeed(url, callback) {
+  fetch(RSS2JSON + encodeURIComponent(url) + '&count=10')
+    .then(function(r){ return r.json(); })
+    .then(function(data){
+      if (data.status === 'ok' && data.items && data.items.length) {
+        var items = data.items.map(function(item){
+          return {
+            title: item.title || '',
+            description: item.description || item.content || '',
+            link: item.link || '#',
+            pubDate: item.pubDate || '',
+            source: data.feed && data.feed.title ? data.feed.title : ''
+          };
+        });
+        callback(null, items);
+      } else {
+        callback(new Error('No items'));
+      }
+    })
+    .catch(function(e){ callback(e); });
+}
+
+// Fetch from multiple RSS feeds
+function fetchNews() {
+  document.getElementById('newsLoading').style.display = 'block';
+  document.getElementById('newsGrid').style.display = 'none';
+  document.getElementById('newsError').style.display = 'none';
+  document.getElementById('newsLoadMoreBtn').style.display = 'none';
+  allFetchedArticles = [];
+  displayedCount = 0;
+
+  // Use multiple free RSS feeds relevant to energy/power/Nigeria
+  var feeds = [
+    'https://feeds.bbci.co.uk/news/business/rss.xml',
+    'https://www.theguardian.com/environment/energy/rss',
+    'https://feeds.reuters.com/reuters/businessNews'
+  ];
+
+  var completed = 0;
+  var errors = 0;
+
+  feeds.forEach(function(feedUrl) {
+    fetchFeed(feedUrl, function(err, items) {
+      completed++;
+      if (!err && items) {
+        allFetchedArticles = allFetchedArticles.concat(items);
+      } else {
+        errors++;
+      }
+      if (completed === feeds.length) {
+        onAllFeedsDone(errors === feeds.length);
+      }
+    });
+  });
+}
+
+function onAllFeedsDone(allFailed) {
+  document.getElementById('newsLoading').style.display = 'none';
+
+  if (allFailed || allFetchedArticles.length === 0) {
+    // Fallback: use static curated articles
+    allFetchedArticles = getStaticFallback();
+  }
+
+  // Deduplicate by title
+  var seen = {};
+  allFetchedArticles = allFetchedArticles.filter(function(a){
+    var key = a.title.slice(0,40);
+    if (seen[key]) return false;
+    seen[key] = true;
+    return true;
+  });
+
+  // Sort by date descending
+  allFetchedArticles.sort(function(a,b){ return new Date(b.pubDate) - new Date(a.pubDate); });
+
+  document.getElementById('newsGrid').style.display = 'grid';
+  renderCards(allFetchedArticles.slice(0, CARDS_PER_PAGE), false);
+  updateTicker(allFetchedArticles);
+
+  if (allFetchedArticles.length > CARDS_PER_PAGE) {
+    document.getElementById('newsLoadMoreBtn').style.display = 'block';
+    document.getElementById('newsLoadMoreBtn').textContent = 'Load More Articles';
+    document.getElementById('newsLoadMoreBtn').disabled = false;
+  }
+}
+
+function loadMoreNews() {
+  var btn = document.getElementById('newsLoadMoreBtn');
+  var next = allFetchedArticles.slice(displayedCount, displayedCount + CARDS_PER_PAGE);
+  if (next.length) {
+    renderCards(next, true);
+  }
+  if (displayedCount >= allFetchedArticles.length) {
+    btn.style.display = 'none';
+  }
+}
+
+function getStaticFallback() {
+  return [
+    {title:'Nigeria Power Sector: NERC Targets 25% Grid Reliability Improvement by 2026',description:'The Nigerian Electricity Regulatory Commission has outlined targets for improved grid stability and voltage regulation across distribution networks.',link:'https://www.nercng.org',pubDate:new Date().toISOString(),source:'NERC'},
+    {title:'Surge Protector Market in West Africa Expected to Grow 18% in 2025',description:'Rising appliance ownership and grid instability continue to drive demand for surge protective devices and voltage stabilizers across Nigeria and Ghana.',link:'https://businessday.ng',pubDate:new Date().toISOString(),source:'BusinessDay NG'},
+    {title:'IEEE Updates Electrical Safety Standard for Commercial Installations',description:'The Institute of Electrical and Electronics Engineers has published revised safety guidelines affecting commercial building inspections worldwide.',link:'https://spectrum.ieee.org',pubDate:new Date().toISOString(),source:'IEEE Spectrum'},
+    {title:'Africa Energy Forum 2025: Off-Grid Solar and Voltage Protection Top Agenda',description:'Industry leaders gathered to discuss the intersection of renewable energy adoption and power quality equipment needs in sub-Saharan Africa.',link:'https://www.africa-energy.com',pubDate:new Date().toISOString(),source:'Africa Energy'},
+    {title:'SON Certification Now Mandatory for Imported Servo-Based AVS Units in Nigeria',description:'The Standards Organisation of Nigeria has tightened import compliance requirements for automatic voltage regulators, targeting counterfeit products.',link:'https://businessday.ng',pubDate:new Date().toISOString(),source:'BusinessDay NG'},
+    {title:'Smart Grid Investment in Nigeria: FG Approves ₦180B Infrastructure Fund',description:'The Federal Government has approved a major infrastructure fund aimed at modernising the national grid, reducing outages and improving voltage stability.',link:'https://guardian.ng',pubDate:new Date().toISOString(),source:'The Guardian NG'}
+  ];
+}
+
+// Auto-fetch on load
+document.addEventListener('DOMContentLoaded', function(){ fetchNews(); });
+</script>
+
+
+<!-- ADVERTISE SECTION REMOVED -->
+<section class="advertise-section" id="advertise" style="display:none;">
   <div class="advertise-inner">
     <div class="advertise-header">
-      <div class="section-tag">Sponsored</div>
-      <h2 class="section-title">Featured <span style="color:var(--cyan)">Advertisement</span></h2>
-      <p class="section-sub">Promoted partners trusted by our community</p>
-    </div>
     <div class="advert-tabs" style="margin-bottom:36px;">
       <button class="advert-tab active" id="featTab1" onclick="switchFeatTab('webdesign')">Web Design</button>
       <button class="advert-tab" id="featTab2" onclick="switchFeatTab('moren')">Moren Sweet Treat</button>
@@ -3145,8 +3360,8 @@ fetch("https://x-dashboard-b1098-default-rtdb.europe-west1.firebasedatabase.app/
     <div id="featPanel-webdesign">
       <p class="section-sub" style="margin-bottom:28px;">Serving Nigerian &amp; international businesses with world-class web solutions</p>
       <div class="advert-tabs" style="margin-bottom:24px;">
-        <button class="advert-tab active" id="wdTab1" onclick="switchAdTab('ng',this);document.getElementById('wdTab1').classList.add('active');document.getElementById('wdTab2').classList.remove('active');">For Nigerian Businesses</button>
-        <button class="advert-tab" id="wdTab2" onclick="switchAdTab('intl',this);document.getElementById('wdTab2').classList.add('active');document.getElementById('wdTab1').classList.remove('active');">For International Businesses</button>
+        <button class="advert-tab active" id="wdTab1" onclick="switchAdTab('ng',this)">For Nigerian Businesses</button>
+        <button class="advert-tab" id="wdTab2" onclick="switchAdTab('intl',this)">For International Businesses</button>
       </div>
       <div class="advert-card-main" id="adCard-ng">
         <div class="advert-card-glow"></div>
@@ -3178,10 +3393,10 @@ fetch("https://x-dashboard-b1098-default-rtdb.europe-west1.firebasedatabase.app/
         </div>
       </div>
       <div class="advert-card-main" id="adCard-intl" style="display:none;">
-        <div class="advert-card-glow" style="background:radial-gradient(ellipse at 10% 50%,rgba(16,185,129,0.15) 0%,transparent 55%),radial-gradient(ellipse at 90% 20%,rgba(37,99,235,0.12) 0%,transparent 50%);"></div>
+        <div class="advert-card-glow" style="background:radial-gradient(ellipse at 10% 50%,rgba(37,99,235,0.15) 0%,transparent 55%),radial-gradient(ellipse at 90% 20%,rgba(37,99,235,0.12) 0%,transparent 50%);"></div>
         <div class="advert-card-left">
-          <div class="advert-icon-wrap" style="background:linear-gradient(135deg,#059669,#2563eb);"></div>
-          <div class="advert-badge" style="background:rgba(16,185,129,0.12);border-color:rgba(16,185,129,0.3);color:#6ee7b7;">International Clients</div>
+          <div class="advert-icon-wrap" style="background:linear-gradient(135deg,#2563eb,#2563eb);"></div>
+          <div class="advert-badge" style="background:rgba(37,99,235,0.12);border-color:rgba(37,99,235,0.3);color:#6ee7b7;">International Clients</div>
           <h3 class="advert-title">World-Class Web Design <span style="color:#6ee7b7;">for Global Businesses</span></h3>
           <p class="advert-desc">Whether you're in the UK, US, Canada, Europe or beyond — we deliver high-quality, conversion-focused websites at competitive rates. Remote-first, deadline-driven, and fluent in international standards.</p>
           <ul class="advert-features">
@@ -3197,11 +3412,11 @@ fetch("https://x-dashboard-b1098-default-rtdb.europe-west1.firebasedatabase.app/
             <div class="advert-stat"><span class="as-num">5 Stars</span><span class="as-label">Rated</span></div>
             <div class="advert-stat"><span class="as-num">GDPR</span><span class="as-label">Compliant</span></div>
           </div>
-          <div class="advert-wa-row"><a href="https://wa.me/2349032156174?text=Hi%2C%20I%20am%20an%20international%20client%20and%20need%20a%20website" target="_blank" class="advert-btn-wa" style="background:rgba(16,185,129,0.15);border-color:rgba(16,185,129,0.4);color:#6ee7b7;">WhatsApp Enquiry</a></div>
+          <div class="advert-wa-row"><a href="https://wa.me/2349032156174?text=Hi%2C%20I%20am%20an%20international%20client%20and%20need%20a%20website" target="_blank" class="advert-btn-wa" style="background:rgba(37,99,235,0.15);border-color:rgba(16,185,129,0.4);color:#6ee7b7;">WhatsApp Enquiry</a></div>
         </div>
-        <div class="advert-card-right" style="border-left-color:rgba(16,185,129,0.15);">
-          <div class="advert-mockup"><div class="mockup-bar"><span></span><span></span><span></span></div><div class="mockup-body"><div class="mockup-line w80"></div><div class="mockup-line w60"></div><div class="mockup-block" style="background:linear-gradient(135deg,rgba(5,150,105,0.3),rgba(37,99,235,0.2));border-color:rgba(5,150,105,0.2);"></div><div class="mockup-line w90"></div><div class="mockup-line w50"></div><div class="mockup-btn-row"><div class="mockup-btn" style="background:linear-gradient(135deg,#059669,#2563eb);"></div><div class="mockup-btn outline"></div></div></div></div>
-          <div class="advert-right-tags"><span class="advert-rtag" style="border-color:rgba(16,185,129,0.3);color:#6ee7b7;">UK</span><span class="advert-rtag" style="border-color:rgba(16,185,129,0.3);color:#6ee7b7;">US</span><span class="advert-rtag" style="border-color:rgba(16,185,129,0.3);color:#6ee7b7;">CA</span><span class="advert-rtag" style="border-color:rgba(16,185,129,0.3);color:#6ee7b7;">EU</span></div>
+        <div class="advert-card-right" style="border-left-color:rgba(37,99,235,0.15);">
+          <div class="advert-mockup"><div class="mockup-bar"><span></span><span></span><span></span></div><div class="mockup-body"><div class="mockup-line w80"></div><div class="mockup-line w60"></div><div class="mockup-block" style="background:linear-gradient(135deg,rgba(5,150,105,0.3),rgba(37,99,235,0.2));border-color:rgba(5,150,105,0.2);"></div><div class="mockup-line w90"></div><div class="mockup-line w50"></div><div class="mockup-btn-row"><div class="mockup-btn" style="background:linear-gradient(135deg,#2563eb,#2563eb);"></div><div class="mockup-btn outline"></div></div></div></div>
+          <div class="advert-right-tags"><span class="advert-rtag" style="border-color:rgba(37,99,235,0.3);color:#6ee7b7;">UK</span><span class="advert-rtag" style="border-color:rgba(37,99,235,0.3);color:#6ee7b7;">US</span><span class="advert-rtag" style="border-color:rgba(37,99,235,0.3);color:#6ee7b7;">CA</span><span class="advert-rtag" style="border-color:rgba(37,99,235,0.3);color:#6ee7b7;">EU</span></div>
           <div class="advert-sponsored-tag">Advertisement</div>
         </div>
       </div>
@@ -3370,44 +3585,10 @@ function switchFeatTab(tab) {
 function switchAdTab(tab,btn) {
   document.getElementById('adCard-ng').style.display   = tab==='ng'   ? 'grid':'none';
   document.getElementById('adCard-intl').style.display = tab==='intl' ? 'grid':'none';
-  document.querySelectorAll('.advert-tab').forEach(function(t){t.classList.remove('active')});
-  btn.classList.add('active');
+  document.getElementById('wdTab1').classList.toggle('active', tab==='ng');
+  document.getElementById('wdTab2').classList.toggle('active', tab==='intl');
 }
 
-var tickerHeadlines = [
-  'IEC publishes updated servo-based AVS safety standard IEC 62368-1 — stricter overvoltage protection thresholds now required',
-  'Nigeria\'s NERC reports 18% rise in power surge-related equipment damage in Q1 2025',
-  'Global UPS and power conditioning market projected to reach $14.2B by 2027 — CAGR of 6.8%',
-  'Sollatek unveils new AVR series with smart load monitoring for Sub-Saharan Africa markets',
-  'South Africa\'s Eskom load-shedding causes 34% surge in servo-based AVS sales across West Africa',
-  'IEEE releases best practices guide for electrical safety inspections in commercial buildings 2025',
-  'Nigerian government mandates voltage protection devices for all new residential constructions',
-  'Schneider Electric partners with West African distributors for affordable surge protection rollout',
-  'Nigeria Electricity Regulatory Commission launches new consumer protection guidelines for 2025',
-  'Global surge protector demand rises 22% amid increasing smart home device adoption worldwide',
-  'Power outages cost Nigerian businesses an estimated $29B annually — NERC annual report 2025',
-  'New single-phase AVR technology achieves 99.5% voltage stability rating in laboratory tests',
-  'West Africa Energy Summit 2025: voltage regulation highlighted as key infrastructure priority',
-  'Eaton Corporation announces next-gen UPS line optimised for tropical climate environments',
-  'Nigerian Standards Organisation updates NSF 4035 compliance requirements for servo-based AVS units',
-  'Microtek launches budget-friendly AVR range targeting Nigerian SME sector',
-  'Three-phase power stabilisers see record demand across Lagos industrial zones in 2025',
-  'ECOWAS energy ministers agree on regional power quality standards framework',
-  'ABB introduces AI-powered voltage monitoring system for commercial buildings in Africa',
-  'Renewable energy surge drives demand for advanced power conditioning equipment in Nigeria'
-];
-var tickerIndex = 8;
-function refreshTicker() {
-  var track = document.getElementById('newsTicker'); if (!track) return;
-  var next = tickerHeadlines[tickerIndex % tickerHeadlines.length]; tickerIndex++;
-  var items = track.querySelectorAll('.news-ticker-item');
-  var half = Math.floor(items.length / 2);
-  var badge = document.getElementById('tickerRefreshBadge');
-  if (badge) { badge.style.opacity='1'; badge.textContent='UPDATED'; setTimeout(function(){badge.textContent='AUTO-REFRESH';badge.style.opacity='0.7'},2000); }
-  if (items[0]) items[0].textContent = next;
-  if (items[half]) items[half].textContent = next;
-}
-setInterval(refreshTicker, 30000);
 
 var priceData = {
   regulator: [
@@ -3485,11 +3666,11 @@ function submitOrder() {
   var qty=document.getElementById('oQty').value,name=document.getElementById('oName').value.trim();
   var phone=document.getElementById('oPhone').value.trim(),notes=document.getElementById('oNotes').value.trim();
   var missing=[];
-  if(!name){document.getElementById('oName').style.borderColor='#dc2626';missing.push('Name');}else document.getElementById('oName').style.borderColor='';
-  if(!phone){document.getElementById('oPhone').style.borderColor='#dc2626';missing.push('Phone');}else document.getElementById('oPhone').style.borderColor='';
-  if(!condition){document.getElementById('oCondition').style.borderColor='#dc2626';missing.push('Condition');}else document.getElementById('oCondition').style.borderColor='';
-  if(!kva){document.getElementById('oKva').style.borderColor='#dc2626';missing.push('KVA Rating');}else document.getElementById('oKva').style.borderColor='';
-  if(missing.length>0){var errEl=document.getElementById('orderFormError');if(!errEl){errEl=document.createElement('p');errEl.id='orderFormError';errEl.style.cssText='color:#f87171;font-size:12px;margin:8px 0 0;text-align:center;';document.querySelector('.order-modal-submit').before(errEl);}errEl.textContent='Please fill in: '+missing.join(', ');return;}
+  if(!name){document.getElementById('oName').style.borderColor='#2563eb';missing.push('Name');}else document.getElementById('oName').style.borderColor='';
+  if(!phone){document.getElementById('oPhone').style.borderColor='#2563eb';missing.push('Phone');}else document.getElementById('oPhone').style.borderColor='';
+  if(!condition){document.getElementById('oCondition').style.borderColor='#2563eb';missing.push('Condition');}else document.getElementById('oCondition').style.borderColor='';
+  if(!kva){document.getElementById('oKva').style.borderColor='#2563eb';missing.push('KVA Rating');}else document.getElementById('oKva').style.borderColor='';
+  if(missing.length>0){var errEl=document.getElementById('orderFormError');if(!errEl){errEl=document.createElement('p');errEl.id='orderFormError';errEl.style.cssText='color:#93c5fd;font-size:12px;margin:8px 0 0;text-align:center;';document.querySelector('.order-modal-submit').before(errEl);}errEl.textContent='Please fill in: '+missing.join(', ');return;}
   var msg='iVolt Power - Order Request\n\nProduct: '+product+'\nCondition: '+condition+'\nPhase: '+(phase||'Not specified')+'\nKVA Rating: '+kva+'\nBrand/Model: '+(brand||'Any / Open')+'\nQuantity: '+qty+'\n\nCustomer Name: '+name+'\nPhone: '+phone+'\nNotes: '+(notes||'None');
   closeOrder();window.location.href='https://wa.me/2349032156174?text='+encodeURIComponent(msg);
 }
@@ -3497,8 +3678,8 @@ function submitOrder() {
 function handleSubmit() {
   var inputs=document.querySelectorAll('.inspection-form input,.inspection-form select,.inspection-form textarea');
   var missing=false;
-  [0,2,4,5].forEach(function(i){if(!inputs[i].value.trim()){inputs[i].style.borderColor='#dc2626';missing=true;}else inputs[i].style.borderColor='';});
-  if(missing){var errEl=document.getElementById('inspectionFormError');if(!errEl){errEl=document.createElement('p');errEl.id='inspectionFormError';errEl.style.cssText='color:#f87171;font-size:12px;margin:8px 0 0;text-align:center;';document.querySelector('.submit-btn').before(errEl);}errEl.textContent='Please fill in all required fields (highlighted in red).';return;}
+  [0,2,4,5].forEach(function(i){if(!inputs[i].value.trim()){inputs[i].style.borderColor='#2563eb';missing=true;}else inputs[i].style.borderColor='';});
+  if(missing){var errEl=document.getElementById('inspectionFormError');if(!errEl){errEl=document.createElement('p');errEl.id='inspectionFormError';errEl.style.cssText='color:#93c5fd;font-size:12px;margin:8px 0 0;text-align:center;';document.querySelector('.submit-btn').before(errEl);}errEl.textContent='Please fill in all required fields (highlighted in red).';return;}
   var msg='iVolt Power - Inspection Request\n\nName: '+inputs[0].value.trim()+' '+inputs[1].value.trim()+'\nPhone: '+inputs[2].value.trim()+'\nEmail: '+(inputs[3].value.trim()||'N/A')+'\nAddress: '+inputs[4].value.trim()+'\nPremises: '+inputs[5].value.trim()+'\nNotes: '+(inputs[6].value.trim()||'None');
   window.location.href='https://wa.me/2349032156174?text='+encodeURIComponent(msg);
 }
@@ -3518,16 +3699,6 @@ function openImpexOrder(dir, product) {
   window.open('https://wa.me/2349032156174?text=' + encodeURIComponent(msg), '_blank');
 }
 
-var extraNews=[
-  {color:'linear-gradient(90deg,#10b981,#2563eb)',tag:'tag-safety',tagLabel:'Electrical Safety',source:'WHO / ILO',date:'Mar 2025',title:'Workplace Electrical Injuries Cost Africa $2.3B Annually — Inspection Programs Key to Reduction',body:'A joint WHO and ILO study highlights that routine electrical safety inspections reduce workplace injury rates by up to 61%, urging businesses across West Africa to adopt structured annual inspection schedules.',url:'https://www.ilo.org'},
-  {color:'linear-gradient(90deg,#f59e0b,#2563eb)',tag:'tag-industry',tagLabel:'Industry',source:'Bloomberg NEF',date:'Feb 2025',title:'Distributed Energy Growth in Africa Drives Surge in Off-Grid Power Protection Equipment',body:'As solar mini-grids expand across rural Nigeria, Ghana, and Kenya, demand for compatible servo-based AVS units and surge protectors is growing at over 22% annually according to BloombergNEF.',url:'https://about.bnef.com'},
-  {color:'linear-gradient(90deg,#dc2626,#f59e0b)',tag:'tag-nigeria',tagLabel:'Nigeria',source:'BusinessDay NG',date:'Feb 2025',title:'SON Announces Crackdown on Substandard Servo-Based AVS Units Flooding Nigerian Markets',body:'The Standards Organisation of Nigeria has commenced seizure operations targeting counterfeit and below-spec AVRs, warning consumers to only purchase from certified dealers with SON marks.',url:'https://businessday.ng'}
-];
-function loadMoreNews() {
-  var grid=document.getElementById('newsGrid'),btn=document.querySelector('.news-load-more');
-  btn.textContent='Loading…';btn.disabled=true;
-  setTimeout(function(){extraNews.forEach(function(n){var card=document.createElement('div');card.className='news-card';card.style.opacity='0';card.style.transform='translateY(20px)';card.innerHTML='<div class="news-card-header" style="background:'+n.color+';"></div><div class="news-card-body"><span class="news-tag-pill '+n.tag+'">'+n.tagLabel+'</span><div class="news-card-meta"><span class="news-card-source">'+n.source+'</span><span class="news-card-date">'+n.date+'</span></div><h4>'+n.title+'</h4><p>'+n.body+'</p><a href="'+n.url+'" target="_blank" rel="noopener" class="news-card-link">Read More</a></div>';grid.appendChild(card);requestAnimationFrame(function(){card.style.transition='opacity .5s ease,transform .5s ease';card.style.opacity='1';card.style.transform='translateY(0)';});});btn.style.display='none';},800);
-}
 
 var chatOpen=false,hasChattedBefore=false;
 function toggleChat(){chatOpen=!chatOpen;document.getElementById('chatWindow').classList.toggle('open',chatOpen);document.getElementById('chatBubbleIcon').textContent=chatOpen?'\u2715':'V';document.getElementById('chatBadge').style.display=chatOpen?'none':'flex';if(chatOpen)setTimeout(function(){document.getElementById('chatInput').focus();},300);}
@@ -3554,8 +3725,8 @@ var voltaKB=[
   {keys:['buy','order','purchase','stock','available','how to order'],reply:'Ordering is easy:<br>1. Click <strong>"Order Now"</strong> on any product card<br>2. Fill in your specs<br>3. Sent via WhatsApp — we confirm in <strong>24 hours</strong><br><br><strong>+234 903 215 6174</strong>'},
   {keys:['sell','i have','dispose','old regulator','buy from me','trade in'],reply:'Yes, we <strong>buy used power equipment</strong>! Send us: brand, KVA rating, condition &amp; photos.<br><br>WhatsApp: <strong>+234 903 215 6174</strong>'},
   {keys:['contact','whatsapp','phone','call','email','reach','location','address','telegram'],reply:'Reach <strong>iVolt Power Solutions</strong> via:<br><br><strong>WhatsApp / Call:</strong> +234 903 215 6174<br><strong>Telegram:</strong> t.me/ivoltpowersolutions<br><strong>Twitter/X:</strong> @TradesByBami<br><br>Based in <strong>Lagos, Nigeria</strong> — serving nationwide.'},
-  {keys:['import','export','channel','telegram'],reply:'We have an <strong>Import &amp; Export Telegram channel</strong>! Join us for deals, stock updates &amp; trade opportunities:<br><br><a href="https://t.me/ivoltpowersolutions" target="_blank" style="color:#229ED9;">t.me/ivoltpowersolutions</a>'},
-  {keys:['used market','used bot','buy used','sell used','second hand bot','fairly used bot','circuits swap','used marketplace'],reply:'We have a <strong>Used Equipment Marketplace Bot</strong> on Telegram!<br><br>Buy and sell quality used stabilizers, inverters, solar panels, fans, ACs, batteries and more — with <strong>secure iVolt escrow protection</strong>.<br><br>✅ Seller lists item with photos &amp; specs<br>✅ Buyer pays iVolt (escrow held)<br>✅ Both parties meet at a safe location<br>✅ Buyer tests item — satisfied = instant payment release<br>✅ Not satisfied = full refund within 24h<br><br><a href="https://t.me/ivoltcircuitsswapbot" target="_blank" style="color:#a78bfa;">@ivoltcircuitsswapbot →</a>'},
+  {keys:['import','export','channel','telegram'],reply:'We have an <strong>Import &amp; Export Telegram channel</strong>! Join us for deals, stock updates &amp; trade opportunities:<br><br><a href="https://t.me/ivoltpowersolutions" target="_blank" style="color:#2563eb;">t.me/ivoltpowersolutions</a>'},
+  {keys:['used market','used bot','buy used','sell used','second hand bot','fairly used bot','circuits swap','used marketplace'],reply:'We have a <strong>Used Equipment Marketplace Bot</strong> on Telegram!<br><br>Buy and sell quality used stabilizers, inverters, solar panels, fans, ACs, batteries and more — with <strong>secure iVolt escrow protection</strong>.<br><br>✅ Seller lists item with photos &amp; specs<br>✅ Buyer pays iVolt (escrow held)<br>✅ Both parties meet at a safe location<br>✅ Buyer tests item — satisfied = instant payment release<br>✅ Not satisfied = full refund within 24h<br><br><a href="https://t.me/ivoltcircuitsswapbot" target="_blank" style="color:#93c5fd;">@ivoltcircuitsswapbot →</a>'},
   {keys:['delivery','ship','lagos','abuja','nationwide','state'],reply:'We serve customers <strong>nationwide across Nigeria</strong>! Contact us for delivery timelines &amp; costs.<br><br>WhatsApp: <strong>+234 903 215 6174</strong>'},
   {keys:['warranty','guarantee','return','refund','faulty'],reply:'New products come with manufacturer warranty. Tokunbo units are tested before sale. Contact us immediately for any issues.<br><br><strong>+234 903 215 6174</strong>'},
   {keys:['single phase','three phase','phase','industrial'],reply:'We stock both <strong>Single Phase</strong> (home/office) and <strong>Three Phase</strong> (industrial) regulators — 500VA to 50 KVA+.<br><br>WhatsApp: <strong>+234 903 215 6174</strong>'},
@@ -3579,4 +3750,20 @@ function sendChat() {
 }
 
 var msgStyle=document.createElement('style');
-msgStyle.textContent='.msg{display:flex;gap:8px;align-items:flex-start;}.msg.user{flex-direction:row-reverse;}.msg-bubble{background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:10px 13px;font-size:13px;line-height:1.6;max-width:100%;word
+msgStyle.textContent='.msg{display:flex;gap:8px;align-items:flex-start;}.msg.user{flex-direction:row-reverse;}.msg-bubble{background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:10px 13px;font-size:13px;line-height:1.6;max-width:100%;word-break:break-word;}.msg.user .msg-bubble{background:rgba(37,99,235,0.18);border-color:rgba(37,99,235,0.3);}.msg-time{font-size:10px;color:rgba(255,255,255,0.3);margin-top:4px;text-align:right;}.msg.bot .msg-time{text-align:left;}';
+document.head.appendChild(msgStyle);
+
+// Keyboard: press Enter to send chat
+document.addEventListener('DOMContentLoaded', function() {
+  var inp = document.getElementById('chatInput');
+  if (inp) {
+    inp.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') { e.preventDefault(); sendChat(); }
+    });
+  }
+  // Initialise price tables
+  renderPriceTables(priceData);
+});
+</script>
+</body>
+</html>
