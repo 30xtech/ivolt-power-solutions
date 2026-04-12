@@ -1754,7 +1754,7 @@ img, svg, video { max-width: 100%; }
       <a href="#products" class="mkt-cta-btn mkt-secondary">View Products</a>
     </div>
     <div class="mkt-contact">
-      <div class="mkt-contact-item">📧 <span><a href="/cdn-cgi/l/email-protection#c2abb4adaeb6b2adb5a7b0b1adaeb7b6abadacb182a5afa3abaeeca1adaf" style="color:inherit;text-decoration:none;"><span class="__cf_email__" data-cfemail="452c332a2931352a322037362a2930312c2a2b36052228242c296b262a28">[email&#160;protected]</span></a></span></div>
+      <div class="mkt-contact-item">📧 <span><a href="/cdn-cgi/l/email-protection#19706f76756d69766e7c6b6a76756c6d7076776a597e74787075377a7674" style="color:inherit;text-decoration:none;"><span class="__cf_email__" data-cfemail="f69f80999a82869981938485999a83829f999885b6919b979f9ad895999b">[email&#160;protected]</span></a></span></div>
       <div class="mkt-contact-item">💬 <span>@ivoltadmin</span></div>
       <div class="mkt-contact-item">📞 <span>+234-903-215-6174</span></div>
     </div>
@@ -2505,12 +2505,30 @@ img, svg, video { max-width: 100%; }
       if(entries.length === 0){ throw new Error('empty'); }
       el.innerHTML = entries.map(function(entry){
         var sku = entry[0], item = entry[1];
-        // Sanitise name: remove scraped garbage (double dashes, all-caps SKU bleed)
-        var rawName = (item.name || sku || '').toString();
-        // Strip patterns like "SCRAPED-MERCURY-11KVA-SOLAR--17MERCURY-11KVA-SOLAR--17"
-        var cleanName = rawName.replace(/([A-Z0-9\-]{6,})(\1)+/gi,'$1').replace(/--+/g,'-').replace(/^[-\s]+|[-\s]+$/g,'');
+        // ── Aggressive name sanitiser ──────────────────────────────────────────
+        var rawName = (item.name || sku || '').toString().trim();
+        // Step 1: Strip known garbage prefixes (case-insensitive)
+        var cleanName = rawName.replace(/^(SCRAPED|DRAFT|TEST|TEMP|OLD|COPY|NEW|WIP|PENDING|DELETED|HIDDEN|INACTIVE|DUPLICATE|DUP|ARCHIVE|ARCHIVED|STAGING|DEV|DEBUG|FIXME|TODO|REVIEW|IMPORT|IMPORTED|RAW|AUTO|AUTOGEN|GEN|GENERATED|SLUG|ITEM|PRODUCT|PROD|ENTRY|RECORD|UNKNOWN|UNNAMED|UNTITLED|PLACEHOLDER|NONAME|TBD|TBC)[-_\s]+/gi,'');
+        // Step 2: Strip doubled slug patterns e.g. "MERCURY-11KVA...MERCURY-11KVA..."
+        cleanName = cleanName.replace(/([A-Z0-9][A-Z0-9\-]{4,})[-_]?\1/gi,'$1');
+        // Step 3: Collapse multiple dashes/underscores
+        cleanName = cleanName.replace(/[-_]{2,}/g,'-');
+        // Step 4: Trim leading/trailing dashes and spaces
+        cleanName = cleanName.replace(/^[-_\s]+|[-_\s]+$/g,'');
+        // Step 5: If still ALL-CAPS slug, humanise it
+        if(/^[A-Z0-9][-_A-Z0-9]+$/.test(cleanName)){
+          cleanName = cleanName.replace(/[-_]+/g,' ').toLowerCase()
+            .replace(/\b(\w)/g,function(c){return c.toUpperCase();})
+            .replace(/\bKva\b/g,'KVA').replace(/\bUps\b/g,'UPS')
+            .replace(/\bAvr\b/g,'AVR').replace(/\bAvs\b/g,'AVS')
+            .replace(/\bSpd\b/g,'SPD').replace(/\bAc\b/g,'AC')
+            .replace(/\bDc\b/g,'DC').replace(/\bPv\b/g,'PV').replace(/\bAh\b/g,'Ah');
+        }
+        // Step 6: Fallback if result is empty
+        if(!cleanName||cleanName.length<2){cleanName='Product SKU-'+sku;}
+        // ── End sanitiser ──────────────────────────────────────────────────────
         var price = Number(item.retail_ngn);
-        var priceStr = isNaN(price) || price <= 0 ? 'Contact for price' : '₦' + price.toLocaleString('en-NG');
+        var priceStr = isNaN(price) || price <= 0 ? '<a href="https://t.me/ivoltpowersolutionsbot" target="_blank" style="color:#2563eb;text-decoration:none;font-weight:700;">🛒 Check shop for price</a>' : '₦' + price.toLocaleString('en-NG');
         var stock = (item.stock_level || 'unknown').toString().replace(/_/g,' ');
         return '<div class="ivolt-item">'
           +'<div class="ivolt-item-name">'+cleanName+'</div>'
@@ -3952,11 +3970,7 @@ document.head.appendChild(msgStyle);
 // Keyboard: press Enter to send chat
 document.addEventListener('DOMContentLoaded', function() {
   var inp = document.getElementById('chatInput');
-  if (inp) {
-    inp.addEventListener('keydown', function(e) {
-      if (e.key === 'Enter') sendChat();
-    });
-  }
+  if(inp){ inp.addEventListener('keydown', function(e){ if(e.key==='Enter') sendChat(); }); }
 });
 </script>
 </body>
