@@ -1754,7 +1754,7 @@ img, svg, video { max-width: 100%; }
       <a href="#products" class="mkt-cta-btn mkt-secondary">View Products</a>
     </div>
     <div class="mkt-contact">
-      <div class="mkt-contact-item">📧 <span><a href="mailto:ivoltpowersolutions@gmail.com" style="color:inherit;text-decoration:none;">ivoltpowersolutions@gmail.com</a></span></div>
+      <div class="mkt-contact-item">📧 <span><a href="/cdn-cgi/l/email-protection#c2abb4adaeb6b2adb5a7b0b1adaeb7b6abadacb182a5afa3abaeeca1adaf" style="color:inherit;text-decoration:none;"><span class="__cf_email__" data-cfemail="452c332a2931352a322037362a2930312c2a2b36052228242c296b262a28">[email&#160;protected]</span></a></span></div>
       <div class="mkt-contact-item">💬 <span>@ivoltadmin</span></div>
       <div class="mkt-contact-item">📞 <span>+234-903-215-6174</span></div>
     </div>
@@ -1762,7 +1762,7 @@ img, svg, video { max-width: 100%; }
 
 </div><!-- /#mktSlider -->
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 (function() {
   var slides   = Array.from(document.querySelectorAll('.mkt-slide'));
   var N        = slides.length;
@@ -3954,11 +3954,9 @@ document.addEventListener('DOMContentLoaded', function() {
   var inp = document.getElementById('chatInput');
   if (inp) {
     inp.addEventListener('keydown', function(e) {
-      if (e.key === 'Enter') { e.preventDefault(); sendChat(); }
+      if (e.key === 'Enter') sendChat();
     });
   }
-  // Kick off live price fetch immediately on page load
-  refreshPrices();
 });
 </script>
 </body>
